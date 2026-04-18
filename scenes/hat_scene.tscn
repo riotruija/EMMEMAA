@@ -8,6 +8,7 @@ size = Vector2(36, 36)
 
 [node name="Area2D" type="Area2D" unique_id=844743279]
 z_index = 100
+scale = Vector2(2, 2)
 script = ExtResource("1_50fl3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1504792982]

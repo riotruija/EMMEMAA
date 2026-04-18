@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bd5gfe244tfnw"]
+[gd_scene format=3 uid="uid://bj0o1j5irgvgm"]
 
 [ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="1_2tfwh"]
 [ext_resource type="Script" uid="uid://bmbg5ltbhyb75" path="res://scripts/satelliidi_kontroller.gd" id="1_2umt7"]
@@ -405,7 +405,7 @@ vastane_sateliit = ExtResource("3_2tfwh")
 
 [node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind", "spawn_points") groups=["glorbert"]]
 position = Vector2(200, 250)
-scale = Vector2(3, 3)
+scale = Vector2(10, 10)
 script = ExtResource("2_2umt7")
 glorbert = NodePath(".")
 maapind = NodePath("../maapind")
@@ -465,11 +465,12 @@ limit_bottom = 2000
 script = ExtResource("4_k5w1d")
 target = NodePath("../glorbert")
 
-[node name="HatSpawnPoints" type="Node2D" parent="." unique_id=1411088446]
-
-[node name="SPawnPoint1" type="Marker2D" parent="HatSpawnPoints" unique_id=1373713177]
-position = Vector2(1337, 285)
 [node name="Music_player" type="AudioStreamPlayer2D" parent="Camera2D" unique_id=1621905584]
 position = Vector2(-1.5258789e-05, 0)
 volume_db = 10.0
 autoplay = true
+
+[node name="HatSpawnPoints" type="Node2D" parent="." unique_id=1411088446]
+
+[node name="SPawnPoint1" type="Marker2D" parent="HatSpawnPoints" unique_id=1373713177]
+position = Vector2(1337, 285)

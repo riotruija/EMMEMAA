@@ -5,11 +5,10 @@ extends CharacterBody2D
 @export var maapind: Node2D
 var maapinna_pind: StaticBody2D
 
-var SAAPAD_YLES = 300
-var SAAPAD_EDASITAGASI = 150
+var SAAPAD_YLES = 750
+var SAAPAD_EDASITAGASI = 250
 var MAX_KIIRUS_YLES = 400
-var MAX_KIIRUS_EDASITAGASI = 200
-var GRAVITATSIOON = 600
+var GRAVITATSIOON = 1500
 var HOORDUMINE = 1000
 
 var hoiab_paremale: bool = false
