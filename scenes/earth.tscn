@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cs5qhw0l6qdrd" path="res://scenes/vastane.tscn" id="3_2tfwh"]
 [ext_resource type="Texture2D" uid="uid://cqixbnrrv1due" path="res://img/taustad/kõrbe_background.png" id="3_yhjmp"]
 [ext_resource type="Texture2D" uid="uid://d0kbuwikl00w6" path="res://img/tegelane/glorbert with hat.png" id="4_3t2fh"]
-[ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
+[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
 [ext_resource type="Texture2D" uid="uid://c2on6w0ii8b0j" path="res://img/tegelane/glorbert with gun.png" id="5_78p35"]
 [ext_resource type="PackedScene" uid="uid://csp4u5njurgpj" path="res://scenes/hat_scene.tscn" id="5_np46n"]
 [ext_resource type="Shader" uid="uid://2jb8r4m5x0y" path="res://scripts/pauk.gdshader" id="6_78p35"]
@@ -519,19 +519,6 @@ scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_hto2j")
 animation = &"falling"
 
-[node name="Jumping" type="AudioStreamPlayer2D" parent="glorbert" unique_id=549808218]
-stream = ExtResource("14_qawek")
-volume_db = 16.0
-bus = &"SFX"
-
-[node name="Running" type="AudioStreamPlayer2D" parent="glorbert" unique_id=644698300]
-stream = ExtResource("15_7e7ie")
-volume_db = 8.0
-
-[node name="Landing" type="AudioStreamPlayer2D" parent="glorbert" unique_id=216288642]
-stream = ExtResource("16_r20oc")
-volume_db = 8.0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1376530337]
 layer = 10
 
@@ -592,7 +579,7 @@ bus = &"SFX"
 [node name="Running" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=217109749]
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("15_7e7ie")
-volume_db = 10.0
+volume_db = 13.0
 bus = &"SFX"
 
 [node name="Landing" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=934141685]
