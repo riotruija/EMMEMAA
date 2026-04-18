@@ -22,10 +22,13 @@ var double_jump_available: bool = true
 @onready var sprite = glorbert_sprite_tavaline
 
 # === HELID ==
-@onready var landing_player = $Landing
-@onready var jumping_player = $Jumping
-@onready var running_player = $Running
-
+@onready var landing_player = $"../Camera2D/Sounds/Landing"
+@onready var jumping_player = $"../Camera2D/Sounds/Jumping"
+@onready var running_player = $"../Camera2D/Sounds/Running"
+@onready var hurt_player = $"../Camera2D/Sounds/Hurt"
+@onready var hat_pickup_player = $"../Camera2D/Sounds/Hat_pickup"
+@onready var gun_pickup_player = $"../Camera2D/Sounds/Gun_pickup"
+var on_jooksmas = false
 # === HAT SYSTEM ===
 @export var hat_scene: PackedScene
 @export var spawn_points: Node2D  # drag your HatSpawnPoints node here in the inspector
@@ -83,6 +86,7 @@ func fire() -> void:
 	
 	
 func take_damage():
+	hurt_player.play()
 	if has_hat:
 		lose_hat()
 	$"../CanvasLayer/ColorRect".flash()
@@ -130,6 +134,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -SAAPAD_YLES
 		jumping_player.play()
 		
+	if sprite.animation == "running":
+		running_player.play()
+	else:
+		running_player.stop()
 	if not is_on_floor():
 		if velocity.y < 0:
 			sprite.play("falling")
@@ -193,6 +201,7 @@ func _on_hat_picked_up() -> void:
 	has_hat = true
 	current_hat = null
 	update_sprite()
+	hat_pickup_player.play()
 	print("Picked up the hat!")
 
 func lose_hat() -> void:
@@ -224,6 +233,7 @@ func spawn_gun_at(point: Node2D) -> void:
 
 func _on_gun_picked_up(point: Node2D) -> void:
 	used_gun_spawn_points.append(point)
+	gun_pickup_player.play()
 	pick_up_gun()
 
 func pick_up_gun() -> void:
