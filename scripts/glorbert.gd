@@ -180,11 +180,17 @@ func lose_hat() -> void:
 	spawn_hat()
 
 func spawn_all_guns() -> void:
+	print("=== spawn_all_guns called ===")
 	if gun_spawn_points == null:
+		print("  gun_spawn_points is null!")
 		return
-	for point in gun_spawn_points.get_children():
-		if point in used_gun_spawn_points:
-			continue
+	if gun_scene == null:
+		print("  gun_scene is null!")
+		return
+	var children = gun_spawn_points.get_children()
+	print("  found ", children.size(), " gun spawn points")
+	for point in children:
+		print("  spawning at ", point.name)
 		spawn_gun_at(point)
 
 func spawn_gun_at(point: Node2D) -> void:
