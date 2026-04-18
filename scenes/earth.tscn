@@ -520,7 +520,7 @@ shape = SubResource("RectangleShape2D_dhl84")
 script = ExtResource("1_2umt7")
 vastane_sateliit = ExtResource("3_2tfwh")
 
-[node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind", "spawn_points") groups=["glorbert"]]
+[node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind", "spawn_points", "gun_spawn_points") groups=["glorbert"]]
 position = Vector2(271.00006, 1.9999981)
 scale = Vector2(10, 10)
 script = ExtResource("2_2umt7")
@@ -529,6 +529,7 @@ maapind = NodePath("../maapind")
 hat_scene = ExtResource("5_np46n")
 spawn_points = NodePath("../HatSpawnPoints")
 gun_scene = ExtResource("6_nj2me")
+gun_spawn_points = NodePath("../GunSpawnPoints")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="glorbert" unique_id=2135669053]
 position = Vector2(1.5999929, 2.4)
