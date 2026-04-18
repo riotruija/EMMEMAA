@@ -143,7 +143,7 @@ maapind = NodePath("../maapind")
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_2umt7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=1041193925]
+[node name="Glorbert_sprite" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=1041193925]
 position = Vector2(-0.34374997, -8.591697)
 scale = Vector2(0.12242508, 0.13447438)
 sprite_frames = SubResource("SpriteFrames_k5w1d")

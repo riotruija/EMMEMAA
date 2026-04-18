@@ -15,6 +15,7 @@ var HOORDUMINE = 1000
 var hoiab_paremale: bool = false
 var hoiab_vasakule: bool = false
 
+@onready var sprite = $glorbert_keha/Glorbert_sprite
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	glorbert_keha = $glorbert_keha
@@ -23,15 +24,21 @@ func _ready() -> void:
 func _unhandled_key_input(event: InputEvent) -> void:		
 	if event.is_action("left") and event.is_pressed():
 		hoiab_vasakule = true
+		sprite.flip_h = true
+		sprite.play("running")
 		
 	if event.is_action("left") and event.is_released():
 		hoiab_vasakule = false
+		sprite.play("idle")
 		
 	if event.is_action("right") and event.is_pressed():
 		hoiab_paremale = true
+		sprite.flip_h = false
+		sprite.play("running")
 		
 	if event.is_action("right") and event.is_released():
 		hoiab_paremale = false
+		sprite.play("idle")
 	
 func _physics_process(delta: float) -> void:
 	if not glorbert_keha.is_on_floor():
@@ -46,6 +53,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("up") and glorbert_keha.is_on_floor():
 		print("kargab")
 		glorbert_keha.velocity.y = -SAAPAD_YLES
+	if not glorbert_keha.is_on_floor():
+		if glorbert_keha.velocity.y < 0:
+			sprite.play("falling")
+			
+		if glorbert_keha.velocity.y >= 0:
+			sprite.play("jumping")
+	print(glorbert_keha.is_on_floor())
+	"""if glorbert_keha.is_on_floor():
+		sprite.play("idle")"""
 	
 	glorbert_keha.move_and_slide()
 
