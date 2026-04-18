@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bj0o1j5irgvgm"]
 
-[ext_resource type="Script" path="res://scenes/satelliidi_kontroller.gd" id="1_afhwv"]
+[ext_resource type="Script" uid="uid://bmbg5ltbhyb75" path="res://scripts/satelliidi_kontroller.gd" id="1_2umt7"]
 [ext_resource type="Script" uid="uid://bxbco2rq6i1pf" path="res://scripts/glorbert.gd" id="2_2umt7"]
+[ext_resource type="PackedScene" uid="uid://ch3fdicenjkvs" path="res://scenes/vastane.tscn" id="3_2tfwh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(280, 20)
@@ -21,9 +22,6 @@ shape = SubResource("RectangleShape2D_2tfwh")
 polygon = PackedVector2Array(-138, -9, -138, 12, 140, 10, 139, -9)
 uv = PackedVector2Array(-138.00034, -19.333328, -144.00034, 27.333336, 131.99966, 26.666672, 131.99966, -8.666664)
 
-[node name="satelliidi_kontroller" type="Node2D" parent="." unique_id=594192795]
-script = ExtResource("1_afhwv")
-
 [node name="glorbert" type="Node2D" parent="." unique_id=621510937 node_paths=PackedStringArray("glorbert", "maapind")]
 position = Vector2(0, -30)
 script = ExtResource("2_2umt7")
@@ -39,3 +37,7 @@ shape = SubResource("CapsuleShape2D_2umt7")
 polygon = PackedVector2Array(0, -16, 9, -9, 10, 10, -1, 16, -10, 9, -10, -9)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730]
+
+[node name="satelliidi_kontroller" type="Node" parent="." unique_id=1995014563]
+script = ExtResource("1_2umt7")
+vastane_sateliit = ExtResource("3_2tfwh")
