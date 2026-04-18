@@ -24,9 +24,12 @@ func music_finished() -> void:
 	music_player.play()
 
 func _on_start_pressed() -> void:
+	# Alustab pelu
 	get_tree().change_scene_to_file("res://scenes/earth.tscn")
-	pass
-	
+	print("maa")
+ 	
+
+
 func _on_options_pressed() -> void:
 	main_buttons.visible = false
 	options.visible = true
