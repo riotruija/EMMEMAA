@@ -1,6 +1,6 @@
-[gd_scene format=4 uid="uid://cq65wkljgjjx6"]
+[gd_scene format=4 uid="uid://cjytakuue8ovt"]
 
-[ext_resource type="Script" path="res://scripts/grid.gd" id="1_mnxy6"]
+[ext_resource type="Script" uid="uid://kqvj7mwvu4pt" path="res://scripts/grid.gd" id="1_mnxy6"]
 [ext_resource type="Texture2D" uid="uid://npxihc62ou4b" path="res://img/TileSforPusle/kenney_light-masks-1.0/Default/cone_e_noise.png" id="2_gt4qv"]
 [ext_resource type="Texture2D" uid="uid://doimr6jpcq0eu" path="res://img/TileSforPusle/kenney_light-masks-1.0/Default/fan_a.png" id="3_gt68l"]
 

@@ -2,11 +2,23 @@ extends Node2D
 
 const WIDTH := 8
 const HEIGHT := 6
-const CELL_SIZE := 64
 
+# === TILEMAP ===
+@onready var tilemap := $TileMapLayer
+
+# === TILE IDs (CHANGE THESE TO MATCH YOUR TILESET) ===
+const SOURCE_ID := 0
+
+const TILE_EMPTY := Vector2i(0, 0)
+const TILE_PATH := Vector2i(3, 5)
+const TILE_BLOCKED := Vector2i(5, 7)
+const TILE_PLAYER := Vector2i(6, 2)
+
+# === GAME STATE ===
 var player_pos := Vector2i(0, 0)
 var path: Array[Vector2i] = []
 var grid := []
+
 
 func _ready():
 	# create grid
@@ -23,9 +35,11 @@ func _ready():
 	path.append(player_pos)
 	grid[0][0]["filled"] = true
 
-	# example: block some tiles (optional)
+	# example blocked tiles
 	grid[2][3]["blocked"] = true
 	grid[3][3]["blocked"] = true
+
+	update_tiles()
 
 
 func _input(event):
@@ -67,40 +81,27 @@ func move(dir: Vector2i):
 				grid[removed.y][removed.x]["filled"] = false
 
 	player_pos = new_pos
-	queue_redraw()
+	update_tiles()
 
 
 func is_inside(pos: Vector2i) -> bool:
 	return pos.x >= 0 and pos.x < WIDTH and pos.y >= 0 and pos.y < HEIGHT
 
 
-func _draw():
+func update_tiles():
+	tilemap.clear()
+
 	for y in range(HEIGHT):
 		for x in range(WIDTH):
-			var rect = Rect2(
-				x * CELL_SIZE,
-				y * CELL_SIZE,
-				CELL_SIZE,
-				CELL_SIZE
-			)
-
+			var pos = Vector2i(x, y)
 			var cell = grid[y][x]
 
 			if cell["blocked"]:
-				draw_rect(rect, Color.DARK_GRAY)
+				tilemap.set_cell(pos, SOURCE_ID, TILE_BLOCKED)
 			elif cell["filled"]:
-				draw_rect(rect, Color.GREEN)
+				tilemap.set_cell(pos, SOURCE_ID, TILE_PATH)
 			else:
-				draw_rect(rect, Color(0.2, 0.2, 0.2))
+				tilemap.set_cell(pos, SOURCE_ID, TILE_EMPTY)
 
-			# grid lines
-			draw_rect(rect, Color.BLACK, false, 2)
-
-	# draw player
-	var player_rect = Rect2(
-		player_pos.x * CELL_SIZE,
-		player_pos.y * CELL_SIZE,
-		CELL_SIZE,
-		CELL_SIZE
-	)
-	draw_rect(player_rect, Color.RED)
+	# draw player (overwrites tile visually)
+	tilemap.set_cell(player_pos, SOURCE_ID, TILE_PLAYER)
