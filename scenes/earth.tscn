@@ -3,9 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="1_2tfwh"]
 [ext_resource type="Texture2D" uid="uid://beq346gg07hqi" path="res://img/tegelane/bumass glorbert .png" id="2_2tfwh"]
 [ext_resource type="Script" uid="uid://bxbco2rq6i1pf" path="res://scripts/glorbert.gd" id="2_2umt7"]
-[ext_resource type="Texture2D" uid="uid://c4numpganv21f" path="res://img/taustad/linna_background.png" id="2_78p35"]
-[ext_resource type="Texture2D" uid="uid://cqixbnrrv1due" path="res://img/taustad/kõrbe_background.png" id="3_yhjmp"]
-[ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
+[ext_resource type="Texture2D" uid="uid://d0kbuwikl00w6" path="res://img/tegelane/glorbert with hat.png" id="4_3t2fh"]
+[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -103,6 +102,92 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpmy6"]
+atlas = ExtResource("4_3t2fh")
+region = Rect2(293, 455, 267, 403)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dfur"]
+atlas = ExtResource("4_3t2fh")
+region = Rect2(616, 455, 265, 389)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qawek"]
+atlas = ExtResource("4_3t2fh")
+region = Rect2(36, 492, 265, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvqq7"]
+atlas = ExtResource("4_3t2fh")
+region = Rect2(36, 0, 259, 338)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4u8f"]
+atlas = ExtResource("4_3t2fh")
+region = Rect2(295, 0, 259, 338)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhl84"]
+atlas = ExtResource("4_3t2fh")
+region = Rect2(554, 0, 259, 338)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3l3g"]
+atlas = ExtResource("4_3t2fh")
+region = Rect2(813, 0, 259, 338)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u74q0"]
+atlas = ExtResource("4_3t2fh")
+region = Rect2(1072, 0, 259, 338)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi8pj"]
+atlas = ExtResource("4_3t2fh")
+region = Rect2(1331, 0, 259, 338)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpmy6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpmy6")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dfur")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qawek")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvqq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4u8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhl84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3l3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u74q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi8pj")
+}],
+"loop": true,
+"name": &"running",
+"speed": 10.0
+}]
+
 [node name="Earth" type="Node2D" unique_id=516625783]
 
 [node name="Background_mets" type="Sprite2D" parent="." unique_id=1923118823]
@@ -157,11 +242,16 @@ position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_2umt7")
 
 [node name="Glorbert_sprite" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=1041193925]
-position = Vector2(-0.34374997, -8.591697)
-scale = Vector2(0.12242508, 0.13447438)
+position = Vector2(2.9802322e-08, -6.0000014)
+scale = Vector2(0.109, 0.12)
 sprite_frames = SubResource("SpriteFrames_k5w1d")
-animation = &"idle"
-frame_progress = 0.90417725
+animation = &"falling"
+
+[node name="Glorbert_sprite_foolium" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=725923983]
+position = Vector2(0, -6)
+scale = Vector2(0.113, 0.12)
+sprite_frames = SubResource("SpriteFrames_fpmy6")
+animation = &"running"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730 node_paths=PackedStringArray("target")]
 position = Vector2(576, -6)
