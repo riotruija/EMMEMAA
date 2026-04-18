@@ -592,7 +592,7 @@ bus = &"SFX"
 [node name="Running" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=217109749]
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("15_7e7ie")
-volume_db = 6.0
+volume_db = 10.0
 bus = &"SFX"
 
 [node name="Landing" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=934141685]

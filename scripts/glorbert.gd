@@ -141,13 +141,18 @@ func _physics_process(delta: float) -> void:
 			sprite.play("jumping")
 		if velocity.y >= 0:
 			sprite.play("falling")
+		running_player.stop()
+		on_jooksmas = false
 	else:
 		if velocity.x > 10 or velocity.x < -10:
 			sprite.play("running")
 			on_jooksmas = true
+			if not running_player.playing:
+				running_player.play()
 		else:
 			sprite.play("idle")
 			on_jooksmas = false
+			running_player.stop()
 	glorbert.move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
