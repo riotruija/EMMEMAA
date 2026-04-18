@@ -149,7 +149,6 @@ sprite_frames = SubResource("SpriteFrames_k5w1d")
 animation = &"falling"
 frame_progress = 0.73692584
 
-<<<<<<< HEAD
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730 node_paths=PackedStringArray("target")]
 limit_left = 0
 limit_top = -2000
@@ -157,7 +156,4 @@ limit_right = 9600
 limit_bottom = 2000
 script = ExtResource("2_2tfwh")
 target = NodePath("../glorbert/glorbert_keha")
-=======
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730]
-position = Vector2(0, -32)
->>>>>>> schaff
+
