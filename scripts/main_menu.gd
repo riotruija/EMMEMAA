@@ -1,45 +1,41 @@
 extends Control
 
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
-
 @onready var main_buttons: VBoxContainer = $Main_buttons
 @onready var options: Panel = $Options
 
+
 var muusika = [
-	preload("res://music/main_menu_music.mp3")
+	preload("res://music/main_menu_music_intro.mp3"),
+	preload("res://music/main_menu_music_looping.mp3")
 ]
-# Called when the node enters the scene tree for the first time.
+
+var mitmes_lugu = 0
+
 func _ready() -> void:
-	print("Options node: ", options)
-	print("Buttons node: ", main_buttons)
+	audio_stream_player_2d.stream = muusika[mitmes_lugu]
+	audio_stream_player_2d.play()
+	audio_stream_player_2d.finished.connect(music_finished)
 	options.visible = false
 	main_buttons.visible = true
-	# Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+func music_finished() -> void:
+	mitmes_lugu = 1
+	audio_stream_player_2d.stream = muusika[mitmes_lugu]
+	audio_stream_player_2d.play()
 
 func _on_start_pressed() -> void:
-	print("Start pressed")
-	# get_tree().change_scene_to_file("res://scenes/earth.tscn") //Vahetab siis kui valmis
-	pass # Alustab pelu
-
-
+	get_tree().change_scene_to_file("res://scenes/earth.tscn")
+	pass
+	
 func _on_options_pressed() -> void:
-	print("Options pressed")
 	main_buttons.visible = false
 	options.visible = true
-	pass # Viib optionitesse
-
-
+	
 func _on_exit_pressed() -> void:
 	print("Exit pressed")
-	get_tree().quit(0) # Väljub
-
-
+	get_tree().quit(0)
+	
 func _on_options_back_pressed() -> void:
 	main_buttons.visible = true
 	options.visible = false
