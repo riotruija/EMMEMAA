@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://kqvj7mwvu4pt" path="res://scripts/grid.gd" id="1_mnxy6"]
 [ext_resource type="Texture2D" uid="uid://npxihc62ou4b" path="res://img/TileSforPusle/kenney_light-masks-1.0/Default/cone_e_noise.png" id="2_gt4qv"]
+[ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="2_gt68l"]
 [ext_resource type="Texture2D" uid="uid://doimr6jpcq0eu" path="res://img/TileSforPusle/kenney_light-masks-1.0/Default/fan_a.png" id="3_gt68l"]
-[ext_resource type="Texture2D" uid="uid://cd8xjq52ey2cg" path="res://img/Floor_Tiles_2048/Floor_Tiles_2048/FloorTileClean_normal.png" id="4_gt68l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8l4c"]
 texture = ExtResource("2_gt4qv")
@@ -224,8 +224,7 @@ sources/1 = SubResource("TileSetAtlasSource_a23m1")
 script = ExtResource("1_mnxy6")
 
 [node name="Background" type="Sprite2D" parent="Node2D" unique_id=820047421]
-position = Vector2(554, 69)
-texture = ExtResource("4_gt68l")
+texture = ExtResource("2_gt68l")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=1364482069]
 tile_set = SubResource("TileSet_kq6i2")
