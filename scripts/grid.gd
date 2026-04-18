@@ -4,7 +4,7 @@ const WIDTH := 8
 const HEIGHT := 6
 
 # === TIMER CONFIG ===
-const TIME_LIMIT := 10.0  # seconds — change this to adjust difficulty
+const TIME_LIMIT := 15.0  # seconds — change this to adjust difficulty
 const TIMEOUT_SCENE := "res://your_scene.tscn"  # change to your target scene
 
 # === TILEMAP ===
