@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ujfjqk655edn"]
+
+[ext_resource type="Script" uid="uid://5j1nwq6ys28h" path="res://scenes/signaal.gd" id="1_bqb0v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bqb0v"]
+
+[node name="Signaal" type="CharacterBody2D" unique_id=89651145]
+script = ExtResource("1_bqb0v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1238769869]
+shape = SubResource("CircleShape2D_bqb0v")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1194011156]
+polygon = PackedVector2Array(0, -10, -4, -9, -8, -6, -10, -2, -10, 1, -8, 6, -4, 9, 0, 10, 5, 8, 8, 6, 10, 2, 10, -2, 8, -6, 5, -9)
