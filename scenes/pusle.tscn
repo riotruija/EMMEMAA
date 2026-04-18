@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cq65wkljgjjx6"]
+[gd_scene format=3 uid="uid://cjytakuue8ovt"]
 
 [ext_resource type="Script" uid="uid://kqvj7mwvu4pt" path="res://scripts/grid.gd" id="1_mnxy6"]
 [ext_resource type="Texture2D" uid="uid://npxihc62ou4b" path="res://img/TileSforPusle/kenney_light-masks-1.0/Default/cone_e_noise.png" id="2_gt4qv"]

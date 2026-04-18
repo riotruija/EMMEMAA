@@ -107,6 +107,7 @@ func move(dir: Vector2i):
 
 	player_pos = new_pos
 	update_tiles()
+	check_win()
 
 
 func is_inside(pos: Vector2i) -> bool:
@@ -136,3 +137,16 @@ func center_grid():
 	var grid_pixel_size = Vector2(WIDTH * tile_size.x, HEIGHT * tile_size.y)
 
 	tilemap.position = -grid_pixel_size / 2
+
+func check_win() -> void:
+	for y in range(HEIGHT):
+		for x in range(WIDTH):
+			var cell = grid[y][x]
+
+			if cell["blocked"]:
+				continue
+
+			if not cell["filled"]:
+				return  # not finished yet
+
+	print("YOU WIN")
