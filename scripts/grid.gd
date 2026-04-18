@@ -13,12 +13,12 @@ const TIMEOUT_SCENE := "res://your_scene.tscn"  # change to your target scene
 @onready var instruction_label := $UI/InstructionLabel
 
 # === TILE IDs (CHANGE THESE TO MATCH YOUR TILESET) ===
-const SOURCE_ID := 0
+const SOURCE_ID := 9
 
-const TILE_EMPTY := Vector2i(3, 2)
-const TILE_PATH := Vector2i(5, 5)
-const TILE_BLOCKED := Vector2i(0, 0)
-const TILE_PLAYER := Vector2i(5, 7)
+const TILE_EMPTY := Vector2i(0, 0)
+const TILE_PATH := Vector2i(1, 0)
+const TILE_BLOCKED := Vector2i(2, 1)
+const TILE_PLAYER := Vector2i(0, 1)
 
 # === GAME STATE ===
 var player_pos := Vector2i(0, 5)
@@ -94,13 +94,13 @@ func update_timer_label():
 func _input(event):
 	if game_over:
 		return
-	if event.is_action_pressed("ui_up"):
+	if event.is_action_pressed("up"):
 		move(Vector2i(0, -1))
-	elif event.is_action_pressed("ui_down"):
+	elif event.is_action_pressed("down"):
 		move(Vector2i(0, 1))
-	elif event.is_action_pressed("ui_left"):
+	elif event.is_action_pressed("left"):
 		move(Vector2i(-1, 0))
-	elif event.is_action_pressed("ui_right"):
+	elif event.is_action_pressed("right"):
 		move(Vector2i(1, 0))
 
 
@@ -159,10 +159,10 @@ func update_tiles():
 	tilemap.set_cell(player_pos, SOURCE_ID, TILE_PLAYER)
 
 func center_grid():
-	var tile_size = tilemap.tile_set.tile_size  # Vector2i
+	var tile_size = Vector2(tilemap.tile_set.tile_size) * tilemap.scale
 	var grid_pixel_size = Vector2(WIDTH * tile_size.x, HEIGHT * tile_size.y)
 
-	tilemap.position = -grid_pixel_size / 2
+	tilemap.position = -grid_pixel_size / 2 + tile_size / 2
 
 func check_win() -> void:
 	for y in range(HEIGHT):
