@@ -6,7 +6,7 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gt4qv"]
 texture = ExtResource("5_k8l4c")
-texture_region_size = Vector2i(250, 250)
+texture_region_size = Vector2i(265, 265)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -33,7 +33,7 @@ texture_region_size = Vector2i(250, 250)
 5:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_kq6i2"]
-tile_size = Vector2i(250, 250)
+tile_size = Vector2i(265, 265)
 sources/9 = SubResource("TileSetAtlasSource_gt4qv")
 
 [node name="Pusle" type="Node2D" unique_id=1903400378]
@@ -45,6 +45,7 @@ script = ExtResource("1_mnxy6")
 texture = ExtResource("2_gt68l")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=1364482069]
+scale = Vector2(0.488, 0.488)
 tile_set = SubResource("TileSet_kq6i2")
 
 [node name="UI" type="CanvasLayer" parent="Node2D" unique_id=1765555016]

@@ -15,6 +15,10 @@ var HOORDUMINE = 1000
 var hoiab_paremale: bool = false
 var hoiab_vasakule: bool = false
 
+@onready var glorbert_sprite_tavaline = $glorbert_keha/Glorbert_sprite
+@onready var glorbert_sprite_foolium = $glorbert_keha/Glorbert_sprite_foolium
+
+@onready var sprite = glorbert_sprite_tavaline
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	maapinna_pind = maapind.get_node("StaticBody2D")
@@ -22,12 +26,15 @@ func _ready() -> void:
 func _unhandled_key_input(event: InputEvent) -> void:		
 	if event.is_action("left") and event.is_pressed():
 		hoiab_vasakule = true
+		sprite.flip_h = true
 		
 	if event.is_action("left") and event.is_released():
 		hoiab_vasakule = false
+
 		
 	if event.is_action("right") and event.is_pressed():
 		hoiab_paremale = true
+		sprite.flip_h = false
 		
 	if event.is_action("right") and event.is_released():
 		hoiab_paremale = false
@@ -47,7 +54,25 @@ func _physics_process(delta: float) -> void:
 		glorbert.velocity.x = move_toward(glorbert.velocity.x, 0, HOORDUMINE * delta)
 	if Input.is_action_just_pressed("up") and glorbert.is_on_floor():
 		print("kargab")
-		glorbert.velocity.y = -SAAPAD_YLES
+		glorbert_keha.velocity.y = -SAAPAD_YLES
+	if not glorbert_keha.is_on_floor():
+		if glorbert_keha.velocity.y < 0:
+			sprite.play("falling")
+
+		if glorbert_keha.velocity.y >= 0:
+			sprite.play("jumping")
+
+	else:
+		if glorbert_keha.velocity.x > 10:
+			sprite.play("running")
+		elif glorbert_keha.velocity.x < -10:
+			sprite.play("running")
+		else:
+			sprite.play("idle")
+		
+			
+		print()
+	
 	
 	glorbert.move_and_slide()
 
