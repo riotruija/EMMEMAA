@@ -318,19 +318,20 @@ position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_2umt7")
 
 [node name="Glorbert_sprite" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=1041193925]
+visible = false
 position = Vector2(2.9802322e-08, -6.0000014)
 scale = Vector2(0.109, 0.12)
 sprite_frames = SubResource("SpriteFrames_k5w1d")
 animation = &"jumping"
 
 [node name="Glorbert_sprite_foolium" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=725923983]
-visible = false
 position = Vector2(0, -6)
 scale = Vector2(0.113, 0.12)
 sprite_frames = SubResource("SpriteFrames_fpmy6")
 animation = &"running"
 
 [node name="Glorbert_sprite_gun" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=558439531]
+visible = false
 position = Vector2(0, -6)
 scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_scj2e")
