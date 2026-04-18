@@ -94,11 +94,11 @@ func _ready():
 	tween.set_ease(Tween.EASE_IN_OUT)
 
 	# fade in + grow to normal size
-	tween.parallel().tween_property(label, "modulate:a", 1.0, 0.5)
+	tween.parallel().tween_property(label, "modulate:a", 1.0, 2)
 	tween.parallel().tween_property(label, "scale", Vector2(1.0, 1.0), 0.1)
 
 	# stay visible
-	tween.tween_interval(10)
+	tween.tween_interval(20)
 
 	# fade out + shrink back
 	tween.parallel().tween_property(label, "modulate:a", 0.0, 0.1)
