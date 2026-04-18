@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://b1piy4c5gm1hw"]
+
+[ext_resource type="Texture2D" uid="uid://beq346gg07hqi" path="res://img/tegelane/bumass glorbert .png" id="1_00k2o"]
+[ext_resource type="Script" uid="uid://cgnisiqnovuvk" path="res://scripts/glorbert_hitbox.gd" id="1_pa23r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tike"]
+atlas = ExtResource("1_00k2o")
+region = Rect2(280, 465, 280, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx6op"]
+atlas = ExtResource("1_00k2o")
+region = Rect2(590, 465, 295, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymaxh"]
+atlas = ExtResource("1_00k2o")
+region = Rect2(12, 465, 280, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxpmy"]
+atlas = ExtResource("1_00k2o")
+region = Rect2(0, 1, 267, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_absew"]
+atlas = ExtResource("1_00k2o")
+region = Rect2(267, 1, 267, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2mr0"]
+atlas = ExtResource("1_00k2o")
+region = Rect2(534, 1, 267, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vuvk"]
+atlas = ExtResource("1_00k2o")
+region = Rect2(801, 1, 267, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgtou"]
+atlas = ExtResource("1_00k2o")
+region = Rect2(1068, 1, 267, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjrfg"]
+atlas = ExtResource("1_00k2o")
+region = Rect2(1335, 1, 267, 336)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ibg3d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tike")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx6op")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymaxh")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxpmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_absew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2mr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vuvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgtou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjrfg")
+}],
+"loop": true,
+"name": &"running",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mot1u"]
+radius = 48.659763
+height = 257.86844
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1hjbq"]
+radius = 48.0
+height = 319.99997
+
+[node name="Glorbert" type="CharacterBody2D" unique_id=1353613019]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_pa23r")
+
+[node name="Glorbert_sprite" type="AnimatedSprite2D" parent="." unique_id=894829424]
+position = Vector2(8, 0)
+scale = Vector2(1, 1.0166521)
+sprite_frames = SubResource("SpriteFrames_ibg3d")
+animation = &"idle"
+
+[node name="Glorbert_hitbox_running" type="CollisionShape2D" parent="." unique_id=17138010]
+position = Vector2(32, 39.999996)
+rotation = 0.27925268
+shape = SubResource("CapsuleShape2D_mot1u")
+
+[node name="Glorbert_hitbox_idle" type="CollisionShape2D" parent="." unique_id=1922016738]
+position = Vector2(40, 2.4074124e-35)
+shape = SubResource("CapsuleShape2D_1hjbq")
