@@ -3,7 +3,6 @@ extends Control
 @onready var main_buttons: VBoxContainer = $Main_buttons
 @onready var options: Panel = $Options
 
-
 var muusika = [
 	preload("res://music/main_menu_music_intro.mp3"),
 	preload("res://music/main_menu_music_looping.mp3")

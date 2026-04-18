@@ -20,7 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://b4hahsoudhjqe" path="res://img/platforms/platform dirt.png" id="13_nj2me"]
 [ext_resource type="Script" uid="uid://biuqx6ig0qkto" path="res://scripts/bullet_spawner.gd" id="14_fpmy6"]
 [ext_resource type="PackedScene" uid="uid://bup5t0ob1g00n" path="res://scenes/bullet.tscn" id="15_8dfur"]
+[ext_resource type="AudioStream" uid="uid://cna4io87gsb58" path="res://SFX/jumping.mp3" id="14_qawek"]
+[ext_resource type="AudioStream" uid="uid://74vxplloomo3" path="res://SFX/running_woods.mp3" id="15_7e7ie"]
+[ext_resource type="AudioStream" uid="uid://b461v6kb4mv7b" path="res://SFX/landing.mp3" id="16_r20oc"]
 [ext_resource type="Texture2D" uid="uid://426n1eqdoe55" path="res://img/platforms/Muru pool.png" id="18_u74q0"]
+[ext_resource type="Texture2D" uid="uid://o5t7s5wy6iyx" path="res://img/platforms/platform tree.png" id="20_fpmy6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -396,6 +400,9 @@ size = Vector2(413, 62)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u74q0"]
 size = Vector2(193, 63)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dfur"]
+size = Vector2(406, 25)
+
 [node name="Earth" type="Node2D" unique_id=516625783]
 
 [node name="maapind" type="Node2D" parent="." unique_id=1524979613]
@@ -478,7 +485,6 @@ maapind = NodePath("../maapind")
 hat_scene = ExtResource("5_np46n")
 spawn_points = NodePath("../HatSpawnPoints")
 gun_scene = ExtResource("6_nj2me")
-gun_spawn_points = NodePath("../GunSpawnPoints")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="glorbert" unique_id=2135669053]
 position = Vector2(1.5999929, 2.4)
@@ -514,6 +520,18 @@ animation = &"falling"
 [node name="BulletSpawner" type="Node2D" parent="glorbert" unique_id=669442217]
 script = ExtResource("14_fpmy6")
 bullet_scene = ExtResource("15_8dfur")
+[node name="Jumping" type="AudioStreamPlayer2D" parent="glorbert" unique_id=549808218]
+stream = ExtResource("14_qawek")
+volume_db = 16.0
+bus = &"SFX"
+
+[node name="Running" type="AudioStreamPlayer2D" parent="glorbert" unique_id=644698300]
+stream = ExtResource("15_7e7ie")
+volume_db = 8.0
+
+[node name="Landing" type="AudioStreamPlayer2D" parent="glorbert" unique_id=216288642]
+stream = ExtResource("16_r20oc")
+volume_db = 8.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1376530337]
 layer = 10
@@ -660,16 +678,6 @@ texture = ExtResource("13_nj2me")
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_yvqq7")
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="platvormid" unique_id=1945473628]
-position = Vector2(1811, -265)
-
-[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D5" unique_id=72974586]
-texture = ExtResource("13_nj2me")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D5" unique_id=1630111450]
-position = Vector2(-2, -1)
-shape = SubResource("RectangleShape2D_yvqq7")
-
 [node name="StaticBody2D2" type="StaticBody2D" parent="platvormid" unique_id=69677174]
 position = Vector2(-13, -4)
 
@@ -680,3 +688,13 @@ texture = ExtResource("18_u74q0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D2" unique_id=1088157697]
 position = Vector2(594.5, -144.5)
 shape = SubResource("RectangleShape2D_u74q0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1684490555]
+position = Vector2(2360, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=226235312]
+texture = ExtResource("20_fpmy6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=500165220]
+position = Vector2(-4, 23.5)
+shape = SubResource("RectangleShape2D_8dfur")
