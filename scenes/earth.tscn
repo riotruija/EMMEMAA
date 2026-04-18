@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bj0o1j5irgvgm"]
+[gd_scene format=3 uid="uid://bd5gfe244tfnw"]
 
 [ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="1_2tfwh"]
 [ext_resource type="Script" uid="uid://bmbg5ltbhyb75" path="res://scripts/satelliidi_kontroller.gd" id="1_2umt7"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cs5qhw0l6qdrd" path="res://scenes/vastane.tscn" id="3_2tfwh"]
 [ext_resource type="Texture2D" uid="uid://cqixbnrrv1due" path="res://img/taustad/kõrbe_background.png" id="3_yhjmp"]
 [ext_resource type="Texture2D" uid="uid://d0kbuwikl00w6" path="res://img/tegelane/glorbert with hat.png" id="4_3t2fh"]
-[ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
+[ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scripts/camera_2d.gd" id="4_k5w1d"]
 [ext_resource type="Texture2D" uid="uid://c2on6w0ii8b0j" path="res://img/tegelane/glorbert with gun.png" id="5_78p35"]
 [ext_resource type="PackedScene" uid="uid://csp4u5njurgpj" path="res://scenes/hat_scene.tscn" id="5_np46n"]
 [ext_resource type="Shader" uid="uid://2jb8r4m5x0y" path="res://scripts/pauk.gdshader" id="6_78p35"]
@@ -19,12 +19,17 @@
 [ext_resource type="Script" uid="uid://8iavkyrbxyvc" path="res://scripts/pauk.gd" id="7_yhjmp"]
 [ext_resource type="Texture2D" uid="uid://b4hahsoudhjqe" path="res://img/platforms/platform dirt.png" id="13_nj2me"]
 [ext_resource type="Script" uid="uid://biuqx6ig0qkto" path="res://scripts/bullet_spawner.gd" id="14_fpmy6"]
-[ext_resource type="PackedScene" uid="uid://bup5t0ob1g00n" path="res://scenes/bullet.tscn" id="15_8dfur"]
 [ext_resource type="AudioStream" uid="uid://cna4io87gsb58" path="res://SFX/jumping.mp3" id="14_qawek"]
 [ext_resource type="AudioStream" uid="uid://74vxplloomo3" path="res://SFX/running_woods.mp3" id="15_7e7ie"]
+[ext_resource type="PackedScene" uid="uid://bup5t0ob1g00n" path="res://scenes/bullet.tscn" id="15_8dfur"]
 [ext_resource type="AudioStream" uid="uid://b461v6kb4mv7b" path="res://SFX/landing.mp3" id="16_r20oc"]
 [ext_resource type="Texture2D" uid="uid://426n1eqdoe55" path="res://img/platforms/Muru pool.png" id="18_u74q0"]
 [ext_resource type="Texture2D" uid="uid://o5t7s5wy6iyx" path="res://img/platforms/platform tree.png" id="20_fpmy6"]
+[ext_resource type="Texture2D" uid="uid://bcxpjhkh2q86s" path="res://img/platforms/korb/sand platform 2.png" id="26_nov0m"]
+[ext_resource type="Texture2D" uid="uid://cdebt4pdmf08l" path="res://img/platforms/korb/sand plat 3.png" id="27_nsbyv"]
+[ext_resource type="Texture2D" uid="uid://dk5sr2i7mtrmv" path="res://img/platforms/korb/sign2.png" id="28_oiqpw"]
+[ext_resource type="Texture2D" uid="uid://b3x7ofw55gy32" path="res://img/platforms/korb/sign 1.png" id="29_6ctra"]
+[ext_resource type="Texture2D" uid="uid://cvolqscsjgxng" path="res://img/platforms/korb/dead bush.png" id="30_scj2e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -403,6 +408,12 @@ size = Vector2(413, 62)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dfur"]
 size = Vector2(406, 25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bukur"]
+size = Vector2(224.5, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oiqpw"]
+size = Vector2(186.25, 41.5)
+
 [node name="Earth" type="Node2D" unique_id=516625783]
 
 [node name="maapind" type="Node2D" parent="." unique_id=1524979613]
@@ -442,7 +453,7 @@ centered = false
 region_rect = Rect2(0, 0, 9600, 1080)
 
 [node name="KõrbeBackground" type="Sprite2D" parent="taust" unique_id=550251292]
-position = Vector2(6053, -6)
+position = Vector2(6064, -4)
 texture = ExtResource("3_yhjmp")
 
 [node name="Background2" type="Sprite2D" parent="taust" unique_id=1686780176]
@@ -521,6 +532,7 @@ animation = &"falling"
 [node name="BulletSpawner" type="Node2D" parent="glorbert" unique_id=669442217]
 script = ExtResource("14_fpmy6")
 bullet_scene = ExtResource("15_8dfur")
+
 [node name="Jumping" type="AudioStreamPlayer2D" parent="glorbert" unique_id=549808218]
 stream = ExtResource("14_qawek")
 volume_db = 16.0
@@ -710,3 +722,37 @@ shape = SubResource("RectangleShape2D_8dfur")
 
 [node name="GunSpawn1" type="Marker2D" parent="GunSpawnPoints" unique_id=1150996356]
 position = Vector2(2124, 309)
+
+[node name="Korbeplatvorm" type="Node2D" parent="." unique_id=1551247591]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Korbeplatvorm" unique_id=1678306671]
+
+[node name="SandPlatform2" type="Sprite2D" parent="Korbeplatvorm/StaticBody2D" unique_id=169511855]
+position = Vector2(6153, 139)
+texture = ExtResource("26_nov0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Korbeplatvorm/StaticBody2D" unique_id=1156219109]
+position = Vector2(6145.75, 167)
+shape = SubResource("RectangleShape2D_bukur")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Korbeplatvorm" unique_id=1840110560]
+
+[node name="SandPlat3" type="Sprite2D" parent="Korbeplatvorm/StaticBody2D2" unique_id=1288236831]
+position = Vector2(6626, 460)
+texture = ExtResource("27_nsbyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Korbeplatvorm/StaticBody2D2" unique_id=1278545216]
+position = Vector2(6629, 460)
+shape = SubResource("RectangleShape2D_oiqpw")
+
+[node name="Sign2" type="Sprite2D" parent="Korbeplatvorm/StaticBody2D2" unique_id=98591126]
+position = Vector2(5240, 412)
+texture = ExtResource("28_oiqpw")
+
+[node name="Sign1" type="Sprite2D" parent="Korbeplatvorm/StaticBody2D2" unique_id=974366487]
+position = Vector2(6698, 307)
+texture = ExtResource("29_6ctra")
+
+[node name="DeadBush" type="Sprite2D" parent="Korbeplatvorm/StaticBody2D2" unique_id=155539529]
+position = Vector2(6058, 88)
+texture = ExtResource("30_scj2e")
