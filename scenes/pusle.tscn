@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cjytakuue8ovt"]
+
+[ext_resource type="Script" uid="uid://kqvj7mwvu4pt" path="res://scripts/grid.gd" id="1_mnxy6"]
+
+[node name="Pusle" type="Node2D" unique_id=1903400378]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=488579321]
+script = ExtResource("1_mnxy6")
