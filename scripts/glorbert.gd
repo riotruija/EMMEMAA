@@ -29,7 +29,8 @@ var double_jump_available: bool = true
 @onready var hat_pickup_player = $"../Camera2D/Sounds/Hat_pickup"
 @onready var gun_pickup_player = $"../Camera2D/Sounds/Gun_pickup"
 @onready var gun_shoot_player = $"../Camera2D/Sounds/Gun_shoot"
-var on_jooksmas = false
+var on_jooksmas:bool = false
+var oli_porandal:bool = true
 # === HAT SYSTEM ===
 @export var hat_scene: PackedScene
 @export var spawn_points: Node2D  # drag your HatSpawnPoints node here in the inspector
@@ -122,6 +123,11 @@ func update_sprite() -> void:
 	sprite = new_sprite
 
 func _physics_process(delta: float) -> void:
+	var on_praegu_porandal = is_on_floor()
+	
+	if on_praegu_porandal and not oli_porandal:
+		landing_player.play()
+		
 	if not glorbert.is_on_floor():
 		glorbert.velocity.y += GRAVITATSIOON * delta
 	if hoiab_paremale and not hoiab_vasakule:
@@ -157,6 +163,7 @@ func _physics_process(delta: float) -> void:
 			sprite.play("idle")
 			on_jooksmas = false
 			running_player.stop()
+	oli_porandal = on_praegu_porandal
 	glorbert.move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
