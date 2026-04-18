@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://beq346gg07hqi" path="res://img/tegelane/bumass glorbert .png" id="2_2tfwh"]
 [ext_resource type="Script" uid="uid://bxbco2rq6i1pf" path="res://scripts/glorbert.gd" id="2_2umt7"]
 [ext_resource type="Texture2D" uid="uid://d0kbuwikl00w6" path="res://img/tegelane/glorbert with hat.png" id="4_3t2fh"]
-[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
+[ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
 [ext_resource type="Texture2D" uid="uid://c2on6w0ii8b0j" path="res://img/tegelane/glorbert with gun.png" id="5_78p35"]
 [ext_resource type="Texture2D" uid="uid://cptiy7g01xkan" path="res://img/tegelane/glorbert with gun and hat.png" id="6_yhjmp"]
-[ext_resource type="AudioStream" uid="uid://bemigblu3uj21" path="res://music/main_music.mp3" id="8_8otvb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -440,6 +439,8 @@ limit_bottom = 2000
 script = ExtResource("4_k5w1d")
 target = NodePath("../glorbert/glorbert_keha")
 
-[node name="Music_player" type="AudioStreamPlayer2D" parent="." unique_id=1621905584]
-stream = ExtResource("8_8otvb")
+[node name="Music_player" type="AudioStreamPlayer2D" parent="Camera2D" unique_id=1621905584]
+position = Vector2(-1.5258789e-05, 0)
+volume_db = 10.0
+autoplay = true
 bus = &"Music"
