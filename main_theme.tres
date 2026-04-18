@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://d2cp7v3qjrm06"]
+
+[ext_resource type="FontFile" uid="uid://c6dmka24npl28" path="res://fonts/Font_fix-Regular.ttf" id="1_470mv"]
+
+[resource]
+default_font = ExtResource("1_470mv")
+Label/fonts/font = ExtResource("1_470mv")
