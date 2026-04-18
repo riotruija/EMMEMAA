@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://db0c2gyemb2te" path="res://img/title_ph.png" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://rr7wq65xklsa" path="res://music/main_menu_music_intro.mp3" id="2_wu84c"]
 [ext_resource type="Script" uid="uid://cn46ta6lxh8lu" path="res://scripts/voluum_music.gd" id="5_8ln24"]
+[ext_resource type="Script" uid="uid://dvo0axwbcyfp8" path="res://scripts/voluum_sfx.gd" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]
 texture = ExtResource("1_ekxnf")
@@ -183,16 +184,54 @@ anchor_left = 0.5
 anchor_top = -0.05
 anchor_right = 0.5
 anchor_bottom = -0.05
-offset_left = -128.0
-offset_top = 16.0
-offset_right = 128.0
-offset_bottom = 58.0
+offset_left = -153.0
+offset_top = -8.0
+offset_right = 151.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+text = "Options"
+horizontal_alignment = 1
+
+[node name="SFX_Volume" type="Label" parent="Options" unique_id=13846719]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.05
+anchor_right = 0.5
+anchor_bottom = -0.05
+offset_left = -145.0
+offset_top = 208.0
+offset_right = 143.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
-text = "Options"
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="Music_Volume" type="Label" parent="Options" unique_id=337875115]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.05
+anchor_right = 0.5
+anchor_bottom = -0.05
+offset_left = -145.0
+offset_top = 96.0
+offset_right = 143.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+text = "Music Volume"
 horizontal_alignment = 1
 
 [node name="Options_back" type="Button" parent="Options" unique_id=1633189945]
@@ -227,7 +266,7 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_8ln24")
 min_value = -80.0
 max_value = 0.0
-value = -40.0
+value = -20.0
 script = ExtResource("5_8ln24")
 voluum_music = "Music"
 
@@ -239,17 +278,23 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -129.0
-offset_top = -8.0
+offset_top = 48.0
 offset_right = 127.0
-offset_bottom = 16.0
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_wu84c")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_8ln24")
+min_value = -80.0
+max_value = 0.0
+value = -20.0
+script = ExtResource("6_rtw2f")
+voluum_SFX = "SFX"
 
 [connection signal="pressed" from="Main_buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main_buttons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Main_buttons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/Options_back" to="." method="_on_options_back_pressed"]
 [connection signal="value_changed" from="Options/Voluum_Music" to="Options/Voluum_Music" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/Voluum_SFX" to="Options/Voluum_SFX" method="_on_value_changed"]
