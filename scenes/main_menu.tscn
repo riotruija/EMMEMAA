@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://db0c2gyemb2te" path="res://img/title_ph.png" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://rr7wq65xklsa" path="res://music/main_menu_music_intro.mp3" id="2_wu84c"]
 [ext_resource type="Script" uid="uid://cn46ta6lxh8lu" path="res://scripts/voluum_music.gd" id="5_8ln24"]
-[ext_resource type="Script" uid="uid://dvo0axwbcyfp8" path="res://scripts/voluum_sfx.gd" id="6_rtw2f"]
+[ext_resource type="Script" path="res://scripts/voluum_sfx.gd" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]
 texture = ExtResource("1_ekxnf")
