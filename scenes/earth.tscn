@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cs5qhw0l6qdrd" path="res://scenes/vastane.tscn" id="3_2tfwh"]
 [ext_resource type="Texture2D" uid="uid://cqixbnrrv1due" path="res://img/taustad/kõrbe_background.png" id="3_yhjmp"]
 [ext_resource type="Texture2D" uid="uid://d0kbuwikl00w6" path="res://img/tegelane/glorbert with hat.png" id="4_3t2fh"]
-[ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scripts/camera_2d.gd" id="4_k5w1d"]
 [ext_resource type="Texture2D" uid="uid://c2on6w0ii8b0j" path="res://img/tegelane/glorbert with gun.png" id="5_78p35"]
 [ext_resource type="PackedScene" uid="uid://csp4u5njurgpj" path="res://scenes/hat_scene.tscn" id="5_np46n"]
 [ext_resource type="Shader" uid="uid://2jb8r4m5x0y" path="res://scripts/pauk.gdshader" id="6_78p35"]
@@ -26,13 +25,13 @@
 [ext_resource type="AudioStream" uid="uid://p0g6l6s6r7wh" path="res://SFX/hurt_sound.mp3" id="17_7e7ie"]
 [ext_resource type="AudioStream" uid="uid://cnnr1jse8abjj" path="res://SFX/foil_pickup.mp3" id="18_r20oc"]
 [ext_resource type="Texture2D" uid="uid://426n1eqdoe55" path="res://img/platforms/Muru pool.png" id="18_u74q0"]
+[ext_resource type="AudioStream" uid="uid://bxopfapgu51k1" path="res://SFX/gun_pickup.mp3" id="19_3s3qb"]
 [ext_resource type="Texture2D" uid="uid://o5t7s5wy6iyx" path="res://img/platforms/platform tree.png" id="20_fpmy6"]
 [ext_resource type="Texture2D" uid="uid://bcxpjhkh2q86s" path="res://img/platforms/korb/sand platform 2.png" id="26_nov0m"]
 [ext_resource type="Texture2D" uid="uid://cdebt4pdmf08l" path="res://img/platforms/korb/sand plat 3.png" id="27_nsbyv"]
 [ext_resource type="Texture2D" uid="uid://dk5sr2i7mtrmv" path="res://img/platforms/korb/sign2.png" id="28_oiqpw"]
 [ext_resource type="Texture2D" uid="uid://b3x7ofw55gy32" path="res://img/platforms/korb/sign 1.png" id="29_6ctra"]
 [ext_resource type="Texture2D" uid="uid://cvolqscsjgxng" path="res://img/platforms/korb/dead bush.png" id="30_scj2e"]
-[ext_resource type="AudioStream" uid="uid://bxopfapgu51k1" path="res://SFX/gun_pickup.mp3" id="19_3s3qb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -399,6 +398,36 @@ shader = ExtResource("6_78p35")
 shader_parameter/strength = 0.0
 shader_parameter/direction = Vector2(1, 0)
 
+[sub_resource type="GDScript" id="GDScript_scj2e"]
+script/source = "extends Camera2D
+
+@export var target: CharacterBody2D
+@export var fixed_y: float = 0.0
+@export var x_offset: float = 500.0  # positive = character sits left of center
+@onready var muusika_mangija = $Music_player
+
+var muusika = [
+	preload(\"res://music/muusika_main_intro.mp3\"),
+	preload(\"res://music/muusika_main_loop.mp3\")
+]
+var mitmes_lugu = 0
+
+func _ready() -> void:
+	muusika_mangija.set_stream(muusika[mitmes_lugu])
+	muusika_mangija.play()
+	muusika_mangija.finished.connect(muusika_algus_labi)
+
+func muusika_algus_labi() -> void:
+	mitmes_lugu = 1
+	muusika_mangija.set_stream(muusika[mitmes_lugu])
+	muusika_mangija.play()
+	
+func _process(_delta: float) -> void:
+	if target:
+		position.x = target.global_position.x + x_offset
+		position.y = fixed_y
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u74q0"]
 size = Vector2(193, 63)
 
@@ -494,12 +523,12 @@ vastane_sateliit = ExtResource("3_2tfwh")
 position = Vector2(271.00006, 1.9999981)
 scale = Vector2(10, 10)
 script = ExtResource("2_2umt7")
-glorbert = NodePath(".")
-maapind = NodePath("../maapind")
 hat_scene = ExtResource("5_np46n")
-spawn_points = NodePath("../HatSpawnPoints")
 gun_scene = ExtResource("6_nj2me")
 gun_spawn_points = NodePath("../GunSpawnPoints")
+glorbert = NodePath(".")
+maapind = NodePath("../maapind")
+spawn_points = NodePath("../HatSpawnPoints")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="glorbert" unique_id=2135669053]
 position = Vector2(1.5999929, 2.4)
@@ -587,7 +616,7 @@ limit_left = 0
 limit_top = -2000
 limit_right = 9600
 limit_bottom = 2000
-script = ExtResource("4_k5w1d")
+script = SubResource("GDScript_scj2e")
 target = NodePath("../glorbert")
 
 [node name="Music_player" type="AudioStreamPlayer2D" parent="Camera2D" unique_id=1621905584]
@@ -595,25 +624,24 @@ position = Vector2(-1.5258789e-05, 0)
 volume_db = 10.0
 autoplay = true
 bus = &"Music"
-bus = &"Music"
 
 [node name="Sounds" type="Node2D" parent="Camera2D" unique_id=1095552701]
 position = Vector2(271.00006, 1.9999981)
 scale = Vector2(10, 10)
 
-[node name="Jumping" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=549808218]
+[node name="Jumping" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=623862564]
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("14_qawek")
 volume_db = 16.0
 bus = &"SFX"
 
-[node name="Running" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=644698300]
+[node name="Running" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=2007691946]
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("15_7e7ie")
 volume_db = 6.0
 bus = &"SFX"
 
-[node name="Landing" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=216288642]
+[node name="Landing" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=746770413]
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("16_r20oc")
 volume_db = 8.0
