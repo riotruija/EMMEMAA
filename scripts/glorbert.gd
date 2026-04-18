@@ -6,7 +6,7 @@ extends CharacterBody2D
 var maapinna_pind: StaticBody2D
 
 var SAAPAD_YLES = 750
-var SAAPAD_EDASITAGASI = 250
+var SAAPAD_EDASITAGASI = 400
 var MAX_KIIRUS_YLES = 400
 var GRAVITATSIOON = 1500
 var HOORDUMINE = 1000
@@ -187,11 +187,17 @@ func lose_hat() -> void:
 	spawn_hat()
 
 func spawn_all_guns() -> void:
+	print("=== spawn_all_guns called ===")
 	if gun_spawn_points == null:
+		print("  gun_spawn_points is null!")
 		return
-	for point in gun_spawn_points.get_children():
-		if point in used_gun_spawn_points:
-			continue
+	if gun_scene == null:
+		print("  gun_scene is null!")
+		return
+	var children = gun_spawn_points.get_children()
+	print("  found ", children.size(), " gun spawn points")
+	for point in children:
+		print("  spawning at ", point.name)
 		spawn_gun_at(point)
 
 func spawn_gun_at(point: Node2D) -> void:

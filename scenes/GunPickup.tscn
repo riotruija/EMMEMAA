@@ -7,6 +7,7 @@
 radius = 35.057095
 
 [node name="GunPickup" type="Area2D" unique_id=1053785049]
+visibility_layer = 512
 script = ExtResource("1_6y48w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1063782121]
