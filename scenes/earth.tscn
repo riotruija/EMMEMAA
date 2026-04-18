@@ -132,6 +132,7 @@ shape = SubResource("SegmentShape2D_2tfwh")
 
 [node name="glorbert" type="Node2D" parent="." unique_id=621510937 node_paths=PackedStringArray("glorbert", "maapind")]
 position = Vector2(200, 250)
+scale = Vector2(3, 3)
 script = ExtResource("2_2umt7")
 glorbert = NodePath(".")
 maapind = NodePath("../maapind")
@@ -148,11 +149,6 @@ scale = Vector2(0.12242508, 0.13447438)
 sprite_frames = SubResource("SpriteFrames_k5w1d")
 animation = &"idle"
 frame_progress = 0.90417725
-
-[node name="Polygon2D" type="Polygon2D" parent="glorbert/glorbert_keha" unique_id=1338231630]
-visible = false
-position = Vector2(-3, -2)
-polygon = PackedVector2Array(-5, -11, 5, -17, 11, -10, 11, 10, 3, 16, -5, 8)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730 node_paths=PackedStringArray("target")]
 limit_left = 0
