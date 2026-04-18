@@ -15,6 +15,7 @@ const TIMEOUT_SCENE := "res://earth.tscn"  # change to your target scene
 @onready var tilemap := $TileMapLayer
 @onready var timer_label := $UI/TimerLabel
 @onready var instruction_label := $UI/InstructionLabel
+@onready var time_out_label := $UI/timeover
 
 # === TILE IDs (CHANGE THESE TO MATCH YOUR TILESET) ===
 const SOURCE_ID := 9
@@ -76,6 +77,8 @@ func _ready():
 	grid[3][4]["blocked"] = true
 	
 	instruction_label.text = "Fill all!"
+	time_out_label.text = "Time!"
+	time_out_label.visible = false
 	
 	# --- instruction text ---
 	var label = $UI/InstructionLabel
@@ -119,6 +122,28 @@ func _process(delta):
 		game_over = true
 		GameState.next_player_position = LOSE_RETURN_POSITION
 		GameState.puzzle_won = false
+		# --- time over text ---
+		
+		var label = $UI/timeover
+		label.visible = true
+		label.modulate.a = 0.0
+		label.scale = Vector2(1, 1)
+
+		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_SINE)
+		tween.set_ease(Tween.EASE_IN_OUT)
+
+		tween.parallel().tween_property(label, "modulate:a", 1.0, 0.2)
+		tween.parallel().tween_property(label, "scale", Vector2(1.0, 1.0), 0.1)
+
+		tween.tween_interval(3)
+
+		tween.parallel().tween_property(label, "modulate:a", 0.0, 0.1)
+
+		await tween.finished
+		# --- text move end ---
+		
+		
 		get_tree().change_scene_to_file("res://scenes/earth.tscn")
 
 func update_timer_label():
