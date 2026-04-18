@@ -28,6 +28,7 @@ var double_jump_available: bool = true
 @onready var hurt_player = $"../Camera2D/Sounds/Hurt"
 @onready var hat_pickup_player = $"../Camera2D/Sounds/Hat_pickup"
 @onready var gun_pickup_player = $"../Camera2D/Sounds/Gun_pickup"
+@onready var gun_shoot_player = $"../Camera2D/Sounds/Gun_shoot"
 var on_jooksmas = false
 # === HAT SYSTEM ===
 @export var hat_scene: PackedScene
@@ -79,6 +80,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func fire() -> void:
 	$BulletSpawner.spawn_bullet(sprite.flip_h)
+	gun_shoot_player.play()
+	
 	
 	
 func take_damage():
@@ -129,25 +132,22 @@ func _physics_process(delta: float) -> void:
 		print("kargab")
 		velocity.y = -SAAPAD_YLES
 		jumping_player.play()
-		
-	if sprite.animation == "running":
-		running_player.play()
-	else:
-		running_player.stop()
-	if not is_on_floor():
-		if velocity.y < 0:
-			sprite.play("falling")
-		if velocity.y >= 0:
-			sprite.play("jumping")
+	
 	if glorbert.is_on_floor() and not double_jump_available:
 		double_jump_available = true
+		
+	if not is_on_floor():
+		if velocity.y < 0:
+			sprite.play("jumping")
+		if velocity.y >= 0:
+			sprite.play("falling")
 	else:
-		if velocity.x > 10:
+		if velocity.x > 10 or velocity.x < -10:
 			sprite.play("running")
-		elif velocity.x < -10:
-			sprite.play("running")
+			on_jooksmas = true
 		else:
 			sprite.play("idle")
+			on_jooksmas = false
 	glorbert.move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -171,7 +171,7 @@ func spawn_hat() -> void:
 	var min_distance = 300.0
 	var valid = points.filter(func(p): 
 		return p.global_position.distance_to(global_position) > min_distance
-	)
+	) 
 	if valid.is_empty():
 		valid = points
 	

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bj0o1j5irgvgm"]
+[gd_scene format=3 uid="uid://bd5gfe244tfnw"]
 
 [ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="1_2tfwh"]
 [ext_resource type="Script" uid="uid://bmbg5ltbhyb75" path="res://scripts/satelliidi_kontroller.gd" id="1_2umt7"]
@@ -18,16 +18,15 @@
 [ext_resource type="Texture2D" uid="uid://cptiy7g01xkan" path="res://img/tegelane/glorbert with gun and hat.png" id="6_yhjmp"]
 [ext_resource type="Script" uid="uid://8iavkyrbxyvc" path="res://scripts/pauk.gd" id="7_yhjmp"]
 [ext_resource type="Texture2D" uid="uid://b4hahsoudhjqe" path="res://img/platforms/platform dirt.png" id="13_nj2me"]
-[ext_resource type="Script" uid="uid://biuqx6ig0qkto" path="res://scripts/bullet_spawner.gd" id="14_fpmy6"]
-[ext_resource type="PackedScene" uid="uid://bup5t0ob1g00n" path="res://scenes/bullet.tscn" id="15_8dfur"]
 [ext_resource type="AudioStream" uid="uid://cna4io87gsb58" path="res://SFX/jumping.mp3" id="14_qawek"]
 [ext_resource type="AudioStream" uid="uid://74vxplloomo3" path="res://SFX/running_woods.mp3" id="15_7e7ie"]
 [ext_resource type="AudioStream" uid="uid://b461v6kb4mv7b" path="res://SFX/landing.mp3" id="16_r20oc"]
 [ext_resource type="AudioStream" uid="uid://p0g6l6s6r7wh" path="res://SFX/hurt_sound.mp3" id="17_7e7ie"]
 [ext_resource type="AudioStream" uid="uid://cnnr1jse8abjj" path="res://SFX/foil_pickup.mp3" id="18_r20oc"]
 [ext_resource type="Texture2D" uid="uid://426n1eqdoe55" path="res://img/platforms/Muru pool.png" id="18_u74q0"]
-[ext_resource type="Texture2D" uid="uid://o5t7s5wy6iyx" path="res://img/platforms/platform tree.png" id="20_fpmy6"]
 [ext_resource type="AudioStream" uid="uid://bxopfapgu51k1" path="res://SFX/gun_pickup.mp3" id="19_3s3qb"]
+[ext_resource type="Texture2D" uid="uid://o5t7s5wy6iyx" path="res://img/platforms/platform tree.png" id="20_fpmy6"]
+[ext_resource type="AudioStream" uid="uid://v06wqxqwr1pp" path="res://SFX/Laser_Shot.mp3" id="23_nov0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -488,7 +487,6 @@ maapind = NodePath("../maapind")
 hat_scene = ExtResource("5_np46n")
 spawn_points = NodePath("../HatSpawnPoints")
 gun_scene = ExtResource("6_nj2me")
-gun_spawn_points = NodePath("../GunSpawnPoints")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="glorbert" unique_id=2135669053]
 position = Vector2(1.5999929, 2.4)
@@ -580,25 +578,24 @@ position = Vector2(-1.5258789e-05, 0)
 volume_db = 10.0
 autoplay = true
 bus = &"Music"
-bus = &"Music"
 
 [node name="Sounds" type="Node2D" parent="Camera2D" unique_id=1095552701]
 position = Vector2(271.00006, 1.9999981)
 scale = Vector2(10, 10)
 
-[node name="Jumping" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=549808218]
+[node name="Jumping" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=878761718]
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("14_qawek")
 volume_db = 16.0
 bus = &"SFX"
 
-[node name="Running" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=644698300]
+[node name="Running" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=217109749]
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("15_7e7ie")
 volume_db = 6.0
 bus = &"SFX"
 
-[node name="Landing" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=216288642]
+[node name="Landing" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=934141685]
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("16_r20oc")
 volume_db = 8.0
@@ -620,6 +617,11 @@ bus = &"SFX"
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("19_3s3qb")
 volume_db = 14.0
+bus = &"SFX"
+
+[node name="Gun_shoot" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=398828418]
+stream = ExtResource("23_nov0m")
+volume_db = 6.0
 bus = &"SFX"
 
 [node name="HatSpawnPoints" type="Node2D" parent="." unique_id=1411088446]
