@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bj0o1j5irgvgm"]
+
+[ext_resource type="Script" path="res://scenes/satelliidi_kontroller.gd" id="1_afhwv"]
+
+[node name="Earth" type="Node2D" unique_id=516625783]
+
+[node name="maapind" type="Node2D" parent="." unique_id=1524979613]
+
+[node name="satelliidi_kontroller" type="Node2D" parent="." unique_id=594192795]
+script = ExtResource("1_afhwv")
