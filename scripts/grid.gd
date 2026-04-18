@@ -64,6 +64,7 @@ func _ready():
 	grid[3][4]["blocked"] = true
 
 	update_tiles()
+	center_grid()
 
 
 func _input(event):
@@ -129,3 +130,9 @@ func update_tiles():
 
 	# draw player (overwrites tile visually)
 	tilemap.set_cell(player_pos, SOURCE_ID, TILE_PLAYER)
+
+func center_grid():
+	var tile_size = tilemap.tile_set.tile_size  # Vector2i
+	var grid_pixel_size = Vector2(WIDTH * tile_size.x, HEIGHT * tile_size.y)
+
+	tilemap.position = -grid_pixel_size / 2
