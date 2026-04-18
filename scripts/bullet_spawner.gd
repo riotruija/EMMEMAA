@@ -11,6 +11,7 @@ func spawn_bullet(flipped: bool):
 	var bullet = bullet_scene.instantiate()
 	if flipped:
 		bullet.speed = -BULLET_SPEED
+		
 	else:
 		bullet.speed = BULLET_SPEED
 	add_child(bullet)
