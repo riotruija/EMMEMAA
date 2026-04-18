@@ -467,7 +467,7 @@ shape = SubResource("RectangleShape2D_dhl84")
 script = ExtResource("1_2umt7")
 vastane_sateliit = ExtResource("3_2tfwh")
 
-[node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind", "spawn_points") groups=["glorbert"]]
+[node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind", "spawn_points", "gun_spawn_points") groups=["glorbert"]]
 position = Vector2(271.00006, 1.9999981)
 scale = Vector2(10, 10)
 script = ExtResource("2_2umt7")
@@ -563,7 +563,8 @@ position = Vector2(1337, 285)
 [node name="GunSpawnPoints" type="Node2D" parent="." unique_id=172733491]
 
 [node name="GunSpawn1" type="Marker2D" parent="GunSpawnPoints" unique_id=1150996356]
-position = Vector2(2124, 309)
+position = Vector2(2512, -122)
+
 [node name="platvormid" type="Node2D" parent="." unique_id=714089218]
 position = Vector2(625, 246)
 
