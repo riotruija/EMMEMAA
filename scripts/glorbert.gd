@@ -24,21 +24,21 @@ func _ready() -> void:
 func _unhandled_key_input(event: InputEvent) -> void:		
 	if event.is_action("left") and event.is_pressed():
 		hoiab_vasakule = true
-		sprite.flip_h = true
-		sprite.play("running")
+		#sprite.flip_h = true
+		#sprite.play("running")
 		
 	if event.is_action("left") and event.is_released():
 		hoiab_vasakule = false
-		sprite.play("idle")
+		#sprite.play("idle")
 		
 	if event.is_action("right") and event.is_pressed():
 		hoiab_paremale = true
-		sprite.flip_h = false
-		sprite.play("running")
+		#sprite.flip_h = false
+		#sprite.play("running")
 		
 	if event.is_action("right") and event.is_released():
 		hoiab_paremale = false
-		sprite.play("idle")
+		#sprite.play("idle")
 	
 func _physics_process(delta: float) -> void:
 	if not glorbert_keha.is_on_floor():
@@ -59,9 +59,19 @@ func _physics_process(delta: float) -> void:
 			
 		if glorbert_keha.velocity.y >= 0:
 			sprite.play("jumping")
-	print(glorbert_keha.is_on_floor())
-	"""if glorbert_keha.is_on_floor():
-		sprite.play("idle")"""
+	else:
+		if glorbert_keha.velocity.x > 10:
+			sprite.play("running")
+			sprite.flip_h = false
+		elif glorbert_keha.velocity.x < -10:
+			sprite.play("running")
+			sprite.flip_h = true
+		else:
+			sprite.play("idle")
+		
+			
+		print()
+	
 	
 	glorbert_keha.move_and_slide()
 
