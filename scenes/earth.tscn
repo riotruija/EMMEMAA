@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d0kbuwikl00w6" path="res://img/tegelane/glorbert with hat.png" id="4_3t2fh"]
 [ext_resource type="Script" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
 [ext_resource type="Texture2D" uid="uid://c2on6w0ii8b0j" path="res://img/tegelane/glorbert with gun.png" id="5_78p35"]
+[ext_resource type="Texture2D" uid="uid://cptiy7g01xkan" path="res://img/tegelane/glorbert with gun and hat.png" id="6_yhjmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -272,7 +273,93 @@ animations = [{
 }],
 "loop": true,
 "name": &"running",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hto2j"]
+atlas = ExtResource("6_yhjmp")
+region = Rect2(291, 465, 270, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui76c"]
+atlas = ExtResource("6_yhjmp")
+region = Rect2(615, 459, 270, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t2u4"]
+atlas = ExtResource("6_yhjmp")
+region = Rect2(34, 476, 270, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scj2e"]
+atlas = ExtResource("6_yhjmp")
+region = Rect2(35, 0, 261, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfpyh"]
+atlas = ExtResource("6_yhjmp")
+region = Rect2(296, 0, 261, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djwa2"]
+atlas = ExtResource("6_yhjmp")
+region = Rect2(557, 0, 261, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kfxc"]
+atlas = ExtResource("6_yhjmp")
+region = Rect2(818, 0, 261, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbm0m"]
+atlas = ExtResource("6_yhjmp")
+region = Rect2(1079, 0, 261, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o7jw"]
+atlas = ExtResource("6_yhjmp")
+region = Rect2(1340, 0, 261, 340)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hto2j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hto2j")
+}],
+"loop": true,
+"name": &"falling",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ui76c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t2u4")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scj2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfpyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djwa2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kfxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbm0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o7jw")
+}],
+"loop": true,
+"name": &"running",
+"speed": 10.0
 }]
 
 [node name="Earth" type="Node2D" unique_id=516625783]
@@ -328,14 +415,20 @@ animation = &"jumping"
 position = Vector2(0, -6)
 scale = Vector2(0.113, 0.12)
 sprite_frames = SubResource("SpriteFrames_fpmy6")
-animation = &"running"
+animation = &"falling"
 
 [node name="Glorbert_sprite_gun" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=558439531]
 visible = false
 position = Vector2(0, -6)
 scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_scj2e")
-animation = &"jumping"
+animation = &"running"
+
+[node name="Glorbert_sprite_foolum_gun" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=925310946]
+position = Vector2(0, -6)
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_hto2j")
+animation = &"falling"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730 node_paths=PackedStringArray("target")]
 limit_left = 0
