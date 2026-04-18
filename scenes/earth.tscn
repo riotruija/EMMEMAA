@@ -386,7 +386,7 @@ shader_parameter/strength = 0.0
 shader_parameter/direction = Vector2(1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3l3g"]
-size = Vector2(1511, 131.00006)
+size = Vector2(2567, 131.00006)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvqq7"]
 size = Vector2(413, 62)
@@ -564,6 +564,7 @@ position = Vector2(1337, 285)
 
 [node name="GunSpawn1" type="Marker2D" parent="GunSpawnPoints" unique_id=1150996356]
 position = Vector2(2124, 309)
+
 [node name="platvormid" type="Node2D" parent="." unique_id=714089218]
 position = Vector2(625, 246)
 
@@ -573,14 +574,14 @@ rotation = -3.1415925
 
 [node name="GroundshipMuld" type="Sprite2D" parent="platvormid/StaticBody2D7" unique_id=1515662253]
 texture_repeat = 2
-position = Vector2(0.72984785, 0)
+position = Vector2(-554, 19.000082)
 scale = Vector2(0.99908775, 1)
 texture = ExtResource("2_v4u8f")
 region_enabled = true
-region_rect = Rect2(0, 0, 1600, 250)
+region_rect = Rect2(0, 0, 2600, 250)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D7" unique_id=1414735530]
-position = Vector2(-42.5, 55.49991)
+position = Vector2(-570.50006, 55.499786)
 shape = SubResource("RectangleShape2D_m3l3g")
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="platvormid" unique_id=789712814]
@@ -620,6 +621,36 @@ position = Vector2(958, 65)
 texture = ExtResource("13_nj2me")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D4" unique_id=658861204]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_yvqq7")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="platvormid" unique_id=278838744]
+position = Vector2(1093, 135)
+
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D8" unique_id=1913933971]
+texture = ExtResource("13_nj2me")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D8" unique_id=606122910]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_yvqq7")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="platvormid" unique_id=254201640]
+position = Vector2(1735, 134)
+
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D9" unique_id=2146457747]
+texture = ExtResource("13_nj2me")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D9" unique_id=355377468]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_yvqq7")
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="platvormid" unique_id=904911736]
+position = Vector2(1422, 134)
+
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D10" unique_id=1109221036]
+texture = ExtResource("13_nj2me")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D10" unique_id=447677357]
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_yvqq7")
 
