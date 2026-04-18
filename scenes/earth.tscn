@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://beq346gg07hqi" path="res://img/tegelane/bumass glorbert .png" id="2_2tfwh"]
 [ext_resource type="Script" uid="uid://bxbco2rq6i1pf" path="res://scripts/glorbert.gd" id="2_2umt7"]
 [ext_resource type="Texture2D" uid="uid://d0kbuwikl00w6" path="res://img/tegelane/glorbert with hat.png" id="4_3t2fh"]
-[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
+[ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -190,24 +190,13 @@ animations = [{
 
 [node name="Earth" type="Node2D" unique_id=516625783]
 
-[node name="Background_mets" type="Sprite2D" parent="." unique_id=1923118823]
+[node name="Background" type="Sprite2D" parent="." unique_id=1923118823]
 texture_repeat = 2
 position = Vector2(1, -547)
 texture = ExtResource("1_2tfwh")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 2560, 1080)
-
-[node name="Background_linn" type="Sprite2D" parent="." unique_id=689841674]
-texture_repeat = 2
-position = Vector2(3840, 0)
-texture = ExtResource("2_78p35")
-region_enabled = true
-region_rect = Rect2(4480, 0, 2560, 1080)
-
-[node name="Background_korb" type="Sprite2D" parent="." unique_id=293653502]
-position = Vector2(6080, 0)
-texture = ExtResource("3_yhjmp")
+region_rect = Rect2(0, 0, 9600, 1080)
 
 [node name="maapind" type="Node2D" parent="." unique_id=1524979613]
 position = Vector2(0, 400)
@@ -254,7 +243,6 @@ sprite_frames = SubResource("SpriteFrames_fpmy6")
 animation = &"running"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730 node_paths=PackedStringArray("target")]
-position = Vector2(576, -6)
 limit_left = 0
 limit_top = -2000
 limit_right = 9600
