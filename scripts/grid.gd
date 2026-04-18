@@ -9,13 +9,13 @@ const HEIGHT := 6
 # === TILE IDs (CHANGE THESE TO MATCH YOUR TILESET) ===
 const SOURCE_ID := 0
 
-const TILE_EMPTY := Vector2i(0, 0)
-const TILE_PATH := Vector2i(3, 5)
-const TILE_BLOCKED := Vector2i(5, 7)
-const TILE_PLAYER := Vector2i(6, 2)
+const TILE_EMPTY := Vector2i(3, 2)
+const TILE_PATH := Vector2i(5, 5)
+const TILE_BLOCKED := Vector2i(0, 0)
+const TILE_PLAYER := Vector2i(5, 7)
 
 # === GAME STATE ===
-var player_pos := Vector2i(0, 0)
+var player_pos := Vector2i(0, 5)
 var path: Array[Vector2i] = []
 var grid := []
 
@@ -31,13 +31,37 @@ func _ready():
 			})
 
 	# starting position
-	player_pos = Vector2i(0, 0)
+	player_pos = Vector2i(0, 4)
 	path.append(player_pos)
-	grid[0][0]["filled"] = true
+	grid[4][0]["filled"] = true
 
 	# example blocked tiles
-	grid[2][3]["blocked"] = true
-	grid[3][3]["blocked"] = true
+	grid[0][0]["blocked"] = true
+	grid[0][1]["blocked"] = true
+	grid[1][0]["blocked"] = true
+	grid[2][0]["blocked"] = true
+	grid[3][0]["blocked"] = true
+	grid[5][0]["blocked"] = true
+	
+	grid[5][1]["blocked"] = true
+	grid[5][2]["blocked"] = true
+	grid[5][3]["blocked"] = true
+	grid[5][7]["blocked"] = true
+
+	grid[3][7]["blocked"] = true
+	grid[4][7]["blocked"] = true
+	
+	grid[0][6]["blocked"] = true
+	grid[0][7]["blocked"] = true
+	
+	grid[1][6]["blocked"] = true
+	grid[1][7]["blocked"] = true
+	
+	grid[1][3]["blocked"] = true
+	grid[1][4]["blocked"] = true
+	
+	grid[2][4]["blocked"] = true
+	grid[3][4]["blocked"] = true
 
 	update_tiles()
 
