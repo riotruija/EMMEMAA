@@ -15,8 +15,8 @@ const TIMEOUT_SCENE := "res://your_scene.tscn"  # change to your target scene
 # === TILE IDs (CHANGE THESE TO MATCH YOUR TILESET) ===
 const SOURCE_ID := 9
 
-const TILE_EMPTY := Vector2i(3, 2)
-const TILE_PATH := Vector2i(0, 0)
+const TILE_EMPTY := Vector2i(0, 0)
+const TILE_PATH := Vector2i(1, 0)
 const TILE_BLOCKED := Vector2i(2, 1)
 const TILE_PLAYER := Vector2i(0, 1)
 
@@ -159,10 +159,10 @@ func update_tiles():
 	tilemap.set_cell(player_pos, SOURCE_ID, TILE_PLAYER)
 
 func center_grid():
-	var tile_size = tilemap.tile_set.tile_size  # Vector2i
+	var tile_size = Vector2(tilemap.tile_set.tile_size) * tilemap.scale
 	var grid_pixel_size = Vector2(WIDTH * tile_size.x, HEIGHT * tile_size.y)
 
-	tilemap.position = -grid_pixel_size / 2
+	tilemap.position = -grid_pixel_size / 2 + tile_size / 2
 
 func check_win() -> void:
 	for y in range(HEIGHT):
