@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
 [ext_resource type="Texture2D" uid="uid://c2on6w0ii8b0j" path="res://img/tegelane/glorbert with gun.png" id="5_78p35"]
 [ext_resource type="Texture2D" uid="uid://cptiy7g01xkan" path="res://img/tegelane/glorbert with gun and hat.png" id="6_yhjmp"]
+[ext_resource type="AudioStream" uid="uid://bemigblu3uj21" path="res://music/main_music.mp3" id="8_8otvb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -405,13 +406,13 @@ position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_2umt7")
 
 [node name="Glorbert_sprite" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=1041193925]
-visible = false
 position = Vector2(2.9802322e-08, -6.0000014)
 scale = Vector2(0.109, 0.12)
 sprite_frames = SubResource("SpriteFrames_k5w1d")
 animation = &"jumping"
 
 [node name="Glorbert_sprite_foolium" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=725923983]
+visible = false
 position = Vector2(0, -6)
 scale = Vector2(0.113, 0.12)
 sprite_frames = SubResource("SpriteFrames_fpmy6")
@@ -425,6 +426,7 @@ sprite_frames = SubResource("SpriteFrames_scj2e")
 animation = &"running"
 
 [node name="Glorbert_sprite_foolum_gun" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=925310946]
+visible = false
 position = Vector2(0, -6)
 scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_hto2j")
@@ -437,3 +439,7 @@ limit_right = 9600
 limit_bottom = 2000
 script = ExtResource("4_k5w1d")
 target = NodePath("../glorbert/glorbert_keha")
+
+[node name="Music_player" type="AudioStreamPlayer2D" parent="." unique_id=1621905584]
+stream = ExtResource("8_8otvb")
+bus = &"Music"
