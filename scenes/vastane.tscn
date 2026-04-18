@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://ch3fdicenjkvs"]
+[gd_scene format=3 uid="uid://cs5qhw0l6qdrd"]
 
-[ext_resource type="Script" uid="uid://jsx7237sp2jm" path="res://scripts/vastane.gd" id="1_bx1h7"]
+[ext_resource type="Script" path="res://scripts/vastane.gd" id="1_bx1h7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73f72"]
 
