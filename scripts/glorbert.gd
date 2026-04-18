@@ -27,7 +27,14 @@ var has_hat: bool = false
 var current_hat: Node = null
 var used_spawn_points: Array = []
 
-# === GUN?? ===
+# === GUN SYSTEM ===
+@export var gun_scene: PackedScene
+@export var gun_spawn_points: Node2D
+const GUN_DURATION := 10.0  # seconds
+var gun_time_left := 0.0
+var used_gun_spawn_points: Array = []
+@onready var gun_timer_bar = $"../CanvasLayer/GunTimerBar"
+@onready var gun_timer_fill = $"../CanvasLayer/GunTimerBar/Fill"
 var has_gun: bool = false
 
 
@@ -39,6 +46,8 @@ func _ready() -> void:
 	glorbert_sprite_tavaline.show()
 	maapinna_pind = maapind.get_node("StaticBody2D")
 	spawn_hat()
+	spawn_all_guns()  # ← add this
+	gun_timer_bar.hide()
 
 func _unhandled_key_input(event: InputEvent) -> void:		
 	if event.is_action("left") and event.is_pressed():
@@ -116,7 +125,11 @@ func _physics_process(delta: float) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if has_gun:
+		gun_time_left -= delta
+		update_gun_timer_bar()
+		if gun_time_left <= 0:
+			lose_gun()
 
 func spawn_hat() -> void:
 	if has_hat or current_hat != null:
@@ -166,10 +179,39 @@ func lose_hat() -> void:
 	print("Lost the hat!")
 	spawn_hat()
 
+func spawn_all_guns() -> void:
+	if gun_spawn_points == null:
+		return
+	for point in gun_spawn_points.get_children():
+		if point in used_gun_spawn_points:
+			continue
+		spawn_gun_at(point)
+
+func spawn_gun_at(point: Node2D) -> void:
+	var gun = gun_scene.instantiate()
+	gun_spawn_points.add_child(gun)
+	gun.global_position = point.global_position
+	gun.picked_up.connect(_on_gun_picked_up.bind(point))
+
+func _on_gun_picked_up(point: Node2D) -> void:
+	used_gun_spawn_points.append(point)
+	pick_up_gun()
+
 func pick_up_gun() -> void:
 	has_gun = true
+	gun_time_left = GUN_DURATION  # reset to full whether new pickup or refill
+	gun_timer_bar.show()
+	update_gun_timer_bar()
 	update_sprite()
 
 func lose_gun() -> void:
 	has_gun = false
+	gun_time_left = 0
+	gun_timer_bar.hide()
 	update_sprite()
+
+func update_gun_timer_bar() -> void:
+	# Shrink from both sides — the fill goes from 100% width to 0%
+	var ratio = clamp(gun_time_left / GUN_DURATION, 0.0, 1.0)
+	gun_timer_fill.anchor_left = 0.5 - (ratio * 0.5)
+	gun_timer_fill.anchor_right = 0.5 + (ratio * 0.5)
