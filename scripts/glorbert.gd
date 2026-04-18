@@ -28,7 +28,9 @@ var double_jump_available: bool = true
 @onready var hurt_player = $"../Camera2D/Sounds/Hurt"
 @onready var hat_pickup_player = $"../Camera2D/Sounds/Hat_pickup"
 @onready var gun_pickup_player = $"../Camera2D/Sounds/Gun_pickup"
-var on_jooksmas = false
+@onready var gun_shoot_player = $"../Camera2D/Sounds/Gun_shoot"
+var on_jooksmas:bool = false
+var oli_porandal:bool = true
 # === HAT SYSTEM ===
 @export var hat_scene: PackedScene
 @export var spawn_points: Node2D  # drag your HatSpawnPoints node here in the inspector
@@ -83,6 +85,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func fire() -> void:
 	$BulletSpawner.spawn_bullet(sprite.flip_h)
+	gun_shoot_player.play()
+	
 	
 	
 func take_damage():
@@ -119,6 +123,11 @@ func update_sprite() -> void:
 	sprite = new_sprite
 
 func _physics_process(delta: float) -> void:
+	var on_praegu_porandal = is_on_floor()
+	
+	if on_praegu_porandal and not oli_porandal:
+		landing_player.play()
+		
 	if not glorbert.is_on_floor():
 		glorbert.velocity.y += GRAVITATSIOON * delta
 	if hoiab_paremale and not hoiab_vasakule:
@@ -133,25 +142,28 @@ func _physics_process(delta: float) -> void:
 		print("kargab")
 		velocity.y = -SAAPAD_YLES
 		jumping_player.play()
-		
-	if sprite.animation == "running":
-		running_player.play()
-	else:
-		running_player.stop()
-	if not is_on_floor():
-		if velocity.y < 0:
-			sprite.play("falling")
-		if velocity.y >= 0:
-			sprite.play("jumping")
+	
 	if glorbert.is_on_floor() and not double_jump_available:
 		double_jump_available = true
+		
+	if not is_on_floor():
+		if velocity.y < 0:
+			sprite.play("jumping")
+		if velocity.y >= 0:
+			sprite.play("falling")
+		running_player.stop()
+		on_jooksmas = false
 	else:
-		if velocity.x > 10:
+		if velocity.x > 10 or velocity.x < -10:
 			sprite.play("running")
-		elif velocity.x < -10:
-			sprite.play("running")
+			on_jooksmas = true
+			if not running_player.playing:
+				running_player.play()
 		else:
 			sprite.play("idle")
+			on_jooksmas = false
+			running_player.stop()
+	oli_porandal = on_praegu_porandal
 	glorbert.move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -175,7 +187,7 @@ func spawn_hat() -> void:
 	var min_distance = 300.0
 	var valid = points.filter(func(p): 
 		return p.global_position.distance_to(global_position) > min_distance
-	)
+	) 
 	if valid.is_empty():
 		valid = points
 	
