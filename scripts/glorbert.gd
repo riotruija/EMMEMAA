@@ -125,6 +125,10 @@ func update_sprite() -> void:
 func _physics_process(delta: float) -> void:
 	var on_praegu_porandal = is_on_floor()
 	
+	print(global_position.y)
+	if global_position.y > 600:
+		die()
+	
 	if on_praegu_porandal and not oli_porandal:
 		landing_player.play()
 		
@@ -165,6 +169,9 @@ func _physics_process(delta: float) -> void:
 			running_player.stop()
 	oli_porandal = on_praegu_porandal
 	glorbert.move_and_slide()
+
+func die() -> void:
+	get_tree().reload_current_scene()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
