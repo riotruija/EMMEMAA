@@ -4,7 +4,11 @@
 [ext_resource type="Script" uid="uid://bmbg5ltbhyb75" path="res://scripts/satelliidi_kontroller.gd" id="1_2umt7"]
 [ext_resource type="Texture2D" uid="uid://beq346gg07hqi" path="res://img/tegelane/bumass glorbert .png" id="2_2tfwh"]
 [ext_resource type="Script" uid="uid://bxbco2rq6i1pf" path="res://scripts/glorbert.gd" id="2_2umt7"]
+[ext_resource type="Texture2D" uid="uid://c4numpganv21f" path="res://img/taustad/linna_background.png" id="2_78p35"]
+[ext_resource type="Texture2D" uid="uid://3km4bvr4150v" path="res://img/platforms/groundshipMULD.png" id="2_v4u8f"]
+[ext_resource type="Texture2D" uid="uid://b6vyhec4x12i4" path="res://img/platforms/groundship.png" id="2_yvqq7"]
 [ext_resource type="PackedScene" uid="uid://cs5qhw0l6qdrd" path="res://scenes/vastane.tscn" id="3_2tfwh"]
+[ext_resource type="Texture2D" uid="uid://cqixbnrrv1due" path="res://img/taustad/kõrbe_background.png" id="3_yhjmp"]
 [ext_resource type="Texture2D" uid="uid://d0kbuwikl00w6" path="res://img/tegelane/glorbert with hat.png" id="4_3t2fh"]
 [ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
 [ext_resource type="Texture2D" uid="uid://c2on6w0ii8b0j" path="res://img/tegelane/glorbert with gun.png" id="5_78p35"]
@@ -13,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://xaaappqpirhl" path="res://scenes/GunPickup.tscn" id="6_nj2me"]
 [ext_resource type="Texture2D" uid="uid://cptiy7g01xkan" path="res://img/tegelane/glorbert with gun and hat.png" id="6_yhjmp"]
 [ext_resource type="Script" uid="uid://8iavkyrbxyvc" path="res://scripts/pauk.gd" id="7_yhjmp"]
+[ext_resource type="Texture2D" uid="uid://b4hahsoudhjqe" path="res://img/platforms/platform dirt.png" id="13_nj2me"]
+[ext_resource type="Texture2D" uid="uid://426n1eqdoe55" path="res://img/platforms/Muru pool.png" id="18_u74q0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -20,9 +26,15 @@ size = Vector2(12851.5, 8)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_2tfwh"]
 b = Vector2(-4, -1140)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4u8f"]
+size = Vector2(46.899998, 28.899996)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhl84"]
+size = Vector2(24, 20)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2umt7"]
-radius = 4.5
-height = 13.0
+radius = 2.999998
+height = 10.799999
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7e7ie"]
 atlas = ExtResource("5_78p35")
@@ -373,20 +385,22 @@ shader = ExtResource("6_78p35")
 shader_parameter/strength = 0.0
 shader_parameter/direction = Vector2(1, 0)
 
-[node name="Earth" type="Node2D" unique_id=516625783]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3l3g"]
+size = Vector2(1511, 131.00006)
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1923118823]
-texture_repeat = 2
-position = Vector2(8, -544)
-texture = ExtResource("1_2tfwh")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 9600, 1080)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvqq7"]
+size = Vector2(413, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u74q0"]
+size = Vector2(193, 63)
+
+[node name="Earth" type="Node2D" unique_id=516625783]
 
 [node name="maapind" type="Node2D" parent="." unique_id=1524979613]
 position = Vector2(0, 400)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="maapind" unique_id=362259706]
+position = Vector2(0, 997)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="maapind/StaticBody2D" unique_id=2068213636]
 position = Vector2(3426, -5)
@@ -400,12 +414,61 @@ uv = PackedVector2Array(-140.3778, -12.3396, -144.00034, 27.333336, 131.99966, 2
 position = Vector2(2, 296)
 shape = SubResource("SegmentShape2D_2tfwh")
 
+[node name="taust" type="Node2D" parent="." unique_id=725482707]
+
+[node name="LinnaBackground" type="Sprite2D" parent="taust" unique_id=362763688]
+position = Vector2(3519, -5)
+texture = ExtResource("2_78p35")
+
+[node name="LinnaBackground2" type="Sprite2D" parent="taust" unique_id=913391921]
+position = Vector2(4786, -6)
+scale = Vector2(0.33, 1)
+texture = ExtResource("2_78p35")
+
+[node name="Background" type="Sprite2D" parent="taust" unique_id=1923118823]
+texture_repeat = 2
+position = Vector2(8, -544)
+texture = ExtResource("1_2tfwh")
+centered = false
+region_rect = Rect2(0, 0, 9600, 1080)
+
+[node name="KõrbeBackground" type="Sprite2D" parent="taust" unique_id=550251292]
+position = Vector2(6053, -6)
+texture = ExtResource("3_yhjmp")
+
+[node name="Background2" type="Sprite2D" parent="taust" unique_id=1686780176]
+texture_repeat = 2
+position = Vector2(1926, -544)
+scale = Vector2(0.33, 1)
+texture = ExtResource("1_2tfwh")
+centered = false
+region_rect = Rect2(0, 0, 9600, 1080)
+
+[node name="laev" type="StaticBody2D" parent="." unique_id=1879706681]
+position = Vector2(271.00006, 1.9999981)
+scale = Vector2(10, 10)
+
+[node name="Groundship" type="Sprite2D" parent="laev" unique_id=1870558858]
+position = Vector2(10.499994, 15.3)
+scale = Vector2(0.099999994, 0.099999994)
+texture = ExtResource("2_yvqq7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="laev" unique_id=1433648796]
+position = Vector2(-3.850008, 26.85)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_v4u8f")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="laev" unique_id=293408969]
+position = Vector2(29.399992, 30.3)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_dhl84")
+
 [node name="satelliidi_kontroller" type="Node" parent="." unique_id=1695854773]
 script = ExtResource("1_2umt7")
 vastane_sateliit = ExtResource("3_2tfwh")
 
-[node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind", "spawn_points", "gun_spawn_points") groups=["glorbert"]]
-position = Vector2(200, 250)
+[node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind", "spawn_points") groups=["glorbert"]]
+position = Vector2(271.00006, 1.9999981)
 scale = Vector2(10, 10)
 script = ExtResource("2_2umt7")
 glorbert = NodePath(".")
@@ -416,7 +479,7 @@ gun_scene = ExtResource("6_nj2me")
 gun_spawn_points = NodePath("../GunSpawnPoints")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="glorbert" unique_id=2135669053]
-position = Vector2(1.3333334, 1.1666667)
+position = Vector2(1.5999929, 2.4)
 shape = SubResource("CapsuleShape2D_2umt7")
 
 [node name="Glorbert_sprite_gun" type="AnimatedSprite2D" parent="glorbert" unique_id=558439531]
@@ -426,18 +489,21 @@ sprite_frames = SubResource("SpriteFrames_scj2e")
 animation = &"running"
 
 [node name="Glorbert_sprite" type="AnimatedSprite2D" parent="glorbert" unique_id=1041193925]
+visible = false
 position = Vector2(1, 1)
 scale = Vector2(0.036333334, 0.04)
 sprite_frames = SubResource("SpriteFrames_k5w1d")
 animation = &"jumping"
 
 [node name="Glorbert_sprite_foolium" type="AnimatedSprite2D" parent="glorbert" unique_id=725923983]
+visible = false
 position = Vector2(1, 1)
 scale = Vector2(0.037666667, 0.04)
 sprite_frames = SubResource("SpriteFrames_fpmy6")
 animation = &"jumping"
 
 [node name="Glorbert_sprite_foolium_gun" type="AnimatedSprite2D" parent="glorbert" unique_id=925310946]
+visible = false
 position = Vector2(1, 1)
 scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_hto2j")
@@ -498,3 +564,82 @@ position = Vector2(1337, 285)
 
 [node name="GunSpawn1" type="Marker2D" parent="GunSpawnPoints" unique_id=1150996356]
 position = Vector2(2124, 309)
+[node name="platvormid" type="Node2D" parent="." unique_id=714089218]
+position = Vector2(625, 246)
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="platvormid" unique_id=1326096048]
+position = Vector2(87, 277)
+rotation = -3.1415925
+
+[node name="GroundshipMuld" type="Sprite2D" parent="platvormid/StaticBody2D7" unique_id=1515662253]
+texture_repeat = 2
+position = Vector2(0.72984785, 0)
+scale = Vector2(0.99908775, 1)
+texture = ExtResource("2_v4u8f")
+region_enabled = true
+region_rect = Rect2(0, 0, 1600, 250)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D7" unique_id=1414735530]
+position = Vector2(-42.5, 55.49991)
+shape = SubResource("RectangleShape2D_m3l3g")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="platvormid" unique_id=789712814]
+position = Vector2(680, 133.00003)
+
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D6" unique_id=645650393]
+texture = ExtResource("13_nj2me")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D6" unique_id=2034609897]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_yvqq7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platvormid" unique_id=771905002]
+position = Vector2(269, 131)
+
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D" unique_id=900973858]
+texture = ExtResource("13_nj2me")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D" unique_id=472150549]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_yvqq7")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="platvormid" unique_id=700945220]
+position = Vector2(1297, -55)
+
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D3" unique_id=1511254397]
+texture = ExtResource("13_nj2me")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D3" unique_id=340145090]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_yvqq7")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="platvormid" unique_id=1437331262]
+position = Vector2(958, 65)
+
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D4" unique_id=1989943374]
+texture = ExtResource("13_nj2me")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D4" unique_id=658861204]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_yvqq7")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="platvormid" unique_id=1945473628]
+position = Vector2(1811, -265)
+
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D5" unique_id=72974586]
+texture = ExtResource("13_nj2me")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D5" unique_id=1630111450]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_yvqq7")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="platvormid" unique_id=69677174]
+position = Vector2(-13, -4)
+
+[node name="MuruPool" type="Sprite2D" parent="platvormid/StaticBody2D2" unique_id=327207330]
+position = Vector2(580, -156)
+texture = ExtResource("18_u74q0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D2" unique_id=1088157697]
+position = Vector2(594.5, -144.5)
+shape = SubResource("RectangleShape2D_u74q0")
