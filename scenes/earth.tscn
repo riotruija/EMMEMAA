@@ -562,8 +562,6 @@ scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_hto2j")
 animation = &"falling"
 
-<<<<<<< HEAD
-=======
 [node name="BulletSpawner" type="Node2D" parent="glorbert" unique_id=669442217]
 script = ExtResource("14_fpmy6")
 bullet_scene = ExtResource("15_8dfur")
@@ -581,7 +579,6 @@ volume_db = 8.0
 stream = ExtResource("16_r20oc")
 volume_db = 8.0
 
->>>>>>> f57c79e170f8ef9b41ad337caccb44ffed7bd03a
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1376530337]
 layer = 10
 
@@ -633,31 +630,19 @@ bus = &"Music"
 position = Vector2(271.00006, 1.9999981)
 scale = Vector2(10, 10)
 
-<<<<<<< HEAD
-[node name="Jumping" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=878761718]
-=======
 [node name="Jumping" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=623862564]
->>>>>>> f57c79e170f8ef9b41ad337caccb44ffed7bd03a
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("14_qawek")
 volume_db = 16.0
 bus = &"SFX"
 
-<<<<<<< HEAD
-[node name="Running" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=217109749]
-=======
 [node name="Running" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=2007691946]
->>>>>>> f57c79e170f8ef9b41ad337caccb44ffed7bd03a
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("15_7e7ie")
 volume_db = 13.0
 bus = &"SFX"
 
-<<<<<<< HEAD
-[node name="Landing" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=934141685]
-=======
 [node name="Landing" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=746770413]
->>>>>>> f57c79e170f8ef9b41ad337caccb44ffed7bd03a
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("16_r20oc")
 volume_db = 8.0
