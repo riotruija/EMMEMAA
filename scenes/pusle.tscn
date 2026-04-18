@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://kqvj7mwvu4pt" path="res://scripts/grid.gd" id="1_mnxy6"]
 [ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="2_gt68l"]
-[ext_resource type="Texture2D" uid="uid://irgt4v5sxu1g" path="res://img/nool.png" id="4_gt68l"]
+[ext_resource type="AudioStream" uid="uid://cukmhakb807ly" path="res://music/puzzle_backgroundmp3.mp3" id="4_gt68l"]
 [ext_resource type="Texture2D" uid="uid://b2q0utx5yvoqn" path="res://img/uuedkastid.png" id="5_k8l4c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gt4qv"]
@@ -88,6 +88,10 @@ vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1800623802]
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D" unique_id=115465935]
+stream = ExtResource("4_gt68l")
+autoplay = true
+bus = &"Music"
 [node name="Nool" type="Sprite2D" parent="." unique_id=1733310016]
 position = Vector2(-528, 252)
 rotation = 1.5707964
