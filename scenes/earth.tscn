@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bj0o1j5irgvgm"]
+[gd_scene format=3 uid="uid://bd5gfe244tfnw"]
 
 [ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="1_2tfwh"]
 [ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scenes/camera_2d.gd" id="2_2tfwh"]
@@ -11,6 +11,94 @@ size = Vector2(12851.5, 8)
 b = Vector2(-4, -1140)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2umt7"]
+radius = 7.617035
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tike"]
+atlas = ExtResource("2_2tfwh")
+region = Rect2(280, 465, 280, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx6op"]
+atlas = ExtResource("2_2tfwh")
+region = Rect2(590, 465, 295, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymaxh"]
+atlas = ExtResource("2_2tfwh")
+region = Rect2(12, 465, 280, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxpmy"]
+atlas = ExtResource("2_2tfwh")
+region = Rect2(0, 1, 267, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_absew"]
+atlas = ExtResource("2_2tfwh")
+region = Rect2(267, 1, 267, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2mr0"]
+atlas = ExtResource("2_2tfwh")
+region = Rect2(534, 1, 267, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vuvk"]
+atlas = ExtResource("2_2tfwh")
+region = Rect2(801, 1, 267, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgtou"]
+atlas = ExtResource("2_2tfwh")
+region = Rect2(1068, 1, 267, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjrfg"]
+atlas = ExtResource("2_2tfwh")
+region = Rect2(1335, 1, 267, 336)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k5w1d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tike")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx6op")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymaxh")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxpmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_absew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2mr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vuvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgtou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjrfg")
+}],
+"loop": true,
+"name": &"running",
+"speed": 10.0
+}]
 
 [node name="Earth" type="Node2D" unique_id=516625783]
 
@@ -50,11 +138,18 @@ maapind = NodePath("../maapind")
 [node name="glorbert_keha" type="CharacterBody2D" parent="glorbert" unique_id=507191294]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="glorbert/glorbert_keha" unique_id=2135669053]
+position = Vector2(0, -2)
+rotation = 0.31066862
 shape = SubResource("CapsuleShape2D_2umt7")
 
-[node name="Polygon2D" type="Polygon2D" parent="glorbert/glorbert_keha" unique_id=1740144022]
-polygon = PackedVector2Array(0, -16, 9, -9, 10, 10, -1, 16, -10, 9, -10, -9)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=1041193925]
+position = Vector2(-0.34374997, -6.000002)
+scale = Vector2(0.12242508, 0.119047634)
+sprite_frames = SubResource("SpriteFrames_k5w1d")
+animation = &"falling"
+frame_progress = 0.73692584
 
+<<<<<<< HEAD
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730 node_paths=PackedStringArray("target")]
 limit_left = 0
 limit_top = -2000
@@ -62,3 +157,7 @@ limit_right = 9600
 limit_bottom = 2000
 script = ExtResource("2_2tfwh")
 target = NodePath("../glorbert/glorbert_keha")
+=======
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730]
+position = Vector2(0, -32)
+>>>>>>> schaff
