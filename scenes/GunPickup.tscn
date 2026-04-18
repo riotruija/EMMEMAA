@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://xaaappqpirhl"]
 
-[ext_resource type="Script" uid="uid://b43a2u0eero8g" path="res://scenes/gun_pickup.gd" id="1_6y48w"]
+[ext_resource type="Script" uid="uid://b43a2u0eero8g" path="res://scripts/gun_pickup.gd" id="1_6y48w"]
 [ext_resource type="Texture2D" uid="uid://diuftu38fk0ts" path="res://img/collect_items/gun.png" id="2_25g5n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jchem"]

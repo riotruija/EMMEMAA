@@ -58,6 +58,10 @@ func _ready() -> void:
 	spawn_hat()
 	spawn_all_guns()  # ← add this
 	gun_timer_bar.hide()
+	# Apply position from GameState if set (returning from puzzle)
+	if GameState.next_player_position != Vector2.ZERO:
+		global_position = GameState.next_player_position
+		GameState.next_player_position = Vector2.ZERO  # reset so it doesn't keep applying
 
 func _unhandled_key_input(event: InputEvent) -> void:		
 	if event.is_action("left") and event.is_pressed():

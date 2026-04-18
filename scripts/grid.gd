@@ -3,6 +3,10 @@ extends Node2D
 const WIDTH := 8
 const HEIGHT := 6
 
+# === COORDINATES TO RETURN TO ===
+const WIN_RETURN_POSITION := Vector2(6650, 300)   # change to wherever
+const LOSE_RETURN_POSITION := Vector2(6075, 80)   # change to wherever
+
 # === TIMER CONFIG ===
 const TIME_LIMIT := 45.0  # seconds — change this to adjust difficulty
 const TIMEOUT_SCENE := "res://earth.tscn"  # change to your target scene
@@ -111,10 +115,13 @@ func _process(delta):
 		return
 	time_left -= delta
 	update_timer_label()
+	# In _process (timeout = lose)
 	if time_left <= 0:
 		time_left = 0
 		update_timer_label()
 		game_over = true
+		GameState.next_player_position = LOSE_RETURN_POSITION
+		GameState.puzzle_won = false
 		# --- time over text ---
 		
 		var label = $UI/timeover
@@ -215,16 +222,16 @@ func center_grid():
 
 	tilemap.position = -grid_pixel_size / 2 + tile_size / 2
 
+# In check_win (win)
 func check_win() -> void:
 	for y in range(HEIGHT):
 		for x in range(WIDTH):
 			var cell = grid[y][x]
-
 			if cell["blocked"]:
 				continue
-
 			if not cell["filled"]:
-				return  # not finished yet
+				return
 	game_over = true
-	
+	GameState.next_player_position = WIN_RETURN_POSITION
+	GameState.puzzle_won = true
 	get_tree().change_scene_to_file("res://scenes/earth.tscn")
