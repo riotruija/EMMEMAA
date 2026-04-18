@@ -466,6 +466,9 @@ size = Vector2(402, 62)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ckq1"]
 size = Vector2(413.5, 345)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbm0m"]
+size = Vector2(213.22632, 69.68204)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dfur"]
 size = Vector2(406, 25)
 
@@ -922,6 +925,20 @@ texture = ExtResource("8_ui76c")
 position = Vector2(2623, 68)
 texture = ExtResource("33_8t2u4")
 
+[node name="StaticBody2D11" type="StaticBody2D" parent="platvormid" unique_id=2101301299]
+
+[node name="MuruPool" type="Sprite2D" parent="platvormid/StaticBody2D11" unique_id=1881609519]
+position = Vector2(2021.9998, 134.99997)
+rotation = 0.11055914
+scale = Vector2(1.1031395, 1)
+texture = ExtResource("18_u74q0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platvormid/StaticBody2D11" unique_id=561213194]
+position = Vector2(2045.2017, 152.18845)
+rotation = 0.11055911
+scale = Vector2(1.1031395, 1)
+shape = SubResource("RectangleShape2D_pbm0m")
+
 [node name="puu" type="StaticBody2D" parent="." unique_id=1684490555]
 position = Vector2(872, 2)
 
@@ -969,7 +986,3 @@ offset_right = 16.0
 offset_bottom = -102.0
 theme_override_font_sizes/font_size = 100
 text = "press e"
-
-[node name="MuruPool" type="Sprite2D" parent="." unique_id=1881609519]
-position = Vector2(2656, 378)
-texture = ExtResource("18_u74q0")
