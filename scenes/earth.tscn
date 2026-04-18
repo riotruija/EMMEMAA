@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bd5gfe244tfnw"]
 
+
 [ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="1_2tfwh"]
 [ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scenes/camera_2d.gd" id="2_2tfwh"]
 [ext_resource type="Script" uid="uid://bxbco2rq6i1pf" path="res://scripts/glorbert.gd" id="2_2umt7"]
+[ext_resource type="PackedScene" uid="uid://ch3fdicenjkvs" path="res://scenes/vastane.tscn" id="3_2tfwh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -127,8 +129,8 @@ uv = PackedVector2Array(-140.3778, -12.3396, -144.00034, 27.333336, 131.99966, 2
 position = Vector2(2, 296)
 shape = SubResource("SegmentShape2D_2tfwh")
 
-[node name="satelliidi_kontroller" type="Node2D" parent="." unique_id=594192795]
 
+[node name="satelliidi_kontroller" type="Node2D" parent="." unique_id=594192795]
 [node name="glorbert" type="Node2D" parent="." unique_id=621510937 node_paths=PackedStringArray("glorbert", "maapind")]
 position = Vector2(200, 250)
 script = ExtResource("2_2umt7")
