@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://db0c2gyemb2te" path="res://img/title_ph.png" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://rr7wq65xklsa" path="res://music/main_menu_music_intro.mp3" id="2_wu84c"]
 [ext_resource type="Script" uid="uid://cn46ta6lxh8lu" path="res://scripts/voluum_music.gd" id="5_8ln24"]
+[ext_resource type="Script" uid="uid://dvo0axwbcyfp8" path="res://scripts/voluum_sfx.gd" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]
 texture = ExtResource("1_ekxnf")
@@ -124,19 +125,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.0
+offset_left = -472.0
 offset_top = -132.0
-offset_right = 192.0
-offset_bottom = 124.0
+offset_right = 480.0
+offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 60
+theme_override_constants/separation = 86
 
 [node name="Start" type="Button" parent="Main_buttons" unique_id=978544163]
 layout_mode = 2
 theme = SubResource("Theme_bqqt6")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 86
 theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
@@ -145,7 +146,7 @@ text = "Start"
 [node name="Options" type="Button" parent="Main_buttons" unique_id=1181896786]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 86
 theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
@@ -154,7 +155,7 @@ text = "Options"
 [node name="Exit" type="Button" parent="Main_buttons" unique_id=467415667]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 86
 theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
@@ -183,24 +184,62 @@ anchor_left = 0.5
 anchor_top = -0.05
 anchor_right = 0.5
 anchor_bottom = -0.05
-offset_left = -128.0
-offset_top = 16.0
-offset_right = 128.0
-offset_bottom = 58.0
+offset_left = -161.0
+offset_top = -56.0
+offset_right = 159.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 98
 theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
 text = "Options"
 horizontal_alignment = 1
 
+[node name="SFX_Volume" type="Label" parent="Options" unique_id=13846719]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.05
+anchor_right = 0.5
+anchor_bottom = -0.05
+offset_left = -409.0
+offset_top = 224.0
+offset_right = 431.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 86
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="Music_Volume" type="Label" parent="Options" unique_id=337875115]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.05
+anchor_right = 0.5
+anchor_bottom = -0.05
+offset_left = -409.0
+offset_top = 88.0
+offset_right = 431.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 86
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+text = "Music Volume"
+horizontal_alignment = 1
+
 [node name="Options_back" type="Button" parent="Options" unique_id=1633189945]
 layout_mode = 0
-offset_left = 288.0
-offset_top = 272.0
-offset_right = 456.0
-offset_bottom = 325.0
+offset_left = 423.0
+offset_top = 432.0
+offset_right = 647.0
+offset_bottom = 525.0
 theme = SubResource("Theme_bqqt6")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -216,10 +255,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -129.0
-offset_top = -64.0
-offset_right = 127.0
-offset_bottom = -40.0
+offset_left = -385.0
+offset_top = -24.0
+offset_right = 383.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_wu84c")
@@ -227,7 +265,7 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_8ln24")
 min_value = -80.0
 max_value = 0.0
-value = -40.0
+value = -20.0
 script = ExtResource("5_8ln24")
 voluum_music = "Music"
 
@@ -238,18 +276,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -129.0
-offset_top = -8.0
-offset_right = 127.0
-offset_bottom = 16.0
+offset_left = -385.0
+offset_top = 104.0
+offset_right = 383.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_wu84c")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_8ln24")
+min_value = -80.0
+max_value = 0.0
+value = -20.0
+script = ExtResource("6_rtw2f")
+voluum_SFX = "SFX"
 
 [connection signal="pressed" from="Main_buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main_buttons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Main_buttons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/Options_back" to="." method="_on_options_back_pressed"]
 [connection signal="value_changed" from="Options/Voluum_Music" to="Options/Voluum_Music" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/Voluum_SFX" to="Options/Voluum_SFX" method="_on_value_changed"]
