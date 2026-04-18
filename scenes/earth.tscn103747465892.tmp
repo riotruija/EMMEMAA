@@ -19,12 +19,7 @@
 [ext_resource type="Script" uid="uid://8iavkyrbxyvc" path="res://scripts/pauk.gd" id="7_yhjmp"]
 [ext_resource type="Texture2D" uid="uid://b4hahsoudhjqe" path="res://img/platforms/platform dirt.png" id="13_nj2me"]
 [ext_resource type="Script" uid="uid://biuqx6ig0qkto" path="res://scripts/bullet_spawner.gd" id="14_fpmy6"]
-[ext_resource type="PackedScene" uid="uid://bup5t0ob1g00n" path="res://scenes/bullet.tscn" id="15_8dfur"]
-[ext_resource type="AudioStream" uid="uid://cna4io87gsb58" path="res://SFX/jumping.mp3" id="14_qawek"]
-[ext_resource type="AudioStream" uid="uid://74vxplloomo3" path="res://SFX/running_woods.mp3" id="15_7e7ie"]
-[ext_resource type="AudioStream" uid="uid://b461v6kb4mv7b" path="res://SFX/landing.mp3" id="16_r20oc"]
 [ext_resource type="Texture2D" uid="uid://426n1eqdoe55" path="res://img/platforms/Muru pool.png" id="18_u74q0"]
-[ext_resource type="Texture2D" uid="uid://o5t7s5wy6iyx" path="res://img/platforms/platform tree.png" id="20_fpmy6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -391,17 +386,14 @@ shader = ExtResource("6_78p35")
 shader_parameter/strength = 0.0
 shader_parameter/direction = Vector2(1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u74q0"]
-size = Vector2(193, 63)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3l3g"]
 size = Vector2(2567, 131.00006)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvqq7"]
 size = Vector2(413, 62)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dfur"]
-size = Vector2(406, 25)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u74q0"]
+size = Vector2(193, 63)
 
 [node name="Earth" type="Node2D" unique_id=516625783]
 
@@ -518,21 +510,8 @@ scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_hto2j")
 animation = &"falling"
 
-[node name="BulletSpawner" type="Node2D" parent="glorbert" unique_id=669442217]
+[node name="BulletSpawner" type="Node" parent="glorbert" unique_id=447466182]
 script = ExtResource("14_fpmy6")
-bullet_scene = ExtResource("15_8dfur")
-[node name="Jumping" type="AudioStreamPlayer2D" parent="glorbert" unique_id=549808218]
-stream = ExtResource("14_qawek")
-volume_db = 16.0
-bus = &"SFX"
-
-[node name="Running" type="AudioStreamPlayer2D" parent="glorbert" unique_id=644698300]
-stream = ExtResource("15_7e7ie")
-volume_db = 8.0
-
-[node name="Landing" type="AudioStreamPlayer2D" parent="glorbert" unique_id=216288642]
-stream = ExtResource("16_r20oc")
-volume_db = 8.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1376530337]
 layer = 10
@@ -579,26 +558,19 @@ target = NodePath("../glorbert")
 position = Vector2(-1.5258789e-05, 0)
 volume_db = 10.0
 autoplay = true
-bus = &"Music"
 
 [node name="HatSpawnPoints" type="Node2D" parent="." unique_id=1411088446]
 
 [node name="SPawnPoint1" type="Marker2D" parent="HatSpawnPoints" unique_id=1373713177]
 position = Vector2(1337, 285)
 
+[node name="GunSpawnPoints" type="Node2D" parent="." unique_id=172733491]
+
+[node name="GunSpawn1" type="Marker2D" parent="GunSpawnPoints" unique_id=1150996356]
+position = Vector2(2124, 309)
+
 [node name="platvormid" type="Node2D" parent="." unique_id=714089218]
 position = Vector2(625, 246)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="platvormid" unique_id=69677174]
-position = Vector2(-121, 205)
-
-[node name="MuruPool" type="Sprite2D" parent="platvormid/StaticBody2D2" unique_id=327207330]
-position = Vector2(580, -156)
-texture = ExtResource("18_u74q0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D2" unique_id=1088157697]
-position = Vector2(594.5, -144.5)
-shape = SubResource("RectangleShape2D_u74q0")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="platvormid" unique_id=1326096048]
 position = Vector2(87, 277)
@@ -637,7 +609,7 @@ position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_yvqq7")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="platvormid" unique_id=700945220]
-position = Vector2(1342, -71)
+position = Vector2(1297, -55)
 
 [node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D3" unique_id=1511254397]
 texture = ExtResource("13_nj2me")
@@ -647,7 +619,7 @@ position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_yvqq7")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="platvormid" unique_id=1437331262]
-position = Vector2(1096, -15)
+position = Vector2(958, 65)
 
 [node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D4" unique_id=1989943374]
 texture = ExtResource("13_nj2me")
@@ -686,27 +658,23 @@ texture = ExtResource("13_nj2me")
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_yvqq7")
 
-[node name="puu" type="StaticBody2D" parent="." unique_id=1684490555]
-position = Vector2(872, 2)
+[node name="StaticBody2D5" type="StaticBody2D" parent="platvormid" unique_id=1945473628]
+position = Vector2(1811, -265)
 
-[node name="Sprite2D" type="Sprite2D" parent="puu" unique_id=226235312]
-texture = ExtResource("20_fpmy6")
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D5" unique_id=72974586]
+texture = ExtResource("13_nj2me")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="puu" unique_id=500165220]
-position = Vector2(-4, 23.5)
-shape = SubResource("RectangleShape2D_8dfur")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D5" unique_id=1630111450]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_yvqq7")
 
-[node name="puu2" type="StaticBody2D" parent="." unique_id=159752800]
-position = Vector2(1782, -269)
+[node name="StaticBody2D2" type="StaticBody2D" parent="platvormid" unique_id=69677174]
+position = Vector2(-13, -4)
 
-[node name="Sprite2D" type="Sprite2D" parent="puu2" unique_id=739900670]
-texture = ExtResource("20_fpmy6")
+[node name="MuruPool" type="Sprite2D" parent="platvormid/StaticBody2D2" unique_id=327207330]
+position = Vector2(580, -156)
+texture = ExtResource("18_u74q0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="puu2" unique_id=1374656440]
-position = Vector2(-4, 23.5)
-shape = SubResource("RectangleShape2D_8dfur")
-
-[node name="GunSpawnPoints" type="Node2D" parent="." unique_id=172733491]
-
-[node name="GunSpawn1" type="Marker2D" parent="GunSpawnPoints" unique_id=1150996356]
-position = Vector2(2124, 309)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D2" unique_id=1088157697]
+position = Vector2(594.5, -144.5)
+shape = SubResource("RectangleShape2D_u74q0")

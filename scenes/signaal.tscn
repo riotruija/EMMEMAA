@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ujfjqk655edn"]
 
-[ext_resource type="Script" uid="uid://5j1nwq6ys28h" path="res://scenes/signaal.gd" id="1_bqb0v"]
+[ext_resource type="Script" uid="uid://5j1nwq6ys28h" path="res://scripts/signaal.gd" id="1_bqb0v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bqb0v"]
 
