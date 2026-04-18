@@ -451,9 +451,10 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("7_yhjmp")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730 node_paths=PackedStringArray("target")]
 limit_left = 0
 limit_top = -2000
 limit_right = 9600
 limit_bottom = 2000
 script = ExtResource("4_k5w1d")
+target = NodePath("../glorbert")
