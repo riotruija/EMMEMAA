@@ -413,15 +413,16 @@ maapind = NodePath("../maapind")
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_2umt7")
 
-[node name="Glorbert_sprite" type="AnimatedSprite2D" parent="glorbert" unique_id=1041193925]
-position = Vector2(-0.34374997, -6.000002)
-scale = Vector2(0.12242508, 0.119047634)
+[node name="Glorbert_sprite" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=1041193925]
+position = Vector2(2.9802322e-08, -6.0000014)
+scale = Vector2(0.109, 0.12)
 sprite_frames = SubResource("SpriteFrames_k5w1d")
 animation = &"jumping"
 
-[node name="Glorbert_sprite_foolium" type="AnimatedSprite2D" parent="glorbert" unique_id=725923983]
-position = Vector2(-66.66667, -85.333336)
-scale = Vector2(0.037666667, 0.04)
+[node name="Glorbert_sprite_foolium" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=725923983]
+visible = false
+position = Vector2(0, -6)
+scale = Vector2(0.113, 0.12)
 sprite_frames = SubResource("SpriteFrames_fpmy6")
 animation = &"falling"
 
@@ -432,9 +433,10 @@ scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_scj2e")
 animation = &"running"
 
-[node name="Glorbert_sprite_foolum_gun" type="AnimatedSprite2D" parent="glorbert" unique_id=925310946]
-position = Vector2(-66.66667, -85.333336)
-scale = Vector2(0.04, 0.04)
+[node name="Glorbert_sprite_foolum_gun" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=925310946]
+visible = false
+position = Vector2(0, -6)
+scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_hto2j")
 animation = &"falling"
 
@@ -457,4 +459,10 @@ limit_top = -2000
 limit_right = 9600
 limit_bottom = 2000
 script = ExtResource("4_k5w1d")
-target = NodePath("../glorbert")
+target = NodePath("../glorbert/glorbert_keha")
+
+[node name="Music_player" type="AudioStreamPlayer2D" parent="Camera2D" unique_id=1621905584]
+position = Vector2(-1.5258789e-05, 0)
+volume_db = 10.0
+autoplay = true
+bus = &"Music"

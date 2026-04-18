@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqji7ti1275g0"]
 
-[ext_resource type="Script" uid="uid://bdr65i742dif6" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="Script" uid="uid://dco7q3xnl7y7i" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://b4ohco2ey3mmo" path="res://img/main_menu_ph.jpg" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://db0c2gyemb2te" path="res://img/title_ph.png" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://rr7wq65xklsa" path="res://music/main_menu_music_intro.mp3" id="2_wu84c"]
