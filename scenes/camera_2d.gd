@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var target: Node2D
+@export var target: CharacterBody2D
 @export var fixed_y: float = 0.0
 @export var x_offset: float = 500.0  # positive = character sits left of center
 @onready var muusika_mangija = $Music_player
