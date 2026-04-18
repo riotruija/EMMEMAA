@@ -15,10 +15,10 @@ var HOORDUMINE = 1000
 var hoiab_paremale: bool = false
 var hoiab_vasakule: bool = false
 
-@onready var glorbert_sprite_tavaline = $glorbert_keha/Glorbert_sprite
-@onready var glorbert_sprite_foolium = $glorbert_keha/Glorbert_sprite_foolium
-@onready var glorbert_sprite_gun = $glorbert_keha/Glorbert_sprite_gun
-@onready var glorbert_sprite_foolum_gun = $glorbert_keha/Glorbert_sprite_foolum_gun
+@onready var glorbert_sprite_tavaline = $Glorbert_sprite
+@onready var glorbert_sprite_foolium = $Glorbert_sprite_foolium
+@onready var glorbert_sprite_gun = $Glorbert_sprite_gun
+@onready var glorbert_sprite_foolium_gun = $Glorbert_sprite_foolium_gun
 @onready var sprite = glorbert_sprite_tavaline
 
 
@@ -28,7 +28,7 @@ func _ready() -> void:
 	glorbert_sprite_gun.hide()
 	glorbert_sprite_foolium_gun.hide()
 	glorbert_sprite_tavaline.show()
-	glorbert_sprite_foolum_gun.hide()
+	glorbert_sprite_foolium_gun.hide()
 	glorbert_sprite_gun.hide()
 	maapinna_pind = maapind.get_node("StaticBody2D")
 	
