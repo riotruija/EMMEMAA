@@ -175,4 +175,5 @@ func check_win() -> void:
 			if not cell["filled"]:
 				return  # not finished yet
 	game_over = true
-	print("YOU WIN")
+	
+	get_tree().change_scene_to_file("res://scenes/earth.tscn")
