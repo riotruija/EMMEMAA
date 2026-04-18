@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://d0kbuwikl00w6" path="res://img/tegelane/glorbert with hat.png" id="4_3t2fh"]
 [ext_resource type="Script" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
 [ext_resource type="Texture2D" uid="uid://c2on6w0ii8b0j" path="res://img/tegelane/glorbert with gun.png" id="5_78p35"]
+[ext_resource type="Script" uid="uid://bmbg5ltbhyb75" path="res://scripts/satelliidi_kontroller.gd" id="1_2umt7"]
+[ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scenes/camera_2d.gd" id="2_2tfwh"]
+[ext_resource type="Script" uid="uid://bxbco2rq6i1pf" path="res://scripts/glorbert.gd" id="2_2umt7"]
+[ext_resource type="PackedScene" uid="uid://cs5qhw0l6qdrd" path="res://scenes/vastane.tscn" id="3_2tfwh"]
+[ext_resource type="Shader" uid="uid://2jb8r4m5x0y" path="res://scripts/pauk.gdshader" id="6_78p35"]
+[ext_resource type="Script" uid="uid://8iavkyrbxyvc" path="res://scripts/pauk.gd" id="7_yhjmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -274,6 +280,10 @@ animations = [{
 "name": &"running",
 "speed": 5.0
 }]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yhjmp"]
+shader = ExtResource("6_78p35")
+shader_parameter/strength = 0.0
+shader_parameter/direction = Vector2(1, 0)
 
 [node name="Earth" type="Node2D" unique_id=516625783]
 
@@ -302,25 +312,32 @@ uv = PackedVector2Array(-140.3778, -12.3396, -144.00034, 27.333336, 131.99966, 2
 position = Vector2(2, 296)
 shape = SubResource("SegmentShape2D_2tfwh")
 
-[node name="satelliidi_kontroller" type="Node2D" parent="." unique_id=594192795]
+[node name="satelliidi_kontroller" type="Node" parent="." unique_id=1695854773]
+script = ExtResource("1_2umt7")
+vastane_sateliit = ExtResource("3_2tfwh")
 
-[node name="glorbert" type="Node2D" parent="." unique_id=621510937 node_paths=PackedStringArray("glorbert", "maapind")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730 node_paths=PackedStringArray("target")]
+limit_left = 0
+limit_top = -2000
+limit_right = 9600
+limit_bottom = 2000
+script = ExtResource("2_2tfwh")
+target = NodePath("../glorbert")
+
+[node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind") groups=["glorbert"]]
 position = Vector2(200, 250)
 scale = Vector2(3, 3)
 script = ExtResource("2_2umt7")
 glorbert = NodePath(".")
 maapind = NodePath("../maapind")
 
-[node name="glorbert_keha" type="CharacterBody2D" parent="glorbert" unique_id=507191294]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="glorbert/glorbert_keha" unique_id=2135669053]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="glorbert" unique_id=2135669053]
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_2umt7")
 
-[node name="Glorbert_sprite" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=1041193925]
-visible = false
-position = Vector2(2.9802322e-08, -6.0000014)
-scale = Vector2(0.109, 0.12)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="glorbert" unique_id=1041193925]
+position = Vector2(-0.34374997, -6.000002)
+scale = Vector2(0.12242508, 0.119047634)
 sprite_frames = SubResource("SpriteFrames_k5w1d")
 animation = &"jumping"
 
@@ -344,3 +361,19 @@ limit_right = 9600
 limit_bottom = 2000
 script = ExtResource("4_k5w1d")
 target = NodePath("../glorbert/glorbert_keha")
+[node name="Polygon2D" type="Polygon2D" parent="glorbert" unique_id=1338231630]
+position = Vector2(-3, -2)
+polygon = PackedVector2Array(-5, -11, 5, -17, 11, -10, 11, 10, 3, 16, -5, 8)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1376530337]
+layer = 10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=916479602]
+material = SubResource("ShaderMaterial_yhjmp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_yhjmp")
