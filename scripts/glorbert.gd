@@ -25,6 +25,7 @@ var hoiab_vasakule: bool = false
 @export var spawn_points: Node2D  # drag your HatSpawnPoints node here in the inspector
 var has_hat: bool = false
 var current_hat: Node = null
+var used_spawn_points: Array = []
 
 # === GUN?? ===
 var has_gun: bool = false
@@ -36,8 +37,6 @@ func _ready() -> void:
 	glorbert_sprite_gun.hide()
 	glorbert_sprite_foolium_gun.hide()
 	glorbert_sprite_tavaline.show()
-	glorbert_sprite_foolium_gun.hide()
-	glorbert_sprite_gun.hide()
 	maapinna_pind = maapind.get_node("StaticBody2D")
 	spawn_hat()
 
@@ -136,7 +135,16 @@ func spawn_hat() -> void:
 	if valid.is_empty():
 		valid = points
 	
-	var chosen = valid[randi() % valid.size()]
+	# Filter out already-used spawn points
+	var unused = valid.filter(func(p): return p not in used_spawn_points)
+	
+	# If all have been used, reset and use any (or just give up — your choice)
+	if unused.is_empty():
+		print("All spawn points used — no more hats!")
+		return
+	
+	var chosen = unused[randi() % unused.size()]
+	used_spawn_points.append(chosen)
 	
 	var hat = hat_scene.instantiate()
 	spawn_points.add_child(hat)            # ← changed
