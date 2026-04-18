@@ -1,6 +1,5 @@
 extends Control
-
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var music_player: AudioStreamPlayer2D = $Music_player
 @onready var main_buttons: VBoxContainer = $Main_buttons
 @onready var options: Panel = $Options
 
@@ -13,16 +12,16 @@ var muusika = [
 var mitmes_lugu = 0
 
 func _ready() -> void:
-	audio_stream_player_2d.stream = muusika[mitmes_lugu]
-	audio_stream_player_2d.play()
-	audio_stream_player_2d.finished.connect(music_finished)
+	music_player.stream = muusika[mitmes_lugu]
+	music_player.play()
+	music_player.finished.connect(music_finished)
 	options.visible = false
 	main_buttons.visible = true
 
 func music_finished() -> void:
 	mitmes_lugu = 1
-	audio_stream_player_2d.stream = muusika[mitmes_lugu]
-	audio_stream_player_2d.play()
+	music_player.stream = muusika[mitmes_lugu]
+	music_player.play()
 
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/earth.tscn")
