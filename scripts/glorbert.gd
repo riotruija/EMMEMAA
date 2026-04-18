@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var glorbert: Node2D
-var glorbert_keha: CharacterBody2D
+
+@export var glorbert: CharacterBody2D
 @export var maapind: Node2D
 var maapinna_pind: StaticBody2D
 
@@ -42,18 +42,22 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action("right") and event.is_released():
 		hoiab_paremale = false
 	
+func take_damage():
+	$"../CanvasLayer/ColorRect".flash()
+
 func _physics_process(delta: float) -> void:
-	if not glorbert_keha.is_on_floor():
-		glorbert_keha.velocity.y += GRAVITATSIOON * delta
+	if not glorbert.is_on_floor():
+		glorbert.velocity.y += GRAVITATSIOON * delta
 	
 	if hoiab_paremale and not hoiab_vasakule:
-		glorbert_keha.velocity.x = SAAPAD_EDASITAGASI
+		glorbert.velocity.x = SAAPAD_EDASITAGASI
 	elif hoiab_vasakule and not hoiab_paremale:
-		glorbert_keha.velocity.x = -SAAPAD_EDASITAGASI
+		glorbert.velocity.x = -SAAPAD_EDASITAGASI
 	else:
-		glorbert_keha.velocity.x = move_toward(glorbert_keha.velocity.x, 0, HOORDUMINE * delta)
-	if Input.is_action_just_pressed("up") and glorbert_keha.is_on_floor():
+		glorbert.velocity.x = move_toward(glorbert.velocity.x, 0, HOORDUMINE * delta)
+	if Input.is_action_just_pressed("up") and glorbert.is_on_floor():
 		print("kargab")
+		glorbert.velocity.y = -SAAPAD_YLES
 		glorbert_keha.velocity.y = -SAAPAD_YLES
 	if not glorbert_keha.is_on_floor():
 		if glorbert_keha.velocity.y < 0:
@@ -74,7 +78,7 @@ func _physics_process(delta: float) -> void:
 		print()
 	
 	
-	glorbert_keha.move_and_slide()
+	glorbert.move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
