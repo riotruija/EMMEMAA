@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cptiy7g01xkan" path="res://img/tegelane/glorbert with gun and hat.png" id="6_yhjmp"]
 [ext_resource type="Script" uid="uid://8iavkyrbxyvc" path="res://scripts/pauk.gd" id="7_yhjmp"]
 [ext_resource type="Texture2D" uid="uid://b4hahsoudhjqe" path="res://img/platforms/platform dirt.png" id="13_nj2me"]
+[ext_resource type="Texture2D" uid="uid://426n1eqdoe55" path="res://img/platforms/Muru pool.png" id="18_u74q0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -31,8 +32,8 @@ size = Vector2(46.899998, 28.899996)
 size = Vector2(24, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2umt7"]
-radius = 4.5
-height = 13.0
+radius = 2.999998
+height = 10.799999
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7e7ie"]
 atlas = ExtResource("5_78p35")
@@ -387,7 +388,10 @@ shader_parameter/direction = Vector2(1, 0)
 size = Vector2(1511, 131.00006)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvqq7"]
-size = Vector2(414, 62)
+size = Vector2(413, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u74q0"]
+size = Vector2(193, 63)
 
 [node name="Earth" type="Node2D" unique_id=516625783]
 
@@ -472,7 +476,7 @@ hat_scene = ExtResource("5_np46n")
 spawn_points = NodePath("../HatSpawnPoints")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="glorbert" unique_id=2135669053]
-position = Vector2(1.3333334, 1.1666667)
+position = Vector2(1.5999929, 2.4)
 shape = SubResource("CapsuleShape2D_2umt7")
 
 [node name="Glorbert_sprite_gun" type="AnimatedSprite2D" parent="glorbert" unique_id=558439531]
@@ -537,11 +541,14 @@ autoplay = true
 [node name="SPawnPoint1" type="Marker2D" parent="HatSpawnPoints" unique_id=1373713177]
 position = Vector2(1337, 285)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1326096048]
-position = Vector2(712, 523)
+[node name="platvormid" type="Node2D" parent="." unique_id=714089218]
+position = Vector2(625, 246)
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="platvormid" unique_id=1326096048]
+position = Vector2(87, 277)
 rotation = -3.1415925
 
-[node name="GroundshipMuld" type="Sprite2D" parent="StaticBody2D" unique_id=1515662253]
+[node name="GroundshipMuld" type="Sprite2D" parent="platvormid/StaticBody2D7" unique_id=1515662253]
 texture_repeat = 2
 position = Vector2(0.72984785, 0)
 scale = Vector2(0.99908775, 1)
@@ -549,39 +556,67 @@ texture = ExtResource("2_v4u8f")
 region_enabled = true
 region_rect = Rect2(0, 0, 1600, 250)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1414735530]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D7" unique_id=1414735530]
 position = Vector2(-42.5, 55.49991)
 shape = SubResource("RectangleShape2D_m3l3g")
 
-[node name="platvormid" type="Node2D" parent="." unique_id=714089218]
-position = Vector2(625, 246)
+[node name="StaticBody2D6" type="StaticBody2D" parent="platvormid" unique_id=789712814]
+position = Vector2(680, 133.00003)
+
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D6" unique_id=645650393]
+texture = ExtResource("13_nj2me")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D6" unique_id=2034609897]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_yvqq7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="platvormid" unique_id=771905002]
 position = Vector2(269, 131)
+
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D" unique_id=900973858]
+texture = ExtResource("13_nj2me")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D" unique_id=472150549]
 position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_yvqq7")
 
-[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D" unique_id=900973858]
-texture = ExtResource("13_nj2me")
-
 [node name="StaticBody2D3" type="StaticBody2D" parent="platvormid" unique_id=700945220]
-position = Vector2(1140, -48)
+position = Vector2(1297, -55)
+
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D3" unique_id=1511254397]
+texture = ExtResource("13_nj2me")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D3" unique_id=340145090]
 position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_yvqq7")
 
-[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D3" unique_id=1511254397]
+[node name="StaticBody2D4" type="StaticBody2D" parent="platvormid" unique_id=1437331262]
+position = Vector2(958, 65)
+
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D4" unique_id=1989943374]
 texture = ExtResource("13_nj2me")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="platvormid" unique_id=789712814]
-position = Vector2(680, 133)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D4" unique_id=658861204]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_yvqq7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D2" unique_id=2034609897]
+[node name="StaticBody2D5" type="StaticBody2D" parent="platvormid" unique_id=1945473628]
+position = Vector2(1811, -265)
+
+[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D5" unique_id=72974586]
+texture = ExtResource("13_nj2me")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D5" unique_id=1630111450]
 position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_yvqq7")
 
-[node name="PlatformDirt" type="Sprite2D" parent="platvormid/StaticBody2D2" unique_id=645650393]
-texture = ExtResource("13_nj2me")
+[node name="StaticBody2D2" type="StaticBody2D" parent="platvormid" unique_id=69677174]
+position = Vector2(-13, -4)
+
+[node name="MuruPool" type="Sprite2D" parent="platvormid/StaticBody2D2" unique_id=327207330]
+position = Vector2(580, -156)
+texture = ExtResource("18_u74q0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D2" unique_id=1088157697]
+position = Vector2(594.5, -144.5)
+shape = SubResource("RectangleShape2D_u74q0")
