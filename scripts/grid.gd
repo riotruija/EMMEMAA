@@ -71,7 +71,33 @@ func _ready():
 	grid[2][4]["blocked"] = true
 	grid[3][4]["blocked"] = true
 	
-	instruction_label.text = "Fill all squares!"
+	instruction_label.text = "Fill all!"
+	
+	# --- instruction text ---
+	var label = $UI/InstructionLabel
+
+	# initial state (centered, small, invisible)
+	label.modulate.a = 0.0
+	label.scale = Vector2(1, 1)
+
+	var tween = create_tween()
+
+	# use smooth easing (no bounce / no overshoot)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	# fade in + grow to normal size
+	tween.parallel().tween_property(label, "modulate:a", 1.0, 0.5)
+	tween.parallel().tween_property(label, "scale", Vector2(1.0, 1.0), 0.1)
+
+	# stay visible
+	tween.tween_interval(10)
+
+	# fade out + shrink back
+	tween.parallel().tween_property(label, "modulate:a", 0.0, 0.1)
+	tween.parallel().tween_property(label, "scale", Vector2(0.9, 0.9), 0.5)
+	# --- text move end ---
+	
 	update_timer_label()
 	
 	update_tiles()
