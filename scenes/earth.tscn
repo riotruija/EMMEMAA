@@ -18,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://cptiy7g01xkan" path="res://img/tegelane/glorbert with gun and hat.png" id="6_yhjmp"]
 [ext_resource type="Script" uid="uid://8iavkyrbxyvc" path="res://scripts/pauk.gd" id="7_yhjmp"]
 [ext_resource type="Texture2D" uid="uid://b4hahsoudhjqe" path="res://img/platforms/platform dirt.png" id="13_nj2me"]
+[ext_resource type="AudioStream" uid="uid://cna4io87gsb58" path="res://SFX/jumping.mp3" id="14_qawek"]
+[ext_resource type="AudioStream" uid="uid://74vxplloomo3" path="res://SFX/running_woods.mp3" id="15_7e7ie"]
+[ext_resource type="AudioStream" uid="uid://b461v6kb4mv7b" path="res://SFX/landing.mp3" id="16_r20oc"]
 [ext_resource type="Texture2D" uid="uid://426n1eqdoe55" path="res://img/platforms/Muru pool.png" id="18_u74q0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
@@ -476,7 +479,6 @@ maapind = NodePath("../maapind")
 hat_scene = ExtResource("5_np46n")
 spawn_points = NodePath("../HatSpawnPoints")
 gun_scene = ExtResource("6_nj2me")
-gun_spawn_points = NodePath("../GunSpawnPoints")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="glorbert" unique_id=2135669053]
 position = Vector2(1.5999929, 2.4)
@@ -508,6 +510,19 @@ position = Vector2(1, 1)
 scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_hto2j")
 animation = &"falling"
+
+[node name="Jumping" type="AudioStreamPlayer2D" parent="glorbert" unique_id=549808218]
+stream = ExtResource("14_qawek")
+volume_db = 16.0
+bus = &"SFX"
+
+[node name="Running" type="AudioStreamPlayer2D" parent="glorbert" unique_id=644698300]
+stream = ExtResource("15_7e7ie")
+volume_db = 8.0
+
+[node name="Landing" type="AudioStreamPlayer2D" parent="glorbert" unique_id=216288642]
+stream = ExtResource("16_r20oc")
+volume_db = 8.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1376530337]
 layer = 10
@@ -564,6 +579,7 @@ position = Vector2(1337, 285)
 
 [node name="GunSpawn1" type="Marker2D" parent="GunSpawnPoints" unique_id=1150996356]
 position = Vector2(2124, 309)
+
 [node name="platvormid" type="Node2D" parent="." unique_id=714089218]
 position = Vector2(625, 246)
 

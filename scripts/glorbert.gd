@@ -20,6 +20,11 @@ var hoiab_vasakule: bool = false
 @onready var glorbert_sprite_foolium_gun = $Glorbert_sprite_foolium_gun
 @onready var sprite = glorbert_sprite_tavaline
 
+# === HELID ==
+@onready var landing_player = $Landing
+@onready var jumping_player = $Jumping
+@onready var running_player = $Running
+
 # === HAT SYSTEM ===
 @export var hat_scene: PackedScene
 @export var spawn_points: Node2D  # drag your HatSpawnPoints node here in the inspector
@@ -109,6 +114,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("up") and glorbert.is_on_floor():
 		print("kargab")
 		velocity.y = -SAAPAD_YLES
+		jumping_player.play()
+		
 	if not is_on_floor():
 		if velocity.y < 0:
 			sprite.play("falling")
