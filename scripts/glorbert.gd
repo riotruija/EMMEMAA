@@ -6,7 +6,7 @@ extends CharacterBody2D
 var maapinna_pind: StaticBody2D
 
 var SAAPAD_YLES = 750
-var SAAPAD_EDASITAGASI = 250
+var SAAPAD_EDASITAGASI = 400
 var MAX_KIIRUS_YLES = 400
 var GRAVITATSIOON = 1500
 var HOORDUMINE = 1000
