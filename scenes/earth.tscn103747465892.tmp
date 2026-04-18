@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://8iavkyrbxyvc" path="res://scripts/pauk.gd" id="7_yhjmp"]
 [ext_resource type="Texture2D" uid="uid://b4hahsoudhjqe" path="res://img/platforms/platform dirt.png" id="13_nj2me"]
 [ext_resource type="Script" uid="uid://biuqx6ig0qkto" path="res://scripts/bullet_spawner.gd" id="14_fpmy6"]
-[ext_resource type="PackedScene" uid="uid://bup5t0ob1g00n" path="res://scenes/bullet.tscn" id="15_8dfur"]
 [ext_resource type="Texture2D" uid="uid://426n1eqdoe55" path="res://img/platforms/Muru pool.png" id="18_u74q0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
@@ -511,9 +510,8 @@ scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_hto2j")
 animation = &"falling"
 
-[node name="BulletSpawner" type="Node2D" parent="glorbert" unique_id=669442217]
+[node name="BulletSpawner" type="Node" parent="glorbert" unique_id=447466182]
 script = ExtResource("14_fpmy6")
-bullet_scene = ExtResource("15_8dfur")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1376530337]
 layer = 10
