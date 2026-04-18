@@ -13,6 +13,7 @@ var HOORDUMINE = 1000
 
 var hoiab_paremale: bool = false
 var hoiab_vasakule: bool = false
+var double_jump_available: bool = true
 
 @onready var glorbert_sprite_tavaline = $Glorbert_sprite
 @onready var glorbert_sprite_foolium = $Glorbert_sprite_foolium
@@ -70,6 +71,13 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action("right") and event.is_released():
 		hoiab_paremale = false
 	
+	if event.is_action("fire") and event.is_pressed() and has_gun:
+		fire()
+
+func fire() -> void:
+	$BulletSpawner.spawn_bullet(sprite.flip_h)
+	
+	
 func take_damage():
 	if has_hat:
 		lose_hat()
@@ -111,7 +119,9 @@ func _physics_process(delta: float) -> void:
 		glorbert.velocity.x = -SAAPAD_EDASITAGASI
 	else:
 		glorbert.velocity.x = move_toward(glorbert.velocity.x, 0, HOORDUMINE * delta)
-	if Input.is_action_just_pressed("up") and glorbert.is_on_floor():
+	if Input.is_action_just_pressed("up") and (glorbert.is_on_floor() or double_jump_available):
+		if !glorbert.is_on_floor():
+			double_jump_available = false
 		print("kargab")
 		velocity.y = -SAAPAD_YLES
 		jumping_player.play()
@@ -121,6 +131,8 @@ func _physics_process(delta: float) -> void:
 			sprite.play("falling")
 		if velocity.y >= 0:
 			sprite.play("jumping")
+	if glorbert.is_on_floor() and not double_jump_available:
+		double_jump_available = true
 	else:
 		if velocity.x > 10:
 			sprite.play("running")
