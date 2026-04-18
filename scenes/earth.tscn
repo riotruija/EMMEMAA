@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c2on6w0ii8b0j" path="res://img/tegelane/glorbert with gun.png" id="5_78p35"]
 [ext_resource type="PackedScene" uid="uid://csp4u5njurgpj" path="res://scenes/hat_scene.tscn" id="5_np46n"]
 [ext_resource type="Shader" uid="uid://2jb8r4m5x0y" path="res://scripts/pauk.gdshader" id="6_78p35"]
+[ext_resource type="PackedScene" uid="uid://xaaappqpirhl" path="res://scenes/GunPickup.tscn" id="6_nj2me"]
 [ext_resource type="Texture2D" uid="uid://cptiy7g01xkan" path="res://img/tegelane/glorbert with gun and hat.png" id="6_yhjmp"]
 [ext_resource type="Script" uid="uid://8iavkyrbxyvc" path="res://scripts/pauk.gd" id="7_yhjmp"]
 
@@ -403,7 +404,7 @@ shape = SubResource("SegmentShape2D_2tfwh")
 script = ExtResource("1_2umt7")
 vastane_sateliit = ExtResource("3_2tfwh")
 
-[node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind", "spawn_points") groups=["glorbert"]]
+[node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind", "spawn_points", "gun_spawn_points") groups=["glorbert"]]
 position = Vector2(200, 250)
 scale = Vector2(10, 10)
 script = ExtResource("2_2umt7")
@@ -411,6 +412,8 @@ glorbert = NodePath(".")
 maapind = NodePath("../maapind")
 hat_scene = ExtResource("5_np46n")
 spawn_points = NodePath("../HatSpawnPoints")
+gun_scene = ExtResource("6_nj2me")
+gun_spawn_points = NodePath("../GunSpawnPoints")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="glorbert" unique_id=2135669053]
 position = Vector2(1.3333334, 1.1666667)
@@ -457,6 +460,22 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("7_yhjmp")
 
+[node name="GunTimerBar" type="Control" parent="CanvasLayer" unique_id=873504767]
+visible = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="Fill" type="ColorRect" parent="CanvasLayer/GunTimerBar" unique_id=65031092]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0.5529412, 1, 1)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730 node_paths=PackedStringArray("target")]
 limit_left = 0
 limit_top = -2000
@@ -474,3 +493,8 @@ autoplay = true
 
 [node name="SPawnPoint1" type="Marker2D" parent="HatSpawnPoints" unique_id=1373713177]
 position = Vector2(1337, 285)
+
+[node name="GunSpawnPoints" type="Node2D" parent="." unique_id=172733491]
+
+[node name="GunSpawn1" type="Marker2D" parent="GunSpawnPoints" unique_id=1150996356]
+position = Vector2(2124, 309)
