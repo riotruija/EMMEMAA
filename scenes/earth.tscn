@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cs5qhw0l6qdrd" path="res://scenes/vastane.tscn" id="3_2tfwh"]
 [ext_resource type="Texture2D" uid="uid://cqixbnrrv1due" path="res://img/taustad/kõrbe_background.png" id="3_yhjmp"]
 [ext_resource type="Texture2D" uid="uid://d0kbuwikl00w6" path="res://img/tegelane/glorbert with hat.png" id="4_3t2fh"]
-[ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scripts/camera_2d.gd" id="4_k5w1d"]
 [ext_resource type="Texture2D" uid="uid://c2on6w0ii8b0j" path="res://img/tegelane/glorbert with gun.png" id="5_78p35"]
 [ext_resource type="PackedScene" uid="uid://csp4u5njurgpj" path="res://scenes/hat_scene.tscn" id="5_np46n"]
 [ext_resource type="Shader" uid="uid://2jb8r4m5x0y" path="res://scripts/pauk.gdshader" id="6_78p35"]
@@ -34,15 +33,16 @@
 [ext_resource type="Texture2D" uid="uid://dk5sr2i7mtrmv" path="res://img/platforms/korb/sign2.png" id="28_oiqpw"]
 [ext_resource type="Texture2D" uid="uid://b3x7ofw55gy32" path="res://img/platforms/korb/sign 1.png" id="29_6ctra"]
 [ext_resource type="Texture2D" uid="uid://cvolqscsjgxng" path="res://img/platforms/korb/dead bush.png" id="30_scj2e"]
-[ext_resource type="AudioStream" uid="uid://bxopfapgu51k1" path="res://SFX/gun_pickup.mp3" id="19_3s3qb"]
-[ext_resource type="Texture2D" uid="uid://o5t7s5wy6iyx" path="res://img/platforms/platform tree.png" id="20_fpmy6"]
-[ext_resource type="AudioStream" uid="uid://v06wqxqwr1pp" path="res://SFX/Laser_Shot.mp3" id="23_nov0m"]
+[ext_resource type="Script" uid="uid://dycuw667ibiq0" path="res://scenes/puzzle_entry.gd" id="34_djwa2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_2tfwh"]
 b = Vector2(-4, -1140)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_djwa2"]
+a = Vector2(6, -1136)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4u8f"]
 size = Vector2(46.899998, 28.899996)
@@ -451,6 +451,9 @@ size = Vector2(224.5, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oiqpw"]
 size = Vector2(186.25, 41.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kfxc"]
+size = Vector2(194, 180)
+
 [node name="Earth" type="Node2D" unique_id=516625783]
 
 [node name="maapind" type="Node2D" parent="." unique_id=1524979613]
@@ -470,6 +473,12 @@ uv = PackedVector2Array(-140.3778, -12.3396, -144.00034, 27.333336, 131.99966, 2
 [node name="startwall" type="CollisionShape2D" parent="maapind/StaticBody2D" unique_id=1499285718]
 position = Vector2(2, 296)
 shape = SubResource("SegmentShape2D_2tfwh")
+
+[node name="Korbelopp" type="StaticBody2D" parent="maapind" unique_id=614303404]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maapind/Korbelopp" unique_id=953326663]
+position = Vector2(7008, 140)
+shape = SubResource("SegmentShape2D_djwa2")
 
 [node name="taust" type="Node2D" parent="." unique_id=725482707]
 
@@ -524,7 +533,7 @@ shape = SubResource("RectangleShape2D_dhl84")
 script = ExtResource("1_2umt7")
 vastane_sateliit = ExtResource("3_2tfwh")
 
-[node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind", "spawn_points") groups=["glorbert"]]
+[node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind", "spawn_points", "gun_spawn_points") groups=["glorbert"]]
 position = Vector2(271.00006, 1.9999981)
 scale = Vector2(10, 10)
 script = ExtResource("2_2umt7")
@@ -533,6 +542,7 @@ maapind = NodePath("../maapind")
 hat_scene = ExtResource("5_np46n")
 spawn_points = NodePath("../HatSpawnPoints")
 gun_scene = ExtResource("6_nj2me")
+gun_spawn_points = NodePath("../GunSpawnPoints")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="glorbert" unique_id=2135669053]
 position = Vector2(1.5999929, 2.4)
@@ -618,7 +628,7 @@ color = Color(1, 0.5529412, 1, 1)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730 node_paths=PackedStringArray("target")]
 limit_left = 0
 limit_top = -2000
-limit_right = 9600
+limit_right = 7024
 limit_bottom = 2000
 script = SubResource("GDScript_scj2e")
 target = NodePath("../glorbert")
@@ -673,6 +683,11 @@ bus = &"SFX"
 stream = ExtResource("23_nov0m")
 volume_db = 6.0
 bus = &"SFX"
+
+[node name="GunSpawnPoints" type="Node2D" parent="." unique_id=172733491]
+
+[node name="GunSpawn1" type="Marker2D" parent="GunSpawnPoints" unique_id=1150996356]
+position = Vector2(2124, 309)
 
 [node name="HatSpawnPoints" type="Node2D" parent="." unique_id=1411088446]
 
@@ -799,11 +814,6 @@ texture = ExtResource("20_fpmy6")
 position = Vector2(-4, 23.5)
 shape = SubResource("RectangleShape2D_8dfur")
 
-[node name="GunSpawnPoints" type="Node2D" parent="." unique_id=172733491]
-
-[node name="GunSpawn1" type="Marker2D" parent="GunSpawnPoints" unique_id=1150996356]
-position = Vector2(2124, 309)
-
 [node name="Korbeplatvorm" type="Node2D" parent="." unique_id=1551247591]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Korbeplatvorm" unique_id=1678306671]
@@ -837,3 +847,18 @@ texture = ExtResource("29_6ctra")
 [node name="DeadBush" type="Sprite2D" parent="Korbeplatvorm/StaticBody2D2" unique_id=155539529]
 position = Vector2(6058, 88)
 texture = ExtResource("30_scj2e")
+
+[node name="PuzzleEntry" type="Area2D" parent="." unique_id=1227985568]
+position = Vector2(6650, 300)
+script = ExtResource("34_djwa2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleEntry" unique_id=211453045]
+shape = SubResource("RectangleShape2D_4kfxc")
+
+[node name="Prompt" type="Label" parent="PuzzleEntry" unique_id=1367528899]
+offset_left = -228.0
+offset_top = -187.0
+offset_right = 16.0
+offset_bottom = -102.0
+theme_override_font_sizes/font_size = 100
+text = "press e"
