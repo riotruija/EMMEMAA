@@ -1,18 +1,16 @@
-[gd_scene format=3 uid="uid://bd5gfe244tfnw"]
+[gd_scene format=3 uid="uid://bj0o1j5irgvgm"]
 
 [ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="1_2tfwh"]
 [ext_resource type="Script" uid="uid://bmbg5ltbhyb75" path="res://scripts/satelliidi_kontroller.gd" id="1_2umt7"]
-[ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scenes/camera_2d.gd" id="2_2tfwh"]
-[ext_resource type="Script" uid="uid://bxbco2rq6i1pf" path="res://scripts/glorbert.gd" id="2_2umt7"]
-[ext_resource type="PackedScene" uid="uid://cs5qhw0l6qdrd" path="res://scenes/vastane.tscn" id="3_2tfwh"]
-[ext_resource type="Shader" uid="uid://2jb8r4m5x0y" path="res://scripts/pauk.gdshader" id="6_78p35"]
-[ext_resource type="Script" uid="uid://8iavkyrbxyvc" path="res://scripts/pauk.gd" id="7_yhjmp"]
 [ext_resource type="Texture2D" uid="uid://beq346gg07hqi" path="res://img/tegelane/bumass glorbert .png" id="2_2tfwh"]
 [ext_resource type="Script" uid="uid://bxbco2rq6i1pf" path="res://scripts/glorbert.gd" id="2_2umt7"]
+[ext_resource type="PackedScene" uid="uid://cs5qhw0l6qdrd" path="res://scenes/vastane.tscn" id="3_2tfwh"]
 [ext_resource type="Texture2D" uid="uid://d0kbuwikl00w6" path="res://img/tegelane/glorbert with hat.png" id="4_3t2fh"]
-[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
+[ext_resource type="Script" uid="uid://fenwtka8jmvc" path="res://scenes/camera_2d.gd" id="4_k5w1d"]
 [ext_resource type="Texture2D" uid="uid://c2on6w0ii8b0j" path="res://img/tegelane/glorbert with gun.png" id="5_78p35"]
+[ext_resource type="Shader" uid="uid://2jb8r4m5x0y" path="res://scripts/pauk.gdshader" id="6_78p35"]
 [ext_resource type="Texture2D" uid="uid://cptiy7g01xkan" path="res://img/tegelane/glorbert with gun and hat.png" id="6_yhjmp"]
+[ext_resource type="Script" uid="uid://8iavkyrbxyvc" path="res://scripts/pauk.gd" id="7_yhjmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -404,14 +402,6 @@ shape = SubResource("SegmentShape2D_2tfwh")
 script = ExtResource("1_2umt7")
 vastane_sateliit = ExtResource("3_2tfwh")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730 node_paths=PackedStringArray("target")]
-limit_left = 0
-limit_top = -2000
-limit_right = 9600
-limit_bottom = 2000
-script = ExtResource("2_2tfwh")
-target = NodePath("../glorbert")
-
 [node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind") groups=["glorbert"]]
 position = Vector2(200, 250)
 scale = Vector2(3, 3)
@@ -423,21 +413,30 @@ maapind = NodePath("../maapind")
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_2umt7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="glorbert" unique_id=1041193925]
+[node name="Glorbert_sprite" type="AnimatedSprite2D" parent="glorbert" unique_id=1041193925]
 position = Vector2(-0.34374997, -6.000002)
 scale = Vector2(0.12242508, 0.119047634)
 sprite_frames = SubResource("SpriteFrames_k5w1d")
 animation = &"jumping"
 
-[node name="Glorbert_sprite_foolium" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=725923983]
-position = Vector2(0, -6)
-scale = Vector2(0.113, 0.12)
+[node name="Glorbert_sprite_foolium" type="AnimatedSprite2D" parent="glorbert" unique_id=725923983]
+position = Vector2(-66.66667, -85.333336)
+scale = Vector2(0.037666667, 0.04)
 sprite_frames = SubResource("SpriteFrames_fpmy6")
 animation = &"falling"
 
-[node name="Polygon2D" type="Polygon2D" parent="glorbert" unique_id=1338231630]
-position = Vector2(-3, -2)
-polygon = PackedVector2Array(-5, -11, 5, -17, 11, -10, 11, 10, 3, 16, -5, 8)
+[node name="Glorbert_sprite_gun" type="AnimatedSprite2D" parent="glorbert" unique_id=558439531]
+visible = false
+position = Vector2(-66.66667, -85.333336)
+scale = Vector2(0.04, 0.04)
+sprite_frames = SubResource("SpriteFrames_scj2e")
+animation = &"running"
+
+[node name="Glorbert_sprite_foolum_gun" type="AnimatedSprite2D" parent="glorbert" unique_id=925310946]
+position = Vector2(-66.66667, -85.333336)
+scale = Vector2(0.04, 0.04)
+sprite_frames = SubResource("SpriteFrames_hto2j")
+animation = &"falling"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1376530337]
 layer = 10
@@ -451,23 +450,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("7_yhjmp")
-[node name="Glorbert_sprite_gun" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=558439531]
-visible = false
-position = Vector2(0, -6)
-scale = Vector2(0.12, 0.12)
-sprite_frames = SubResource("SpriteFrames_scj2e")
-animation = &"running"
 
-[node name="Glorbert_sprite_foolum_gun" type="AnimatedSprite2D" parent="glorbert/glorbert_keha" unique_id=925310946]
-position = Vector2(0, -6)
-scale = Vector2(0.12, 0.12)
-sprite_frames = SubResource("SpriteFrames_hto2j")
-animation = &"falling"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730 node_paths=PackedStringArray("target")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730]
 limit_left = 0
 limit_top = -2000
 limit_right = 9600
 limit_bottom = 2000
 script = ExtResource("4_k5w1d")
-target = NodePath("../glorbert/glorbert_keha")

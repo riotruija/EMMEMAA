@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 
 @export var glorbert: CharacterBody2D
@@ -15,14 +15,17 @@ var HOORDUMINE = 1000
 var hoiab_paremale: bool = false
 var hoiab_vasakule: bool = false
 
-@onready var glorbert_sprite_tavaline = $glorbert_keha/Glorbert_sprite
-@onready var glorbert_sprite_foolium = $glorbert_keha/Glorbert_sprite_foolium
+@onready var glorbert_sprite_tavaline = $Glorbert_sprite
+@onready var glorbert_sprite_foolium = $Glorbert_sprite_foolium
+@onready var glorbert_sprite_gun = $Glorbert_sprite_foolum_gun
+@onready var glorbert_sprite_foolium_gun = $Glorbert_sprite_foolum_gun
 
 @onready var sprite = glorbert_sprite_tavaline
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	glorbert_keha = $glorbert_keha
 	glorbert_sprite_foolium.hide()
+	glorbert_sprite_gun.hide()
+	glorbert_sprite_foolium_gun.hide()
 	glorbert_sprite_tavaline.show()
 	maapinna_pind = maapind.get_node("StaticBody2D")
 
@@ -48,7 +51,6 @@ func take_damage():
 func _physics_process(delta: float) -> void:
 	if not glorbert.is_on_floor():
 		glorbert.velocity.y += GRAVITATSIOON * delta
-	
 	if hoiab_paremale and not hoiab_vasakule:
 		glorbert.velocity.x = SAAPAD_EDASITAGASI
 	elif hoiab_vasakule and not hoiab_paremale:
@@ -57,27 +59,19 @@ func _physics_process(delta: float) -> void:
 		glorbert.velocity.x = move_toward(glorbert.velocity.x, 0, HOORDUMINE * delta)
 	if Input.is_action_just_pressed("up") and glorbert.is_on_floor():
 		print("kargab")
-		glorbert.velocity.y = -SAAPAD_YLES
-		glorbert_keha.velocity.y = -SAAPAD_YLES
-	if not glorbert_keha.is_on_floor():
-		if glorbert_keha.velocity.y < 0:
+		velocity.y = -SAAPAD_YLES
+	if not is_on_floor():
+		if velocity.y < 0:
 			sprite.play("falling")
-
-		if glorbert_keha.velocity.y >= 0:
+		if velocity.y >= 0:
 			sprite.play("jumping")
-
 	else:
-		if glorbert_keha.velocity.x > 10:
+		if velocity.x > 10:
 			sprite.play("running")
-		elif glorbert_keha.velocity.x < -10:
+		elif velocity.x < -10:
 			sprite.play("running")
 		else:
 			sprite.play("idle")
-		
-			
-		print()
-	
-	
 	glorbert.move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
