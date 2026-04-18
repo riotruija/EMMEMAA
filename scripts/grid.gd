@@ -13,12 +13,12 @@ const TIMEOUT_SCENE := "res://your_scene.tscn"  # change to your target scene
 @onready var instruction_label := $UI/InstructionLabel
 
 # === TILE IDs (CHANGE THESE TO MATCH YOUR TILESET) ===
-const SOURCE_ID := 0
+const SOURCE_ID := 9
 
 const TILE_EMPTY := Vector2i(3, 2)
-const TILE_PATH := Vector2i(5, 5)
-const TILE_BLOCKED := Vector2i(0, 0)
-const TILE_PLAYER := Vector2i(5, 7)
+const TILE_PATH := Vector2i(0, 0)
+const TILE_BLOCKED := Vector2i(2, 1)
+const TILE_PLAYER := Vector2i(0, 1)
 
 # === GAME STATE ===
 var player_pos := Vector2i(0, 5)
