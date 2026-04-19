@@ -40,7 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://dk5sr2i7mtrmv" path="res://img/platforms/korb/sign2.png" id="28_oiqpw"]
 [ext_resource type="Texture2D" uid="uid://cvolqscsjgxng" path="res://img/platforms/korb/dead bush.png" id="30_scj2e"]
 [ext_resource type="Texture2D" uid="uid://b7k3gkxa1qhdp" path="res://img/platforms/city_stuff/plant1.png" id="33_8t2u4"]
-[ext_resource type="Script" path="res://scenes/puzzle_entry.gd" id="34_djwa2"]
+[ext_resource type="Script" uid="uid://dycuw667ibiq0" path="res://scenes/puzzle_entry.gd" id="34_djwa2"]
 [ext_resource type="Texture2D" uid="uid://5vlvfu8c3x0a" path="res://img/platforms/korb/tower.png" id="42_36gwj"]
 [ext_resource type="Texture2D" uid="uid://b2rd3mpbwxi2m" path="res://img/platforms/korb/fence.png" id="43_8n6n7"]
 [ext_resource type="Texture2D" uid="uid://b3x7ofw55gy32" path="res://img/platforms/korb/sign 1.png" id="44_8n6n7"]
@@ -464,7 +464,10 @@ func muusika_algus_labi() -> void:
 	
 func _process(_delta: float) -> void:
 	if target:
-		position.x = target.global_position.x + x_offset
+		var offset = x_offset
+		if GameState.puzzle_won:
+			offset = -x_offset
+		position.x = target.global_position.x + offset
 		position.y = fixed_y
 "
 
@@ -1182,6 +1185,11 @@ shape = SubResource("RectangleShape2D_t0xrj")
 position = Vector2(8925, 529.5)
 shape = SubResource("RectangleShape2D_2xo7b")
 
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=1051153518]
+position = Vector2(9276.5, 526)
+scale = Vector2(2.2812536, 1.5294119)
+shape = SubResource("RectangleShape2D_odwoq")
+
 [node name="Tower" type="Sprite2D" parent="." unique_id=2008245578]
 position = Vector2(9234, 89)
 texture = ExtResource("42_36gwj")
@@ -1210,10 +1218,6 @@ texture = ExtResource("27_nsbyv")
 position = Vector2(9359, 530)
 scale = Vector2(2.2812536, 1.5294119)
 texture = ExtResource("27_nsbyv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SandPlat5" unique_id=1051153518]
-position = Vector2(-36.164307, -2.615387)
-shape = SubResource("RectangleShape2D_odwoq")
 
 [node name="Fence" type="Sprite2D" parent="." unique_id=1531416500]
 visibility_layer = 512

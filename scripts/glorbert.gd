@@ -181,7 +181,6 @@ func die() -> void:
 		# No checkpoint yet — fresh restart
 		GameState.next_player_position = Vector2.ZERO
 	
-	GameState.puzzle_won = false
 	get_tree().reload_current_scene()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
