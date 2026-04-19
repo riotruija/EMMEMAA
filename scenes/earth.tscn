@@ -1158,13 +1158,13 @@ shape = SubResource("SegmentShape2D_xn2ui")
 position = Vector2(0, 10)
 
 [node name="MuruPool" type="Sprite2D" parent="platvormid/StaticBody2D11" unique_id=1881609519]
-position = Vector2(2021.9998, 134.99997)
+position = Vector2(2026.0002, 123.00003)
 rotation = 0.11055914
 scale = Vector2(1.1031395, 1)
 texture = ExtResource("18_u74q0")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="platvormid/StaticBody2D11" unique_id=561213194]
-position = Vector2(2045.2017, 152.18845)
+position = Vector2(2042, 140.99997)
 rotation = 0.11055911
 scale = Vector2(1.1031395, 1)
 shape = SubResource("RectangleShape2D_pbm0m")
