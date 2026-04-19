@@ -1359,7 +1359,7 @@ rotation = -0.25481808
 shape = SubResource("CapsuleShape2D_8n6n7")
 
 [node name="tutorialtekstid" type="Node2D" parent="." unique_id=569696261]
-position = Vector2(-47, 15)
+position = Vector2(-469, 551)
 
 [node name="Squares1" type="Sprite2D" parent="tutorialtekstid" unique_id=627300194]
 position = Vector2(585, -259)
@@ -1400,5 +1400,66 @@ offset_bottom = -228.0
 theme_override_colors/font_color = Color(0.27188405, 0.13818714, 9.62615e-08, 1)
 theme_override_font_sizes/font_size = 100
 text = "A"
+
+[node name="Label3" type="Label" parent="tutorialtekstid" unique_id=2081461857]
+light_mask = 513
+offset_left = 661.0
+offset_top = -295.0
+offset_right = 717.0
+offset_bottom = -228.0
+theme_override_colors/font_color = Color(0.27188405, 0.13818714, 9.62615e-08, 1)
+theme_override_font_sizes/font_size = 100
+text = "S"
+
+[node name="Label4" type="Label" parent="tutorialtekstid" unique_id=1280260940]
+light_mask = 513
+offset_left = 751.0
+offset_top = -294.0
+offset_right = 807.0
+offset_bottom = -227.0
+theme_override_colors/font_color = Color(0.27188405, 0.13818714, 9.62615e-08, 1)
+theme_override_font_sizes/font_size = 100
+text = "D"
+
+[node name="Label5" type="Label" parent="tutorialtekstid" unique_id=489666694]
+light_mask = 513
+offset_left = 2413.0
+offset_top = -182.0
+offset_right = 2782.0
+offset_bottom = -115.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 75
+text = "space to scoot"
+
+[node name="Label6" type="Label" parent="tutorialtekstid" unique_id=1300818043]
+light_mask = 513
+offset_left = 2513.0
+offset_top = -130.0
+offset_right = 2758.0
+offset_bottom = -63.0
+theme_override_colors/font_color = Color(1, 0.82138985, 0.6813405, 1)
+theme_override_font_sizes/font_size = 40
+text = "mind the time"
+
+[node name="Label7" type="Label" parent="tutorialtekstid" unique_id=720270690]
+light_mask = 513
+offset_left = 998.0
+offset_top = -841.0
+offset_right = 1464.0
+offset_bottom = -774.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 75
+text = "Get to the tower!"
+
+[node name="Label8" type="Label" parent="tutorialtekstid" unique_id=1317360921]
+light_mask = 513
+offset_left = 1663.0
+offset_top = -623.0
+offset_right = 2264.0
+offset_bottom = -556.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 75
+text = "And destroy
+the signals"
 
 [connection signal="body_entered" from="lopp" to="lopp" method="_on_body_entered"]
