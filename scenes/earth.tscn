@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="1_2tfwh"]
 [ext_resource type="Script" uid="uid://bmbg5ltbhyb75" path="res://scripts/satelliidi_kontroller.gd" id="1_2umt7"]
-[ext_resource type="Script" uid="uid://bdw7qfognrqdy" path="res://scenes/taust.gd" id="1_6lk5v"]
+[ext_resource type="Script" path="res://scenes/taust.gd" id="1_6lk5v"]
 [ext_resource type="Texture2D" uid="uid://beq346gg07hqi" path="res://img/tegelane/bumass glorbert .png" id="2_2tfwh"]
 [ext_resource type="Script" uid="uid://bxbco2rq6i1pf" path="res://scripts/glorbert.gd" id="2_2umt7"]
 [ext_resource type="Texture2D" uid="uid://c4numpganv21f" path="res://img/taustad/linna_background.png" id="2_78p35"]
@@ -48,7 +48,9 @@
 [ext_resource type="Texture2D" uid="uid://5vlvfu8c3x0a" path="res://img/platforms/korb/tower.png" id="42_36gwj"]
 [ext_resource type="Texture2D" uid="uid://b2rd3mpbwxi2m" path="res://img/platforms/korb/fence.png" id="43_8n6n7"]
 [ext_resource type="Texture2D" uid="uid://b3x7ofw55gy32" path="res://img/platforms/korb/sign 1.png" id="44_8n6n7"]
-[ext_resource type="Script" uid="uid://orfqcmdptahr" path="res://scripts/lopp.gd" id="45_t8i46"]
+[ext_resource type="Script" path="res://scripts/lopp.gd" id="45_t8i46"]
+[ext_resource type="Script" uid="uid://y8qlykkmgy6k" path="res://scripts/suurlaine_spawner.gd" id="50_q5n61"]
+[ext_resource type="PackedScene" uid="uid://qspklv6uujva" path="res://scenes/suurlaine.tscn" id="51_6n77p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -848,6 +850,8 @@ vastane_sateliit = ExtResource("3_2tfwh")
 [node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind", "spawn_points", "gun_spawn_points") groups=["glorbert"]]
 position = Vector2(271.00006, 1.9999981)
 scale = Vector2(10, 10)
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("2_2umt7")
 glorbert = NodePath(".")
 maapind = NodePath("../maapind")
@@ -1359,6 +1363,10 @@ position = Vector2(-48, 79.00001)
 rotation = -0.25481808
 shape = SubResource("CapsuleShape2D_8n6n7")
 
+[node name="suurlaine_spawner" type="Node2D" parent="." unique_id=1654078885]
+position = Vector2(9450, 0)
+script = ExtResource("50_q5n61")
+suurlaine_scene = ExtResource("51_6n77p")
 [node name="tutorialtekstid" type="Node2D" parent="." unique_id=569696261]
 position = Vector2(-469, 551)
 

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://qspklv6uujva"]
+
+[ext_resource type="Script" uid="uid://pw6ltfb1yijt" path="res://scripts/suurlaine.gd" id="1_0le5f"]
+[ext_resource type="Texture2D" uid="uid://c452cro1hilwj" path="res://img/satelliit/suurlaine.png" id="2_kujqo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ygb7i"]
+
+[node name="Suurlaine" type="Area2D" unique_id=1656002]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_0le5f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1049284779]
+rotation = -1.5707964
+scale = Vector2(15, 15)
+texture = ExtResource("2_kujqo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=461399554]
+position = Vector2(166, 0)
+scale = Vector2(50, 50)
+shape = SubResource("CircleShape2D_ygb7i")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
