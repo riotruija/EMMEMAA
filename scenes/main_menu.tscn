@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://fpmgb43os6xu" path="res://img/mainmenustuff/OPTIONS.png" id="7_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://dte6l6oleb3g1" path="res://img/mainmenustuff/QUIT.png" id="8_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://dyks0f0t020ej" path="res://img/mainmenustuff/sfxvolume.png" id="9_flqon"]
-[ext_resource type="Texture2D" uid="uid://b6ltd5bir6q2v" path="res://img/mainmenustuff/panel.png" id="9_rcqid"]
 [ext_resource type="Texture2D" uid="uid://d26f2wrsgdl3" path="res://img/mainmenustuff/optionspaneloptions.png" id="10_1ajci"]
 [ext_resource type="Texture2D" uid="uid://bacn23hi6tbof" path="res://img/mainmenustuff/musicvolume.png" id="10_rcqid"]
 
@@ -184,24 +183,6 @@ offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bqqt6")
-
-[node name="Back_Panel" type="TextureRect" parent="Options" unique_id=1487375042]
-visible = false
-custom_minimum_size = Vector2(900, 800)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -464.0
-offset_top = -400.0
-offset_right = 464.0
-offset_bottom = 400.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(544, 760)
-texture = ExtResource("9_rcqid")
 
 [node name="Label" type="TextureRect" parent="Options" unique_id=1424643376]
 layout_mode = 1
