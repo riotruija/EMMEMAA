@@ -87,7 +87,6 @@ texture = ExtResource("2_bqqt6")
 expand_mode = 1
 
 [node name="Main_buttons" type="VBoxContainer" parent="." unique_id=2035090464]
-visible = false
 top_level = true
 layout_mode = 1
 anchors_preset = 8
@@ -136,6 +135,7 @@ stretch_mode = 0
 script = ExtResource("6_tbmy8")
 
 [node name="Options" type="Panel" parent="." unique_id=40699626]
+visible = false
 custom_minimum_size = Vector2(900, 0)
 layout_mode = 1
 anchors_preset = 8

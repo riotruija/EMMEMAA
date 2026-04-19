@@ -48,7 +48,6 @@ var used_gun_spawn_points: Array = []
 @onready var gun_timer_fill = $"../CanvasLayer/GunTimerBar/Fill"
 var has_gun: bool = false
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	glorbert_sprite_foolium.hide()

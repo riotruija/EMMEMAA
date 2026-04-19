@@ -449,17 +449,26 @@ script/source = "extends Camera2D
 
 var muusika = [
 	preload(\"res://music/muusika_main_intro.mp3\"),
-	preload(\"res://music/muusika_main_loop.mp3\")
+	preload(\"res://music/muusika_main_loop.mp3\"),
+	preload(\"res://music/escape_music.mp3\")
 ]
 var mitmes_lugu = 0
-
+var lopp_muusika_mangib: bool = false
 func _ready() -> void:
+	if GameState.puzzle_won:
+		mitmes_lugu = 2
 	muusika_mangija.set_stream(muusika[mitmes_lugu])
 	muusika_mangija.play()
-	muusika_mangija.finished.connect(muusika_algus_labi)
+	if mitmes_lugu == 0:
+		muusika_mangija.finished.connect(muusika_algus_labi)
 
 func muusika_algus_labi() -> void:
 	mitmes_lugu = 1
+	muusika_mangija.set_stream(muusika[mitmes_lugu])
+	muusika_mangija.play()
+	
+func lopp_muusika() -> void:
+	mitmes_lugu = 2
 	muusika_mangija.set_stream(muusika[mitmes_lugu])
 	muusika_mangija.play()
 	
