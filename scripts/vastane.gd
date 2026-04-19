@@ -8,6 +8,7 @@ var _t = 0
 # 2 on kollane
 # 3 on roosa
 var varv = 0
+var indeks = 0
 
 @export var signaal: PackedScene
 @onready var destroyed_sound: AudioStreamPlayer2D = $Destroyed_sound
@@ -62,6 +63,7 @@ func shoot() -> void:
 	add_child(s)
 
 func kill() -> void:
+	GameState.sat_mask[indeks] = false
 	surnud = true
 	$CollisionPolygon2D.disabled = true
 	destroyed_sound.pitch_scale = randf_range(1.0, 1.6)

@@ -50,7 +50,8 @@ var varvid = [
 	1
 ]
 
-func tee_vastane(asend: Vector2, nurk, intervall, varv, signaali_kiirus):
+
+func tee_vastane(asend: Vector2, nurk, intervall, varv, signaali_kiirus, i):
 	var vastane = vastane_sateliit.instantiate()
 	vastane.position = asend
 	vastane.nurk = nurk
@@ -58,13 +59,15 @@ func tee_vastane(asend: Vector2, nurk, intervall, varv, signaali_kiirus):
 	vastane.signaali_kiirus = signaali_kiirus
 	vastane.varv = varv
 	vastane.varvi()
+	vastane.indeks = i
 	add_child(vastane)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var rng = RandomNumberGenerator.new()
 	for i in range(len(asendid)):
-		tee_vastane(asendid[i], nurgad[i], rng.randf_range(0.5, 2.0), varvid[i], 1000)
+		if GameState.sat_mask[i]:
+			tee_vastane(asendid[i], nurgad[i], rng.randf_range(0.5, 2.0), varvid[i], 1000, i)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
