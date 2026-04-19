@@ -5,7 +5,7 @@ const HEIGHT := 6
 
 # === COORDINATES TO RETURN TO ===
 const WIN_RETURN_POSITION := Vector2(8410, 30)   # change to wherever
-const LOSE_RETURN_POSITION := Vector2(8874, 346)   # change to wherever
+const LOSE_RETURN_POSITION := Vector2(6739, -301)   # change to wherever
 
 # === TIMER CONFIG ===
 const TIME_LIMIT := 45.0  # seconds — change this to adjust difficulty
@@ -234,4 +234,6 @@ func check_win() -> void:
 	game_over = true
 	GameState.next_player_position = WIN_RETURN_POSITION
 	GameState.puzzle_won = true
+	GameState.checkpoint_active = true                  # ← activate checkpoint
+	GameState.checkpoint_position = WIN_RETURN_POSITION # ← save the spot
 	get_tree().change_scene_to_file("res://scenes/earth.tscn")

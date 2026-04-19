@@ -43,6 +43,7 @@
 [ext_resource type="Script" uid="uid://dycuw667ibiq0" path="res://scenes/puzzle_entry.gd" id="34_djwa2"]
 [ext_resource type="Texture2D" uid="uid://5vlvfu8c3x0a" path="res://img/platforms/korb/tower.png" id="42_36gwj"]
 [ext_resource type="Texture2D" uid="uid://b2rd3mpbwxi2m" path="res://img/platforms/korb/fence.png" id="43_8n6n7"]
+[ext_resource type="Texture2D" uid="uid://b3x7ofw55gy32" path="res://img/platforms/korb/sign 1.png" id="44_8n6n7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -1248,3 +1249,11 @@ texture = ExtResource("26_nov0m")
 [node name="SandPlat4" type="Sprite2D" parent="." unique_id=1829314235]
 position = Vector2(7510, -81)
 texture = ExtResource("27_nsbyv")
+
+[node name="Sign1" type="Sprite2D" parent="." unique_id=828934671]
+position = Vector2(8052, 300)
+texture = ExtResource("44_8n6n7")
+
+[node name="Sign2" type="Sprite2D" parent="." unique_id=1706636948]
+position = Vector2(6739, -301)
+texture = ExtResource("44_8n6n7")

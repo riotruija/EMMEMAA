@@ -56,13 +56,16 @@ func _ready() -> void:
 	glorbert_sprite_foolium_gun.hide()
 	glorbert_sprite_tavaline.show()
 	maapinna_pind = maapind.get_node("StaticBody2D")
-	spawn_hat()
-	spawn_all_guns()  # ← add this
-	gun_timer_bar.hide()
-	# Apply position from GameState if set (returning from puzzle)
+	
+	# Apply position FIRST, before spawning anything
 	if GameState.next_player_position != Vector2.ZERO:
 		global_position = GameState.next_player_position
-		GameState.next_player_position = Vector2.ZERO  # reset so it doesn't keep applying
+		GameState.next_player_position = Vector2.ZERO
+	
+	# Now spawn hat/guns with the correct position reference
+	spawn_all_hats()
+	spawn_all_guns()
+	gun_timer_bar.hide()# reset so it doesn't keep applying
 
 func _unhandled_key_input(event: InputEvent) -> void:		
 	if event.is_action("left") and event.is_pressed():
@@ -171,6 +174,14 @@ func _physics_process(delta: float) -> void:
 	glorbert.move_and_slide()
 
 func die() -> void:
+	if GameState.checkpoint_active:
+		# Respawn at checkpoint instead of restarting the level
+		GameState.next_player_position = GameState.checkpoint_position
+	else:
+		# No checkpoint yet — fresh restart
+		GameState.next_player_position = Vector2.ZERO
+	
+	GameState.puzzle_won = false
 	get_tree().reload_current_scene()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -180,55 +191,34 @@ func _process(delta: float) -> void:
 		update_gun_timer_bar()
 		if gun_time_left <= 0:
 			lose_gun()
-
-func spawn_hat() -> void:
-	if has_hat or current_hat != null:
-		return
+func spawn_all_hats() -> void:
 	if spawn_points == null:
 		return
-	
-	var points = spawn_points.get_children()
-	if points.is_empty():
-		return
-	
-	var min_distance = 300.0
-	var valid = points.filter(func(p): 
-		return p.global_position.distance_to(global_position) > min_distance
-	) 
-	if valid.is_empty():
-		valid = points
-	
-	# Filter out already-used spawn points
-	var unused = valid.filter(func(p): return p not in used_spawn_points)
-	
-	# If all have been used, reset and use any (or just give up — your choice)
-	if unused.is_empty():
-		print("All spawn points used — no more hats!")
-		return
-	
-	var chosen = unused[randi() % unused.size()]
-	used_spawn_points.append(chosen)
-	
-	var hat = hat_scene.instantiate()
-	spawn_points.add_child(hat)            # ← changed
-	hat.global_position = chosen.global_position  # set position AFTER adding
-	
-	hat.picked_up.connect(_on_hat_picked_up)
-	current_hat = hat
+	for point in spawn_points.get_children():
+		if point in used_spawn_points:
+			continue  # already picked up this one before
+		spawn_hat_at(point)
 
-func _on_hat_picked_up() -> void:
+func spawn_hat_at(point: Node2D) -> void:
+	var hat = hat_scene.instantiate()
+	spawn_points.add_child(hat)
+	hat.global_position = point.global_position
+	hat.picked_up.connect(_on_hat_picked_up.bind(point))
+
+func _on_hat_picked_up(point: Node2D) -> void:
+	if has_hat:
+		return  # already have one, ignore (but this won't be called because we'll handle it in the hat script)
+	used_spawn_points.append(point)
 	has_hat = true
-	current_hat = null
 	update_sprite()
 	hat_pickup_player.play()
 	print("Picked up the hat!")
 
 func lose_hat() -> void:
 	has_hat = false
-	current_hat = null
 	update_sprite()
 	print("Lost the hat!")
-	spawn_hat()
+	# No spawn_hat() — the other hats are already sitting there waiting
 
 func spawn_all_guns() -> void:
 	print("=== spawn_all_guns called ===")
