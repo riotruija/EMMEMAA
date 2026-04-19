@@ -28,7 +28,7 @@ var double_jump_available: bool = true
 @onready var hurt_player = $"../Camera2D/Sounds/Hurt"
 @onready var hat_pickup_player = $"../Camera2D/Sounds/Hat_pickup"
 @onready var gun_pickup_player = $"../Camera2D/Sounds/Gun_pickup"
-@onready var gun_shoot_player = $"../Camera2D/Sounds/Gun_shoot"
+#@onready var gun_shoot_player = $"../Camera2D/Sounds/Gun_shoot"
 var on_jooksmas:bool = false
 var oli_porandal:bool = true
 # === HAT SYSTEM ===
@@ -88,7 +88,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func fire() -> void:
 	$BulletSpawner.spawn_bullet(sprite.flip_h)
-	gun_shoot_player.play()
 	
 	
 	
@@ -128,7 +127,7 @@ func update_sprite() -> void:
 func _physics_process(delta: float) -> void:
 	var on_praegu_porandal = is_on_floor()
 	
-	print(global_position.y)
+	#print(global_position.y)
 	if global_position.y > 600:
 		die()
 	
