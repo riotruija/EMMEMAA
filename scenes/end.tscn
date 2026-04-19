@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://dl3rj1xdqq2yw"]
+[gd_scene format=3 uid="uid://bl32jyrghbs8q"]
+
+[ext_resource type="AudioStream" uid="uid://dwjik7bdkyuai" path="res://music/end_screen_music.mp3" id="1_mwn6m"]
 
 [node name="End" type="Node2D" unique_id=1039340817]
+
+[node name="End_music" type="AudioStreamPlayer2D" parent="." unique_id=1684728091]
+stream = ExtResource("1_mwn6m")
+volume_db = 12.0
+autoplay = true
+bus = &"Music"

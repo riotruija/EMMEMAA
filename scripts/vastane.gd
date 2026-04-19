@@ -28,7 +28,7 @@ var surnud:bool = false
 func _physics_process(delta: float) -> void:
 	# paneb vonkuma
 	if surnud:
-		AMPLITUUD = 100
+		AMPLITUUD = 700
 		SAGEDUS = 80
 	velocity.x = AMPLITUUD * cos(SAGEDUS * _t)
 	_t += delta

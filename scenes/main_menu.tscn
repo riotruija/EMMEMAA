@@ -68,13 +68,15 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 55.0
+offset_top = 8.0
 offset_right = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wu84c")
 
 [node name="StartScreen" type="Sprite2D" parent="." unique_id=460088991]
-position = Vector2(1012, 544)
+position = Vector2(1013.5, 542)
+scale = Vector2(1.0015625, 1.0037037)
 texture = ExtResource("4_5pajh")
 
 [node name="Main_buttons" type="VBoxContainer" parent="." unique_id=2035090464]
