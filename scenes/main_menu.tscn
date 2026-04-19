@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dco7q3xnl7y7i" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://b4ohco2ey3mmo" path="res://img/main_menu_ph.jpg" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://db0c2gyemb2te" path="res://img/title_ph.png" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://rr7wq65xklsa" path="res://music/main_menu_music_intro.mp3" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://b5ygcr5cqm7xm" path="res://img/taustad/START SCREEN.png" id="4_5pajh"]
 [ext_resource type="Script" uid="uid://cn46ta6lxh8lu" path="res://scripts/voluum_music.gd" id="5_8ln24"]
 [ext_resource type="Texture2D" uid="uid://cg5gq1d41to8u" path="res://img/mainmenustuff/START.png" id="5_oa1go"]
 [ext_resource type="Script" uid="uid://dvo0axwbcyfp8" path="res://scripts/voluum_sfx.gd" id="6_rtw2f"]
@@ -73,18 +73,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wu84c")
 
-[node name="Pelu_nimi" type="TextureRect" parent="." unique_id=366870635]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -145.0
-offset_top = 32.0
-offset_right = 143.0
-offset_bottom = 120.0
-grow_horizontal = 2
-texture = ExtResource("2_bqqt6")
-expand_mode = 1
+[node name="StartScreen" type="Sprite2D" parent="." unique_id=460088991]
+position = Vector2(1012, 544)
+texture = ExtResource("4_5pajh")
 
 [node name="Main_buttons" type="VBoxContainer" parent="." unique_id=2035090464]
 top_level = true
@@ -94,12 +85,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -476.0
-offset_top = -380.0
-offset_right = 476.0
-offset_bottom = 380.0
+offset_left = -811.0
+offset_top = -21.0
+offset_right = -40.666687
+offset_bottom = 739.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.67, 0.67)
 theme_override_constants/separation = 86
 
 [node name="Start" type="TextureButton" parent="Main_buttons" unique_id=1711684976]
