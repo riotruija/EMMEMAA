@@ -22,6 +22,7 @@ func spawn_bullet(flipped: bool):
 		viimane_lask = praegune_lask
 		return
 	else:
+		gun_shoot_player.pitch_scale = randf_range(1.0, 1.6)
 		gun_shoot_player.play()
 		get_tree().current_scene.add_child(bullet)
 		bullet.global_position = global_position
