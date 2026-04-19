@@ -44,7 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://cvolqscsjgxng" path="res://img/platforms/korb/dead bush.png" id="30_scj2e"]
 [ext_resource type="Texture2D" uid="uid://bux6oy1f4vcv4" path="res://img/pewpew_yellow.png" id="31_8ckq1"]
 [ext_resource type="Texture2D" uid="uid://b7k3gkxa1qhdp" path="res://img/platforms/city_stuff/plant1.png" id="33_8t2u4"]
-[ext_resource type="Script" path="res://scenes/puzzle_entry.gd" id="34_djwa2"]
+[ext_resource type="Script" uid="uid://dycuw667ibiq0" path="res://scenes/puzzle_entry.gd" id="34_djwa2"]
 [ext_resource type="Texture2D" uid="uid://5vlvfu8c3x0a" path="res://img/platforms/korb/tower.png" id="42_36gwj"]
 [ext_resource type="Texture2D" uid="uid://b2rd3mpbwxi2m" path="res://img/platforms/korb/fence.png" id="43_8n6n7"]
 [ext_resource type="Texture2D" uid="uid://b3x7ofw55gy32" path="res://img/platforms/korb/sign 1.png" id="44_8n6n7"]
@@ -759,10 +759,6 @@ texture = ExtResource("8_ui76c")
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="taust/Linnahall" unique_id=1127068038]
 position = Vector2(2903, -30.11258)
 shape = SubResource("RectangleShape2D_xn2ui")
-
-[node name="ColorRect" type="ColorRect" parent="taust/Linnahall" unique_id=1516825022]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="DeadBush" type="Sprite2D" parent="taust" unique_id=1916188312]
 position = Vector2(7233, 512)
