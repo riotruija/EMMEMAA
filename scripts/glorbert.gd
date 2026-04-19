@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @export var glorbert: CharacterBody2D
 @export var maapind: Node2D
 var maapinna_pind: StaticBody2D
@@ -10,10 +9,12 @@ var SAAPAD_EDASITAGASI = 400
 var MAX_KIIRUS_YLES = 400
 var GRAVITATSIOON = 1500
 var HOORDUMINE = 1000
+var IMMUNITY_WINDOW = 0.5
 
 var hoiab_paremale: bool = false
 var hoiab_vasakule: bool = false
 var double_jump_available: bool = true
+var immunity = 0.5
 
 @onready var glorbert_sprite_tavaline = $Glorbert_sprite
 @onready var glorbert_sprite_foolium = $Glorbert_sprite_foolium
@@ -91,10 +92,15 @@ func fire() -> void:
 	
 	
 func take_damage():
-	hurt_player.play()
-	if has_hat:
-		lose_hat()
-	$"../CanvasLayer/ColorRect".flash()
+	if (immunity <= 0):
+		print("votab dammi")
+		hurt_player.play()
+		if has_hat:
+			lose_hat()
+		else:
+			die()
+		$"../CanvasLayer/ColorRect".flash()
+		immunity = IMMUNITY_WINDOW
 
 func update_sprite() -> void:
 	# Hide all sprites first
@@ -125,8 +131,8 @@ func update_sprite() -> void:
 
 func _physics_process(delta: float) -> void:
 	var on_praegu_porandal = is_on_floor()
-	
-	#print(global_position.y)
+	if (immunity > 0):
+		immunity -= delta
 	if global_position.y > 600:
 		die()
 	
