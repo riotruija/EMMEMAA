@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d31cpxj5icor8" path="res://img/satelliit/satellite yellow.png" id="4_bi67f"]
 [ext_resource type="Texture2D" uid="uid://cunywm52qme12" path="res://img/satelliit/satellite pink.png" id="5_ixkr8"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1301750876 groups=["sateliit"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1301750876]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_bx1h7")

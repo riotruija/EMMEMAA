@@ -4,6 +4,10 @@ extends CharacterBody2D
 var AMPLITUUD = 30.0
 var SAGEDUS = 3.0
 var _t = 0
+# 1 on sinine
+# 2 on kollane
+# 3 on roosa
+var varv = 0
 
 @export var signaal: PackedScene
 
@@ -26,11 +30,31 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func varvi():
+	if (varv == 0):
+		$sinine.show()
+		$kollane.hide()
+		$roosa.hide()
+	elif (varv == 1):
+		$sinine.hide()
+		$kollane.show()
+		$roosa.hide()
+	else:
+		$sinine.hide()
+		$kollane.hide()
+		$roosa.show()
+
 func shoot() -> void:
 	var s = signaal.instantiate()
 	s.kiirus = signaali_kiirus
 	s.nurk = nurk
+	s.varv = varv
+	s.varvi()
+	s.poora()
 	add_child(s)
+
+func kill() -> void:
+	queue_free()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
