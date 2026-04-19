@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://dyks0f0t020ej" path="res://img/mainmenustuff/sfxvolume.png" id="9_flqon"]
 [ext_resource type="Texture2D" uid="uid://d26f2wrsgdl3" path="res://img/mainmenustuff/optionspaneloptions.png" id="10_1ajci"]
 [ext_resource type="Texture2D" uid="uid://bacn23hi6tbof" path="res://img/mainmenustuff/musicvolume.png" id="10_rcqid"]
+[ext_resource type="Texture2D" uid="uid://cydt380kn57p0" path="res://img/mainmenustuff/ESC_nupp.png" id="12_7b55j"]
+[ext_resource type="Texture2D" uid="uid://cp70jolhq3x5n" path="res://img/mainmenustuff/Slider_nupp.png" id="13_5pajh"]
+[ext_resource type="AudioStream" uid="uid://c5voo3bmhpitk" path="res://SFX/button_press.mp3" id="16_5pajh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]
 texture = ExtResource("1_ekxnf")
@@ -20,42 +23,6 @@ texture = ExtResource("1_ekxnf")
 [sub_resource type="Theme" id="Theme_bqqt6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
-bg_color = Color(0.42344624, 0.6822739, 0.24511355, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
-bg_color = Color(0.1865992, 0.31628445, 0.10026414, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
-bg_color = Color(0.2989349, 0.48756164, 0.17130259, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_wu84c"]
 color = Color(0.2894749, 0.23316228, 0.2547547, 1)
@@ -100,8 +67,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 1.0
+offset_left = 55.0
+offset_right = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wu84c")
@@ -120,7 +87,6 @@ texture = ExtResource("2_bqqt6")
 expand_mode = 1
 
 [node name="Main_buttons" type="VBoxContainer" parent="." unique_id=2035090464]
-visible = false
 top_level = true
 layout_mode = 1
 anchors_preset = 8
@@ -169,6 +135,7 @@ stretch_mode = 0
 script = ExtResource("6_tbmy8")
 
 [node name="Options" type="Panel" parent="." unique_id=40699626]
+visible = false
 custom_minimum_size = Vector2(900, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -229,19 +196,24 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_rcqid")
 
-[node name="Options_back" type="Button" parent="Options" unique_id=1633189945]
-layout_mode = 0
-offset_left = 423.0
-offset_top = 464.0
-offset_right = 647.0
-offset_bottom = 557.0
+[node name="Options_back" type="TextureButton" parent="Options" unique_id=101262759]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = 144.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
 theme = SubResource("Theme_bqqt6")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
-text = "Back"
+texture_normal = ExtResource("12_7b55j")
+texture_pressed = ExtResource("12_7b55j")
+texture_hover = ExtResource("12_7b55j")
+script = ExtResource("6_tbmy8")
 
 [node name="Voluum_Music" type="HSlider" parent="Options" unique_id=1864591832]
 layout_mode = 1
@@ -255,6 +227,8 @@ offset_right = 383.0
 offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_icons/grabber = ExtResource("13_5pajh")
+theme_override_icons/grabber_highlight = ExtResource("13_5pajh")
 theme_override_styles/slider = SubResource("StyleBoxLine_wu84c")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_8ln24")
 min_value = -80.0
@@ -276,6 +250,9 @@ offset_right = 383.0
 offset_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_icons/grabber = ExtResource("13_5pajh")
+theme_override_icons/grabber_highlight = ExtResource("13_5pajh")
+theme_override_icons/grabber_disabled = ExtResource("13_5pajh")
 theme_override_styles/slider = SubResource("StyleBoxLine_wu84c")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_8ln24")
@@ -285,9 +262,16 @@ value = -20.0
 script = ExtResource("6_rtw2f")
 voluum_SFX = "SFX"
 
+[node name="Nupp player" type="AudioStreamPlayer2D" parent="." unique_id=1754017800]
+stream = ExtResource("16_5pajh")
+volume_db = 6.0
+bus = &"SFX"
+
 [connection signal="pressed" from="Main_buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main_buttons/Options2" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Main_buttons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/Options_back" to="." method="_on_options_back_pressed"]
+[connection signal="drag_ended" from="Options/Voluum_Music" to="Options/Voluum_Music" method="_on_drag_ended"]
 [connection signal="value_changed" from="Options/Voluum_Music" to="Options/Voluum_Music" method="_on_value_changed"]
+[connection signal="drag_ended" from="Options/Voluum_SFX" to="Options/Voluum_SFX" method="_on_drag_ended"]
 [connection signal="value_changed" from="Options/Voluum_SFX" to="Options/Voluum_SFX" method="_on_value_changed"]

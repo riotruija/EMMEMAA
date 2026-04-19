@@ -1,6 +1,7 @@
 extends Control
 @onready var music_player: AudioStreamPlayer2D = $Music_player
 @onready var main_buttons: VBoxContainer = $Main_buttons
+@onready var nupp_player: AudioStreamPlayer2D = $"Nupp player"
 @onready var options: Panel = $Options
 
 var muusika = [
@@ -24,19 +25,24 @@ func music_finished() -> void:
 
 func _on_start_pressed() -> void:
 	# Alustab pelu
+	nupp_player.play()
 	get_tree().change_scene_to_file("res://scenes/earth.tscn")
 	print("maa")
  	
 
 
 func _on_options_pressed() -> void:
+	nupp_player.play()
 	main_buttons.visible = false
 	options.visible = true
 	
 func _on_exit_pressed() -> void:
+	nupp_player.play()
 	print("Exit pressed")
 	get_tree().quit(0)
-	
+
+
 func _on_options_back_pressed() -> void:
-	main_buttons.visible = true
+	nupp_player.play()
 	options.visible = false
+	main_buttons.visible = true

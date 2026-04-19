@@ -29,7 +29,7 @@ var immunity = 0.5
 @onready var hurt_player = $"../Camera2D/Sounds/Hurt"
 @onready var hat_pickup_player = $"../Camera2D/Sounds/Hat_pickup"
 @onready var gun_pickup_player = $"../Camera2D/Sounds/Gun_pickup"
-@onready var gun_shoot_player = $"../Camera2D/Sounds/Gun_shoot"
+#@onready var gun_shoot_player = $"../Camera2D/Sounds/Gun_shoot"
 var on_jooksmas:bool = false
 var oli_porandal:bool = true
 # === HAT SYSTEM ===
@@ -48,7 +48,6 @@ var used_gun_spawn_points: Array = []
 @onready var gun_timer_bar = $"../CanvasLayer/GunTimerBar"
 @onready var gun_timer_fill = $"../CanvasLayer/GunTimerBar/Fill"
 var has_gun: bool = false
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -89,7 +88,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func fire() -> void:
 	$BulletSpawner.spawn_bullet(sprite.flip_h)
-	gun_shoot_player.play()
 	
 	
 	
@@ -187,7 +185,6 @@ func die() -> void:
 		# No checkpoint yet — fresh restart
 		GameState.next_player_position = Vector2.ZERO
 	
-	GameState.puzzle_won = false
 	get_tree().reload_current_scene()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
