@@ -8,6 +8,7 @@ var _t = 0
 # 2 on kollane
 # 3 on roosa
 var varv = 0
+var indeks = 0
 
 @export var signaal: PackedScene
 
@@ -54,6 +55,7 @@ func shoot() -> void:
 	add_child(s)
 
 func kill() -> void:
+	GameState.sat_mask[indeks] = false
 	queue_free()
 
 # Called when the node enters the scene tree for the first time.
