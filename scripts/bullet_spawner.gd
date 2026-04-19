@@ -14,7 +14,8 @@ func spawn_bullet(flipped: bool):
 		
 	else:
 		bullet.speed = BULLET_SPEED
-	add_child(bullet)
+	get_tree().current_scene.add_child(bullet)
+	bullet.global_position = global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
