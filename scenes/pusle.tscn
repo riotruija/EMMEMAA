@@ -92,12 +92,11 @@ vertical_alignment = 1
 stream = ExtResource("4_gt68l")
 autoplay = true
 bus = &"Music"
+
 [node name="Nool" type="Sprite2D" parent="." unique_id=1733310016]
 position = Vector2(-528, 252)
 rotation = 1.5707964
-texture = ExtResource("4_gt68l")
 
 [node name="Nool2" type="Sprite2D" parent="." unique_id=548191215]
 position = Vector2(650, -3)
 rotation = 1.5707964
-texture = ExtResource("4_gt68l")

@@ -4,8 +4,8 @@ const WIDTH := 8
 const HEIGHT := 6
 
 # === COORDINATES TO RETURN TO ===
-const WIN_RETURN_POSITION := Vector2(6650, 300)   # change to wherever
-const LOSE_RETURN_POSITION := Vector2(6075, 80)   # change to wherever
+const WIN_RETURN_POSITION := Vector2(8410, 30)   # change to wherever
+const LOSE_RETURN_POSITION := Vector2(8874, 346)   # change to wherever
 
 # === TIMER CONFIG ===
 const TIME_LIMIT := 45.0  # seconds — change this to adjust difficulty

@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://cbv14yfthbefe" path="res://img/platforms/city_stuff/city roof thick.png" id="7_hto2j"]
 [ext_resource type="Script" uid="uid://8iavkyrbxyvc" path="res://scripts/pauk.gd" id="7_yhjmp"]
 [ext_resource type="Texture2D" uid="uid://b8bj5kg8lv7qq" path="res://img/platforms/city_stuff/city rooftop thin.png" id="8_ui76c"]
+[ext_resource type="Texture2D" uid="uid://do5kb41ktne38" path="res://img/taustad/linn_kõrb_üleminek.png" id="9_3o7jw"]
+[ext_resource type="Texture2D" uid="uid://jxd0ws4m6evc" path="res://img/platforms/korb/sand plat 1.png" id="12_lhn2x"]
 [ext_resource type="Texture2D" uid="uid://b4hahsoudhjqe" path="res://img/platforms/platform dirt.png" id="13_nj2me"]
 [ext_resource type="Script" uid="uid://biuqx6ig0qkto" path="res://scripts/bullet_spawner.gd" id="14_fpmy6"]
 [ext_resource type="AudioStream" uid="uid://cna4io87gsb58" path="res://SFX/jumping.mp3" id="14_qawek"]
@@ -34,8 +36,13 @@
 [ext_resource type="Texture2D" uid="uid://o5t7s5wy6iyx" path="res://img/platforms/platform tree.png" id="20_fpmy6"]
 [ext_resource type="AudioStream" uid="uid://v06wqxqwr1pp" path="res://SFX/Laser_Shot.mp3" id="23_nov0m"]
 [ext_resource type="Texture2D" uid="uid://bcxpjhkh2q86s" path="res://img/platforms/korb/sand platform 2.png" id="26_nov0m"]
+[ext_resource type="Texture2D" uid="uid://cdebt4pdmf08l" path="res://img/platforms/korb/sand plat 3.png" id="27_nsbyv"]
+[ext_resource type="Texture2D" uid="uid://dk5sr2i7mtrmv" path="res://img/platforms/korb/sign2.png" id="28_oiqpw"]
+[ext_resource type="Texture2D" uid="uid://cvolqscsjgxng" path="res://img/platforms/korb/dead bush.png" id="30_scj2e"]
 [ext_resource type="Texture2D" uid="uid://b7k3gkxa1qhdp" path="res://img/platforms/city_stuff/plant1.png" id="33_8t2u4"]
 [ext_resource type="Script" uid="uid://dycuw667ibiq0" path="res://scenes/puzzle_entry.gd" id="34_djwa2"]
+[ext_resource type="Texture2D" uid="uid://5vlvfu8c3x0a" path="res://img/platforms/korb/tower.png" id="42_36gwj"]
+[ext_resource type="Texture2D" uid="uid://b2rd3mpbwxi2m" path="res://img/platforms/korb/fence.png" id="43_8n6n7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -44,8 +51,8 @@ size = Vector2(12851.5, 8)
 b = Vector2(-4, -1140)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_djwa2"]
-a = Vector2(6, -1136)
-b = Vector2(-3, -12)
+a = Vector2(356, -727)
+b = Vector2(353, 389)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhn2x"]
 size = Vector2(387.5, 398)
@@ -64,6 +71,12 @@ size = Vector2(406.99976, 51.000008)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuf74"]
 size = Vector2(409, 326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lk5v"]
+size = Vector2(395, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8ul0"]
+size = Vector2(399, 53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4u8f"]
 size = Vector2(46.899998, 28.899996)
@@ -469,6 +482,9 @@ size = Vector2(413.5, 345)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbm0m"]
 size = Vector2(213.22632, 69.68204)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yghms"]
+size = Vector2(218, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dfur"]
 size = Vector2(406, 25)
 
@@ -476,7 +492,32 @@ size = Vector2(406, 25)
 size = Vector2(224.5, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kfxc"]
-size = Vector2(194, 180)
+size = Vector2(403, 331)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5n61"]
+size = Vector2(612, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu8bb"]
+size = Vector2(225, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7oxs"]
+size = Vector2(261.9995, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4m2l"]
+size = Vector2(212, 41.15497)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6n77p"]
+size = Vector2(213, 40)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_t8i46"]
+a = Vector2(121.97168, 163.40985)
+b = Vector2(127.97168, -199.59015)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0xrj"]
+size = Vector2(188.00012, 43.186523)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xo7b"]
+size = Vector2(435.9995, 65.00003)
 
 [node name="Earth" type="Node2D" unique_id=516625783]
 
@@ -501,20 +542,10 @@ shape = SubResource("SegmentShape2D_2tfwh")
 [node name="Korbelopp" type="StaticBody2D" parent="maapind" unique_id=614303404]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="maapind/Korbelopp" unique_id=953326663]
-position = Vector2(7743, 2)
+position = Vector2(9131, -229)
 shape = SubResource("SegmentShape2D_djwa2")
 
 [node name="taust" type="Node2D" parent="." unique_id=725482707]
-
-[node name="LinnaBackground" type="Sprite2D" parent="taust" unique_id=362763688]
-position = Vector2(4745, 6.4999456)
-scale = Vector2(0.99999994, 1.0194443)
-texture = ExtResource("2_78p35")
-
-[node name="LinnaBackground2" type="Sprite2D" parent="taust" unique_id=913391921]
-position = Vector2(5590, -1028)
-scale = Vector2(0.33, 1)
-texture = ExtResource("2_78p35")
 
 [node name="Background" type="Sprite2D" parent="taust" unique_id=1923118823]
 texture_repeat = 2
@@ -525,26 +556,37 @@ centered = false
 region_rect = Rect2(0, 0, 9600, 1080)
 
 [node name="KõrbeBackground" type="Sprite2D" parent="taust" unique_id=550251292]
-position = Vector2(7196, -8)
+position = Vector2(8527, 10.499998)
+scale = Vector2(1, 1.0250001)
 texture = ExtResource("3_yhjmp")
 
 [node name="Background2" type="Sprite2D" parent="taust" unique_id=1686780176]
 texture_repeat = 2
 position = Vector2(1904, -543)
-scale = Vector2(1.75, 1.75)
+scale = Vector2(1.7453704, 1.75)
 texture = ExtResource("4_4kfxc")
 centered = false
 region_rect = Rect2(0, 0, 9600, 1080)
+
+[node name="LinnaBackground" type="Sprite2D" parent="taust" unique_id=362763688]
+position = Vector2(4746.5, 6.4999456)
+scale = Vector2(0.9984375, 1.0194443)
+texture = ExtResource("2_78p35")
 
 [node name="Laundry" type="Sprite2D" parent="taust" unique_id=430387400]
 position = Vector2(4154, 64)
 texture = ExtResource("5_pbm0m")
 
-[node name="Plant2" type="Sprite2D" parent="taust" unique_id=1933491871]
-position = Vector2(4982, 290)
-texture = ExtResource("6_3o7jw")
+[node name="LinnKõrbÜleminek" type="Sprite2D" parent="taust" unique_id=1915760436]
+position = Vector2(6636, 11.999992)
+scale = Vector2(1.7240748, 1.7343749)
+texture = ExtResource("9_3o7jw")
 
 [node name="Linnahall" type="StaticBody2D" parent="taust" unique_id=704497726]
+
+[node name="Plant2" type="Sprite2D" parent="taust/Linnahall" unique_id=1933491871]
+position = Vector2(4982, 290)
+texture = ExtResource("6_3o7jw")
 
 [node name="CityRoofThick5" type="Sprite2D" parent="taust/Linnahall" unique_id=2132558489]
 position = Vector2(5513, 537)
@@ -586,10 +628,6 @@ shape = SubResource("RectangleShape2D_n28s0")
 position = Vector2(3847, 177)
 shape = SubResource("RectangleShape2D_36gwj")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="taust/Linnahall" unique_id=1284046973]
-position = Vector2(8300, 370.5943)
-shape = SubResource("RectangleShape2D_36gwj")
-
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="taust/Linnahall" unique_id=1802494804]
 position = Vector2(5048.5, -42.5)
 shape = SubResource("RectangleShape2D_8n6n7")
@@ -601,6 +639,43 @@ shape = SubResource("RectangleShape2D_t8i46")
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="taust/Linnahall" unique_id=1807737841]
 position = Vector2(5502.5, 465)
 shape = SubResource("RectangleShape2D_iuf74")
+
+[node name="CityRooftopThin3" type="Sprite2D" parent="taust/Linnahall" unique_id=836789074]
+position = Vector2(5819, -224)
+texture = ExtResource("8_ui76c")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="taust/Linnahall" unique_id=1710998013]
+position = Vector2(5818.5, -220.5)
+shape = SubResource("RectangleShape2D_6lk5v")
+
+[node name="Plant3" type="Sprite2D" parent="taust/Linnahall" unique_id=1621098593]
+position = Vector2(5960, -308)
+texture = ExtResource("33_8t2u4")
+
+[node name="Plant1" type="Sprite2D" parent="taust/Linnahall" unique_id=457813857]
+position = Vector2(5914.0005, -287)
+scale = Vector2(0.56504065, 0.64)
+texture = ExtResource("33_8t2u4")
+
+[node name="CityRooftopThin4" type="Sprite2D" parent="taust/Linnahall" unique_id=678873656]
+position = Vector2(6220, 222)
+texture = ExtResource("8_ui76c")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="taust/Linnahall" unique_id=1395373267]
+position = Vector2(6221.5, 220.5)
+shape = SubResource("RectangleShape2D_j8ul0")
+
+[node name="DeadBush" type="Sprite2D" parent="taust" unique_id=1916188312]
+position = Vector2(7233, 512)
+texture = ExtResource("30_scj2e")
+
+[node name="SandPlat1" type="Sprite2D" parent="taust" unique_id=2069373777]
+position = Vector2(7142, 199)
+texture = ExtResource("12_lhn2x")
+
+[node name="SandPlat2" type="Sprite2D" parent="taust" unique_id=252590484]
+position = Vector2(8223, 283)
+texture = ExtResource("12_lhn2x")
 
 [node name="laev" type="StaticBody2D" parent="." unique_id=1879706681]
 position = Vector2(271.00006, 1.9999981)
@@ -718,7 +793,7 @@ color = Color(1, 0.5529412, 1, 1)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1286664730 node_paths=PackedStringArray("target")]
 limit_left = 0
 limit_top = -2000
-limit_right = 7024
+limit_right = 9487
 limit_bottom = 2000
 script = SubResource("GDScript_scj2e")
 target = NodePath("../glorbert")
@@ -783,13 +858,19 @@ position = Vector2(2124, 309)
 [node name="GunSpawn2" type="Marker2D" parent="GunSpawnPoints" unique_id=139024245]
 position = Vector2(4134, 468)
 
+[node name="GunSpawn3" type="Marker2D" parent="GunSpawnPoints" unique_id=438452161]
+position = Vector2(7504, -141)
+
 [node name="HatSpawnPoints" type="Node2D" parent="." unique_id=1411088446]
 
 [node name="SPawnPoint1" type="Marker2D" parent="HatSpawnPoints" unique_id=1373713177]
 position = Vector2(1337, 285)
 
 [node name="SPawnPoint2" type="Marker2D" parent="HatSpawnPoints" unique_id=937577677]
-position = Vector2(5047, -104)
+position = Vector2(5807, -315)
+
+[node name="Marker2D" type="Marker2D" parent="HatSpawnPoints" unique_id=727742838]
+position = Vector2(8239, 245)
 
 [node name="platvormid" type="Node2D" parent="." unique_id=714089218]
 position = Vector2(625, 246)
@@ -917,13 +998,13 @@ shape = SubResource("RectangleShape2D_yvqq7")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="platvormid" unique_id=160172023]
 
+[node name="Plant2" type="Sprite2D" parent="platvormid/StaticBody2D5" unique_id=2046305051]
+position = Vector2(2623, 68)
+texture = ExtResource("33_8t2u4")
+
 [node name="CityRooftopThin" type="Sprite2D" parent="platvormid/StaticBody2D5" unique_id=1613653180]
 position = Vector2(3225, -66)
 texture = ExtResource("8_ui76c")
-
-[node name="Plant1" type="Sprite2D" parent="platvormid" unique_id=2046305051]
-position = Vector2(2623, 68)
-texture = ExtResource("33_8t2u4")
 
 [node name="StaticBody2D11" type="StaticBody2D" parent="platvormid" unique_id=2101301299]
 
@@ -938,6 +1019,10 @@ position = Vector2(2045.2017, 152.18845)
 rotation = 0.11055911
 scale = Vector2(1.1031395, 1)
 shape = SubResource("RectangleShape2D_pbm0m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D11" unique_id=1241456165]
+position = Vector2(6039, -397)
+shape = SubResource("RectangleShape2D_yghms")
 
 [node name="puu" type="StaticBody2D" parent="." unique_id=1684490555]
 position = Vector2(872, 2)
@@ -964,25 +1049,112 @@ shape = SubResource("RectangleShape2D_8dfur")
 [node name="StaticBody2D" type="StaticBody2D" parent="Korbeplatvorm" unique_id=1678306671]
 
 [node name="SandPlatform2" type="Sprite2D" parent="Korbeplatvorm/StaticBody2D" unique_id=169511855]
-position = Vector2(6153, 139)
+position = Vector2(7582, 273)
 texture = ExtResource("26_nov0m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Korbeplatvorm/StaticBody2D" unique_id=1156219109]
-position = Vector2(6145.75, 167)
+position = Vector2(7584, 302)
 shape = SubResource("RectangleShape2D_bukur")
 
 [node name="PuzzleEntry" type="Area2D" parent="." unique_id=1227985568]
-position = Vector2(6650, 300)
+position = Vector2(8822, 379)
 script = ExtResource("34_djwa2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleEntry" unique_id=211453045]
-position = Vector2(12, -3)
+position = Vector2(135.5, -24.5)
 shape = SubResource("RectangleShape2D_4kfxc")
 
 [node name="Prompt" type="Label" parent="PuzzleEntry" unique_id=1367528899]
-offset_left = -228.0
-offset_top = -187.0
-offset_right = 16.0
-offset_bottom = -102.0
+offset_left = -12.0
+offset_top = -263.0
+offset_right = 232.0
+offset_bottom = -178.0
 theme_override_font_sizes/font_size = 100
 text = "press e"
+
+[node name="SandPlat1" type="Sprite2D" parent="PuzzleEntry" unique_id=1708469331]
+position = Vector2(-2172, -544)
+texture = ExtResource("12_lhn2x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=325813800]
+
+[node name="SandPlat1" type="Sprite2D" parent="StaticBody2D" unique_id=749878549]
+position = Vector2(6463, 446)
+texture = ExtResource("12_lhn2x")
+
+[node name="Sign2" type="Sprite2D" parent="StaticBody2D" unique_id=1265074990]
+position = Vector2(6849.9995, 367.99976)
+rotation = 0.35604715
+texture = ExtResource("28_oiqpw")
+
+[node name="SandPlatform2" type="Sprite2D" parent="StaticBody2D" unique_id=218772380]
+position = Vector2(6888, 437)
+texture = ExtResource("26_nov0m")
+
+[node name="SandPlat3" type="Sprite2D" parent="StaticBody2D" unique_id=954463805]
+position = Vector2(6685, 467)
+texture = ExtResource("27_nsbyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1903845765]
+position = Vector2(6679, 465)
+shape = SubResource("RectangleShape2D_q5n61")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=743270046]
+position = Vector2(7162, 215)
+shape = SubResource("RectangleShape2D_xu8bb")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=81405061]
+position = Vector2(8431, 67.5)
+shape = SubResource("RectangleShape2D_e7oxs")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1070721369]
+position = Vector2(8239, 301.42252)
+shape = SubResource("RectangleShape2D_g4m2l")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1409420715]
+position = Vector2(7991.5, 455)
+shape = SubResource("RectangleShape2D_6n77p")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=678717215]
+position = Vector2(8572.028, 394.59015)
+shape = SubResource("SegmentShape2D_t8i46")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=834397551]
+position = Vector2(7508, -82.59326)
+shape = SubResource("RectangleShape2D_t0xrj")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=958137126]
+position = Vector2(8925, 529.5)
+shape = SubResource("RectangleShape2D_2xo7b")
+
+[node name="Tower" type="Sprite2D" parent="." unique_id=2008245578]
+position = Vector2(9234, 89)
+texture = ExtResource("42_36gwj")
+
+[node name="SandPlat3" type="Sprite2D" parent="." unique_id=1584060473]
+position = Vector2(8927, 530)
+scale = Vector2(2.2812536, 1.5294119)
+texture = ExtResource("27_nsbyv")
+
+[node name="Fence" type="Sprite2D" parent="." unique_id=1531416500]
+visibility_layer = 512
+position = Vector2(9264, 344)
+texture = ExtResource("43_8n6n7")
+
+[node name="Fence2" type="Sprite2D" parent="." unique_id=674182397]
+visibility_layer = 512
+position = Vector2(8874, 346)
+texture = ExtResource("43_8n6n7")
+
+[node name="SandPlat1" type="Sprite2D" parent="." unique_id=2039848402]
+position = Vector2(8410.75, 50)
+scale = Vector2(1.2312253, 1)
+texture = ExtResource("12_lhn2x")
+
+[node name="SandPlatform2" type="Sprite2D" parent="." unique_id=126006644]
+position = Vector2(7994, 425)
+texture = ExtResource("26_nov0m")
+
+[node name="SandPlat4" type="Sprite2D" parent="." unique_id=1829314235]
+position = Vector2(7510, -81)
+texture = ExtResource("27_nsbyv")
