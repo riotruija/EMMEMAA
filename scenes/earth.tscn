@@ -48,7 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://5vlvfu8c3x0a" path="res://img/platforms/korb/tower.png" id="42_36gwj"]
 [ext_resource type="Texture2D" uid="uid://b2rd3mpbwxi2m" path="res://img/platforms/korb/fence.png" id="43_8n6n7"]
 [ext_resource type="Texture2D" uid="uid://b3x7ofw55gy32" path="res://img/platforms/korb/sign 1.png" id="44_8n6n7"]
-[ext_resource type="Script" path="res://scripts/lopp.gd" id="45_t8i46"]
+[ext_resource type="Script" uid="uid://orfqcmdptahr" path="res://scripts/lopp.gd" id="45_t8i46"]
 [ext_resource type="Script" path="res://scripts/suurlaine_spawner.gd" id="50_q5n61"]
 [ext_resource type="PackedScene" uid="uid://qspklv6uujva" path="res://scenes/suurlaine.tscn" id="51_6n77p"]
 
@@ -785,11 +785,11 @@ position = Vector2(6231, 190)
 shape = SubResource("RectangleShape2D_j8ul0")
 
 [node name="Sprite2D" type="Sprite2D" parent="taust/Linnahall" unique_id=708016081]
-position = Vector2(2903, -31)
+position = Vector2(3058, 101)
 texture = ExtResource("8_ui76c")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="taust/Linnahall" unique_id=1127068038]
-position = Vector2(2903, -30.11258)
+position = Vector2(3055, 102)
 shape = SubResource("RectangleShape2D_xn2ui")
 
 [node name="DeadBush" type="Sprite2D" parent="taust" unique_id=1916188312]
