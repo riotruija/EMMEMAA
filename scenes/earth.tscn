@@ -519,6 +519,9 @@ size = Vector2(188.00012, 43.186523)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xo7b"]
 size = Vector2(435.9995, 65.00003)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odwoq"]
+size = Vector2(266.08148, 44.461548)
+
 [node name="Earth" type="Node2D" unique_id=516625783]
 
 [node name="maapind" type="Node2D" parent="." unique_id=1524979613]
@@ -547,6 +550,42 @@ shape = SubResource("SegmentShape2D_djwa2")
 
 [node name="taust" type="Node2D" parent="." unique_id=725482707]
 
+[node name="KõrbeBackground4" type="Sprite2D" parent="taust" unique_id=2075075402]
+position = Vector2(8522, 203)
+scale = Vector2(1, 1.0250001)
+texture = ExtResource("3_yhjmp")
+
+[node name="KõrbeBackground3" type="Sprite2D" parent="taust" unique_id=1600928500]
+position = Vector2(8527, 144)
+scale = Vector2(1, 1.0250001)
+texture = ExtResource("3_yhjmp")
+
+[node name="Background4" type="Sprite2D" parent="taust" unique_id=47920833]
+texture_repeat = 2
+position = Vector2(1, -153)
+scale = Vector2(1.0036458, 1)
+texture = ExtResource("1_2tfwh")
+centered = false
+region_rect = Rect2(0, 0, 9600, 1080)
+
+[node name="LinnaBackground2" type="Sprite2D" parent="taust/Background4" unique_id=146509788]
+position = Vector2(4728.7593, 534)
+scale = Vector2(0.99481064, 1.0194443)
+texture = ExtResource("2_78p35")
+
+[node name="LinnaBackground3" type="Sprite2D" parent="taust/Background4" unique_id=1959717879]
+position = Vector2(6634.8105, 417)
+scale = Vector2(0.99481064, 1.0194443)
+texture = ExtResource("2_78p35")
+
+[node name="Background3" type="Sprite2D" parent="taust" unique_id=1158113306]
+texture_repeat = 2
+position = Vector2(1900, -201.00002)
+scale = Vector2(1.7453704, 1.75)
+texture = ExtResource("4_4kfxc")
+centered = false
+region_rect = Rect2(0, 0, 9600, 1080)
+
 [node name="Background" type="Sprite2D" parent="taust" unique_id=1923118823]
 texture_repeat = 2
 position = Vector2(1, -544)
@@ -554,6 +593,11 @@ scale = Vector2(1.0036458, 1)
 texture = ExtResource("1_2tfwh")
 centered = false
 region_rect = Rect2(0, 0, 9600, 1080)
+
+[node name="LinnaBackground2" type="Sprite2D" parent="taust/Background" unique_id=249390173]
+position = Vector2(4728.76, 785)
+scale = Vector2(0.99481064, 1.0194443)
+texture = ExtResource("2_78p35")
 
 [node name="KõrbeBackground" type="Sprite2D" parent="taust" unique_id=550251292]
 position = Vector2(8527, 10.499998)
@@ -592,12 +636,22 @@ texture = ExtResource("6_3o7jw")
 position = Vector2(5513, 537)
 texture = ExtResource("7_hto2j")
 
+[node name="CityRoofThick7" type="Sprite2D" parent="taust/Linnahall" unique_id=1104317644]
+position = Vector2(5492, 744)
+rotation = 3.1415927
+texture = ExtResource("7_hto2j")
+
 [node name="CityRoofThick4" type="Sprite2D" parent="taust/Linnahall" unique_id=1246690439]
 position = Vector2(5513, 396)
 texture = ExtResource("7_hto2j")
 
 [node name="CityRoofThick3" type="Sprite2D" parent="taust/Linnahall" unique_id=467666659]
-position = Vector2(4147, 597)
+position = Vector2(4151, 540)
+texture = ExtResource("7_hto2j")
+
+[node name="CityRoofThick6" type="Sprite2D" parent="taust/Linnahall" unique_id=694390191]
+position = Vector2(4131, 746)
+rotation = 3.1415927
 texture = ExtResource("7_hto2j")
 
 [node name="CityRooftopThin2" type="Sprite2D" parent="taust/Linnahall" unique_id=532153324]
@@ -617,7 +671,7 @@ position = Vector2(4455, 184)
 texture = ExtResource("8_ui76c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="taust/Linnahall" unique_id=2065903506]
-position = Vector2(4136.25, 701)
+position = Vector2(4143, 641)
 shape = SubResource("RectangleShape2D_lhn2x")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="taust/Linnahall" unique_id=1603402082]
@@ -658,11 +712,11 @@ scale = Vector2(0.56504065, 0.64)
 texture = ExtResource("33_8t2u4")
 
 [node name="CityRooftopThin4" type="Sprite2D" parent="taust/Linnahall" unique_id=678873656]
-position = Vector2(6220, 222)
+position = Vector2(6231, 191)
 texture = ExtResource("8_ui76c")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="taust/Linnahall" unique_id=1395373267]
-position = Vector2(6221.5, 220.5)
+position = Vector2(6231, 190)
 shape = SubResource("RectangleShape2D_j8ul0")
 
 [node name="DeadBush" type="Sprite2D" parent="taust" unique_id=1916188312]
@@ -856,7 +910,7 @@ bus = &"SFX"
 position = Vector2(2124, 309)
 
 [node name="GunSpawn2" type="Marker2D" parent="GunSpawnPoints" unique_id=139024245]
-position = Vector2(4134, 468)
+position = Vector2(4140, 334)
 
 [node name="GunSpawn3" type="Marker2D" parent="GunSpawnPoints" unique_id=438452161]
 position = Vector2(7504, -141)
@@ -1079,7 +1133,7 @@ texture = ExtResource("12_lhn2x")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=325813800]
 
 [node name="SandPlat1" type="Sprite2D" parent="StaticBody2D" unique_id=749878549]
-position = Vector2(6463, 446)
+position = Vector2(6463, 431)
 texture = ExtResource("12_lhn2x")
 
 [node name="Sign2" type="Sprite2D" parent="StaticBody2D" unique_id=1265074990]
@@ -1088,15 +1142,15 @@ rotation = 0.35604715
 texture = ExtResource("28_oiqpw")
 
 [node name="SandPlatform2" type="Sprite2D" parent="StaticBody2D" unique_id=218772380]
-position = Vector2(6888, 437)
+position = Vector2(6888, 420)
 texture = ExtResource("26_nov0m")
 
 [node name="SandPlat3" type="Sprite2D" parent="StaticBody2D" unique_id=954463805]
-position = Vector2(6685, 467)
+position = Vector2(6685, 451)
 texture = ExtResource("27_nsbyv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1903845765]
-position = Vector2(6679, 465)
+position = Vector2(6679, 449)
 shape = SubResource("RectangleShape2D_q5n61")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=743270046]
@@ -1136,6 +1190,30 @@ position = Vector2(8927, 530)
 scale = Vector2(2.2812536, 1.5294119)
 texture = ExtResource("27_nsbyv")
 
+[node name="SandPlat7" type="Sprite2D" parent="." unique_id=564622591]
+position = Vector2(8927, 530)
+scale = Vector2(2.2812536, 1.5294119)
+texture = ExtResource("27_nsbyv")
+
+[node name="SandPlat6" type="Sprite2D" parent="." unique_id=328451818]
+position = Vector2(8927, 598)
+scale = Vector2(2.2812536, 1.5294119)
+texture = ExtResource("27_nsbyv")
+
+[node name="SandPlat8" type="Sprite2D" parent="." unique_id=670622760]
+position = Vector2(9364, 598)
+scale = Vector2(2.2812536, 1.5294119)
+texture = ExtResource("27_nsbyv")
+
+[node name="SandPlat5" type="Sprite2D" parent="." unique_id=950956900]
+position = Vector2(9359, 530)
+scale = Vector2(2.2812536, 1.5294119)
+texture = ExtResource("27_nsbyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SandPlat5" unique_id=1051153518]
+position = Vector2(-36.164307, -2.615387)
+shape = SubResource("RectangleShape2D_odwoq")
+
 [node name="Fence" type="Sprite2D" parent="." unique_id=1531416500]
 visibility_layer = 512
 position = Vector2(9264, 344)
@@ -1144,6 +1222,18 @@ texture = ExtResource("43_8n6n7")
 [node name="Fence2" type="Sprite2D" parent="." unique_id=674182397]
 visibility_layer = 512
 position = Vector2(8874, 346)
+texture = ExtResource("43_8n6n7")
+
+[node name="Fence3" type="Sprite2D" parent="." unique_id=691736015]
+visibility_layer = 512
+position = Vector2(8914, 786)
+rotation = 3.1415927
+texture = ExtResource("43_8n6n7")
+
+[node name="Fence4" type="Sprite2D" parent="." unique_id=1074531533]
+visibility_layer = 512
+position = Vector2(9304, 781)
+rotation = 3.1415927
 texture = ExtResource("43_8n6n7")
 
 [node name="SandPlat1" type="Sprite2D" parent="." unique_id=2039848402]
