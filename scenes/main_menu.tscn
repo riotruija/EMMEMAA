@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bacn23hi6tbof" path="res://img/mainmenustuff/musicvolume.png" id="10_rcqid"]
 [ext_resource type="Texture2D" uid="uid://cydt380kn57p0" path="res://img/mainmenustuff/ESC_nupp.png" id="12_7b55j"]
 [ext_resource type="Texture2D" uid="uid://cp70jolhq3x5n" path="res://img/mainmenustuff/Slider_nupp.png" id="13_5pajh"]
+[ext_resource type="AudioStream" uid="uid://c5voo3bmhpitk" path="res://SFX/button_press.mp3" id="16_5pajh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]
 texture = ExtResource("1_ekxnf")
@@ -261,9 +262,16 @@ value = -20.0
 script = ExtResource("6_rtw2f")
 voluum_SFX = "SFX"
 
+[node name="Nupp player" type="AudioStreamPlayer2D" parent="." unique_id=1754017800]
+stream = ExtResource("16_5pajh")
+volume_db = 6.0
+bus = &"SFX"
+
 [connection signal="pressed" from="Main_buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main_buttons/Options2" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Main_buttons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/Options_back" to="." method="_on_options_back_pressed"]
+[connection signal="drag_ended" from="Options/Voluum_Music" to="Options/Voluum_Music" method="_on_drag_ended"]
 [connection signal="value_changed" from="Options/Voluum_Music" to="Options/Voluum_Music" method="_on_value_changed"]
+[connection signal="drag_ended" from="Options/Voluum_SFX" to="Options/Voluum_SFX" method="_on_drag_ended"]
 [connection signal="value_changed" from="Options/Voluum_SFX" to="Options/Voluum_SFX" method="_on_value_changed"]
