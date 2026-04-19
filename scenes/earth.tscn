@@ -44,7 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://cvolqscsjgxng" path="res://img/platforms/korb/dead bush.png" id="30_scj2e"]
 [ext_resource type="Texture2D" uid="uid://bux6oy1f4vcv4" path="res://img/pewpew_yellow.png" id="31_8ckq1"]
 [ext_resource type="Texture2D" uid="uid://b7k3gkxa1qhdp" path="res://img/platforms/city_stuff/plant1.png" id="33_8t2u4"]
-[ext_resource type="Script" uid="uid://dycuw667ibiq0" path="res://scenes/puzzle_entry.gd" id="34_djwa2"]
+[ext_resource type="Script" path="res://scenes/puzzle_entry.gd" id="34_djwa2"]
 [ext_resource type="Texture2D" uid="uid://5vlvfu8c3x0a" path="res://img/platforms/korb/tower.png" id="42_36gwj"]
 [ext_resource type="Texture2D" uid="uid://b2rd3mpbwxi2m" path="res://img/platforms/korb/fence.png" id="43_8n6n7"]
 [ext_resource type="Texture2D" uid="uid://b3x7ofw55gy32" path="res://img/platforms/korb/sign 1.png" id="44_8n6n7"]
@@ -956,7 +956,8 @@ scale = Vector2(10, 10)
 [node name="Jumping" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=623862564]
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("14_qawek")
-volume_db = 16.0
+volume_db = 10.0
+pitch_scale = 0.8
 bus = &"SFX"
 
 [node name="Running" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=2007691946]
@@ -968,7 +969,7 @@ bus = &"SFX"
 [node name="Landing" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=746770413]
 scale = Vector2(0.99999994, 0.99999994)
 stream = ExtResource("16_r20oc")
-volume_db = 12.0
+volume_db = 10.0
 bus = &"SFX"
 
 [node name="Hurt" type="AudioStreamPlayer2D" parent="Camera2D/Sounds" unique_id=1919314945]

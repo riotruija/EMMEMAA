@@ -26,6 +26,7 @@ func music_finished() -> void:
 func _on_start_pressed() -> void:
 	# Alustab pelu
 	nupp_player.play()
+	await nupp_player.finished
 	get_tree().change_scene_to_file("res://scenes/earth.tscn")
 	print("maa")
  	
@@ -38,6 +39,7 @@ func _on_options_pressed() -> void:
 	
 func _on_exit_pressed() -> void:
 	nupp_player.play()
+	await nupp_player.finished
 	print("Exit pressed")
 	get_tree().quit(0)
 
