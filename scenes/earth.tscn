@@ -464,7 +464,10 @@ func muusika_algus_labi() -> void:
 	
 func _process(_delta: float) -> void:
 	if target:
-		position.x = target.global_position.x + x_offset
+		var offset = x_offset
+		if GameState.puzzle_won:
+			offset = -x_offset
+		position.x = target.global_position.x + offset
 		position.y = fixed_y
 "
 
