@@ -26,7 +26,6 @@ var surnud:bool = false
 
 func _physics_process(delta: float) -> void:
 	# paneb vonkuma
-	print(surnud)
 	if surnud:
 		AMPLITUUD = 100
 		SAGEDUS = 80
