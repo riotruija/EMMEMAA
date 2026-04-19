@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://dco7q3xnl7y7i" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://b4ohco2ey3mmo" path="res://img/main_menu_ph.jpg" id="1_ekxnf"]
 [ext_resource type="AudioStream" uid="uid://rr7wq65xklsa" path="res://music/main_menu_music_intro.mp3" id="2_wu84c"]
-[ext_resource type="Texture2D" uid="uid://b5ygcr5cqm7xm" path="res://img/taustad/START SCREEN.png" id="4_5pajh"]
 [ext_resource type="Script" uid="uid://cn46ta6lxh8lu" path="res://scripts/voluum_music.gd" id="5_8ln24"]
-[ext_resource type="Texture2D" uid="uid://cg5gq1d41to8u" path="res://img/mainmenustuff/START.png" id="5_oa1go"]
 [ext_resource type="Script" uid="uid://dvo0axwbcyfp8" path="res://scripts/voluum_sfx.gd" id="6_rtw2f"]
 [ext_resource type="Script" uid="uid://cwqinvv6fk8dq" path="res://scripts/Texture_button.gd" id="6_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://fpmgb43os6xu" path="res://img/mainmenustuff/OPTIONS.png" id="7_jk1qb"]
@@ -15,12 +13,16 @@
 [ext_resource type="Texture2D" uid="uid://bacn23hi6tbof" path="res://img/mainmenustuff/musicvolume.png" id="10_rcqid"]
 [ext_resource type="Texture2D" uid="uid://cydt380kn57p0" path="res://img/mainmenustuff/ESC_nupp.png" id="12_7b55j"]
 [ext_resource type="Texture2D" uid="uid://cp70jolhq3x5n" path="res://img/mainmenustuff/Slider_nupp.png" id="13_5pajh"]
+[ext_resource type="Texture2D" uid="uid://ds2g8i5frdbhb" path="res://img/mainmenustuff/START SCREEN(1).png" id="15_7b55j"]
 [ext_resource type="AudioStream" uid="uid://c5voo3bmhpitk" path="res://SFX/button_press.mp3" id="16_5pajh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]
 texture = ExtResource("1_ekxnf")
 
 [sub_resource type="Theme" id="Theme_bqqt6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5pajh"]
+load_path = "res://.godot/imported/START.png-9ef0832345022d3dd6922e2e809c9d7c.ctex"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
@@ -73,10 +75,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wu84c")
 
-[node name="StartScreen" type="Sprite2D" parent="." unique_id=460088991]
-position = Vector2(1012, 544)
-texture = ExtResource("4_5pajh")
-
 [node name="Main_buttons" type="VBoxContainer" parent="." unique_id=2035090464]
 top_level = true
 layout_mode = 1
@@ -85,10 +83,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -811.0
-offset_top = -21.0
-offset_right = -40.666687
-offset_bottom = 739.0
+offset_left = -866.0
+offset_top = -8.0
+offset_right = -95.66669
+offset_bottom = 752.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.67, 0.67)
@@ -100,9 +98,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 theme = SubResource("Theme_bqqt6")
-texture_normal = ExtResource("5_oa1go")
-texture_pressed = ExtResource("5_oa1go")
-texture_hover = ExtResource("5_oa1go")
+texture_normal = SubResource("CompressedTexture2D_5pajh")
+texture_pressed = SubResource("CompressedTexture2D_5pajh")
+texture_hover = SubResource("CompressedTexture2D_5pajh")
 stretch_mode = 0
 script = ExtResource("6_tbmy8")
 
@@ -258,6 +256,10 @@ voluum_SFX = "SFX"
 stream = ExtResource("16_5pajh")
 volume_db = 6.0
 bus = &"SFX"
+
+[node name="StartScreen(1)" type="Sprite2D" parent="." unique_id=623319515]
+position = Vector2(958, 537)
+texture = ExtResource("15_7b55j")
 
 [connection signal="pressed" from="Main_buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main_buttons/Options2" to="." method="_on_options_pressed"]

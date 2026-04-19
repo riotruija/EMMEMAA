@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg5gq1d41to8u"
-path="res://.godot/imported/START.png-9ef0832345022d3dd6922e2e809c9d7c.ctex"
+uid="uid://ds2g8i5frdbhb"
+path="res://.godot/imported/START SCREEN(1).png-74be678af150d994888b5d1139210d91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/mainmenustuff/START.png"
-dest_files=["res://.godot/imported/START.png-9ef0832345022d3dd6922e2e809c9d7c.ctex"]
+source_file="res://img/mainmenustuff/START SCREEN(1).png"
+dest_files=["res://.godot/imported/START SCREEN(1).png-74be678af150d994888b5d1139210d91.ctex"]
 
 [params]
 
