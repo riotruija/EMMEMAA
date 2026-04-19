@@ -1,6 +1,6 @@
 extends Control
 @onready var music_player: AudioStreamPlayer2D = $Music_player
-@onready var main_buttons: TextureRect = $Main_panel
+@onready var main_buttons: VBoxContainer = $Main_buttons
 @onready var options: Panel = $Options
 
 var muusika = [

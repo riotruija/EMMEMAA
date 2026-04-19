@@ -120,23 +120,8 @@ grow_horizontal = 2
 texture = ExtResource("2_bqqt6")
 expand_mode = 1
 
-[node name="Main_panel" type="TextureRect" parent="." unique_id=109231013]
+[node name="Main_buttons" type="VBoxContainer" parent="." unique_id=2035090464]
 visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -465.0
-offset_top = -420.0
-offset_right = 463.0
-offset_bottom = 404.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_rcqid")
-
-[node name="Main_buttons" type="VBoxContainer" parent="Main_panel" unique_id=2035090464]
 top_level = true
 layout_mode = 1
 anchors_preset = 8
@@ -152,7 +137,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 86
 
-[node name="Start" type="TextureButton" parent="Main_panel/Main_buttons" unique_id=1711684976]
+[node name="Start" type="TextureButton" parent="Main_buttons" unique_id=1711684976]
 custom_minimum_size = Vector2(596, 196)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -164,7 +149,7 @@ texture_hover = ExtResource("5_oa1go")
 stretch_mode = 0
 script = ExtResource("6_tbmy8")
 
-[node name="Options2" type="TextureButton" parent="Main_panel/Main_buttons" unique_id=1057325138]
+[node name="Options2" type="TextureButton" parent="Main_buttons" unique_id=1057325138]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
@@ -173,7 +158,7 @@ texture_pressed = ExtResource("7_jk1qb")
 texture_hover = ExtResource("7_jk1qb")
 script = ExtResource("6_tbmy8")
 
-[node name="Exit" type="TextureButton" parent="Main_panel/Main_buttons" unique_id=1593826429]
+[node name="Exit" type="TextureButton" parent="Main_buttons" unique_id=1593826429]
 custom_minimum_size = Vector2(596, 196)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -201,6 +186,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bqqt6")
 
 [node name="Back_Panel" type="TextureRect" parent="Options" unique_id=1487375042]
+visible = false
 custom_minimum_size = Vector2(900, 800)
 layout_mode = 1
 anchors_preset = 8
@@ -318,9 +304,9 @@ value = -20.0
 script = ExtResource("6_rtw2f")
 voluum_SFX = "SFX"
 
-[connection signal="pressed" from="Main_panel/Main_buttons/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Main_panel/Main_buttons/Options2" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Main_panel/Main_buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Main_buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Main_buttons/Options2" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Main_buttons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/Options_back" to="." method="_on_options_back_pressed"]
 [connection signal="value_changed" from="Options/Voluum_Music" to="Options/Voluum_Music" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/Voluum_SFX" to="Options/Voluum_SFX" method="_on_value_changed"]
