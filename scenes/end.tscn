@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bl32jyrghbs8q"]
 
 [ext_resource type="AudioStream" uid="uid://dwjik7bdkyuai" path="res://music/end_screen_music.mp3" id="1_mwn6m"]
+[ext_resource type="Texture2D" uid="uid://dte6l6oleb3g1" path="res://img/mainmenustuff/QUIT.png" id="2_p7m4f"]
+[ext_resource type="Script" uid="uid://cwqinvv6fk8dq" path="res://scripts/Texture_button.gd" id="3_bvfni"]
 
 [node name="End" type="Node2D" unique_id=1039340817]
 
@@ -9,3 +11,13 @@ stream = ExtResource("1_mwn6m")
 volume_db = 12.0
 autoplay = true
 bus = &"Music"
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1460076794]
+offset_left = 1480.0
+offset_top = 904.0
+offset_right = 1855.0
+offset_bottom = 1028.0
+texture_normal = ExtResource("2_p7m4f")
+texture_pressed = ExtResource("2_p7m4f")
+texture_hover = ExtResource("2_p7m4f")
+script = ExtResource("3_bvfni")
