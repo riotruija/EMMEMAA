@@ -2,17 +2,29 @@
 
 [ext_resource type="Script" uid="uid://jsx7237sp2jm" path="res://scripts/vastane.gd" id="1_bx1h7"]
 [ext_resource type="PackedScene" uid="uid://ujfjqk655edn" path="res://scenes/signaal.tscn" id="2_17nne"]
+[ext_resource type="Texture2D" uid="uid://dfngqjb0qycsa" path="res://img/satelliit/satellite blue.png" id="3_ueo48"]
+[ext_resource type="Texture2D" uid="uid://d31cpxj5icor8" path="res://img/satelliit/satellite yellow.png" id="4_bi67f"]
+[ext_resource type="Texture2D" uid="uid://cunywm52qme12" path="res://img/satelliit/satellite pink.png" id="5_ixkr8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_73f72"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1301750876]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1301750876 groups=["sateliit"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_bx1h7")
 signaal = ExtResource("2_17nne")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1873402921]
-polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
+[node name="sinine" type="Sprite2D" parent="." unique_id=646323913]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_ueo48")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=289796059]
-shape = SubResource("RectangleShape2D_73f72")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=106821290]
+polygon = PackedVector2Array(-87, 22, -42, 80, 53, 73, 88, -20, 43, -78, -33, -87)
+
+[node name="kollane" type="Sprite2D" parent="." unique_id=726622537]
+position = Vector2(10, -12)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_bi67f")
+
+[node name="roosa" type="Sprite2D" parent="." unique_id=788882615]
+position = Vector2(-2, -5)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_ixkr8")

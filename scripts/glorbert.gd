@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @export var glorbert: CharacterBody2D
 @export var maapind: Node2D
 var maapinna_pind: StaticBody2D
@@ -10,10 +9,12 @@ var SAAPAD_EDASITAGASI = 400
 var MAX_KIIRUS_YLES = 400
 var GRAVITATSIOON = 1500
 var HOORDUMINE = 1000
+var IMMUNITY_WINDOW = 0.5
 
 var hoiab_paremale: bool = false
 var hoiab_vasakule: bool = false
 var double_jump_available: bool = true
+var immunity = 0.5
 
 @onready var glorbert_sprite_tavaline = $Glorbert_sprite
 @onready var glorbert_sprite_foolium = $Glorbert_sprite_foolium
@@ -28,7 +29,7 @@ var double_jump_available: bool = true
 @onready var hurt_player = $"../Camera2D/Sounds/Hurt"
 @onready var hat_pickup_player = $"../Camera2D/Sounds/Hat_pickup"
 @onready var gun_pickup_player = $"../Camera2D/Sounds/Gun_pickup"
-@onready var gun_shoot_player = $"../Camera2D/Sounds/Gun_shoot"
+#@onready var gun_shoot_player = $"../Camera2D/Sounds/Gun_shoot"
 var on_jooksmas:bool = false
 var oli_porandal:bool = true
 # === HAT SYSTEM ===
@@ -47,7 +48,6 @@ var used_gun_spawn_points: Array = []
 @onready var gun_timer_bar = $"../CanvasLayer/GunTimerBar"
 @onready var gun_timer_fill = $"../CanvasLayer/GunTimerBar/Fill"
 var has_gun: bool = false
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -88,15 +88,19 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func fire() -> void:
 	$BulletSpawner.spawn_bullet(sprite.flip_h)
-	gun_shoot_player.play()
 	
 	
 	
 func take_damage():
-	hurt_player.play()
-	if has_hat:
-		lose_hat()
-	$"../CanvasLayer/ColorRect".flash()
+	if (immunity <= 0):
+		print("votab dammi")
+		hurt_player.play()
+		if has_hat:
+			lose_hat()
+		else:
+			die()
+		$"../CanvasLayer/ColorRect".flash()
+		immunity = IMMUNITY_WINDOW
 
 func update_sprite() -> void:
 	# Hide all sprites first
@@ -127,8 +131,8 @@ func update_sprite() -> void:
 
 func _physics_process(delta: float) -> void:
 	var on_praegu_porandal = is_on_floor()
-	
-	print(global_position.y)
+	if (immunity > 0):
+		immunity -= delta
 	if global_position.y > 600:
 		die()
 	

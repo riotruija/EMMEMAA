@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cq65wkljgjjx6"]
 
 [ext_resource type="Script" uid="uid://kqvj7mwvu4pt" path="res://scripts/grid.gd" id="1_mnxy6"]
-[ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="2_gt68l"]
+[ext_resource type="Texture2D" uid="uid://cqixbnrrv1due" path="res://img/taustad/kõrbe_background.png" id="2_k8l4c"]
 [ext_resource type="AudioStream" uid="uid://cukmhakb807ly" path="res://music/puzzle_backgroundmp3.mp3" id="4_gt68l"]
+[ext_resource type="Texture2D" uid="uid://irgt4v5sxu1g" path="res://img/nool.png" id="5_a23m1"]
 [ext_resource type="Texture2D" uid="uid://b2q0utx5yvoqn" path="res://img/uuedkastid.png" id="5_k8l4c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gt4qv"]
@@ -42,8 +43,9 @@ sources/9 = SubResource("TileSetAtlasSource_gt4qv")
 [node name="Node2D" type="Node2D" parent="." unique_id=488579321]
 script = ExtResource("1_mnxy6")
 
-[node name="Background" type="Sprite2D" parent="Node2D" unique_id=820047421]
-texture = ExtResource("2_gt68l")
+[node name="KõrbeBackground" type="Sprite2D" parent="Node2D" unique_id=1524956404]
+position = Vector2(-1, 1)
+texture = ExtResource("2_k8l4c")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=1364482069]
 scale = Vector2(0.488, 0.488)
@@ -70,8 +72,10 @@ vertical_alignment = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
+offset_left = -270.0
+offset_top = 134.0
+offset_right = -230.0
+offset_bottom = 201.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 100
 
@@ -94,9 +98,56 @@ autoplay = true
 bus = &"Music"
 
 [node name="Nool" type="Sprite2D" parent="." unique_id=1733310016]
+light_mask = 524801
 position = Vector2(-528, 252)
 rotation = 1.5707964
+texture = ExtResource("5_a23m1")
 
 [node name="Nool2" type="Sprite2D" parent="." unique_id=548191215]
+light_mask = 524800
 position = Vector2(650, -3)
 rotation = 1.5707964
+texture = ExtResource("5_a23m1")
+
+[node name="Label" type="Label" parent="." unique_id=1106650862]
+offset_left = -921.0
+offset_top = -209.0
+offset_right = -501.0
+offset_bottom = -122.0
+theme_override_font_sizes/font_size = 130
+text = "hack into"
+
+[node name="Label2" type="Label" parent="." unique_id=355852048]
+offset_left = -778.0
+offset_top = -135.0
+offset_right = -647.0
+offset_bottom = -55.0
+theme_override_font_sizes/font_size = 120
+text = "the"
+
+[node name="Label3" type="Label" parent="." unique_id=2143139495]
+offset_left = -949.00006
+offset_top = -70.0
+offset_right = -440.76498
+offset_bottom = 44.0
+rotation = -0.0019620955
+theme_override_colors/font_color = Color(0.80367804, 0.22223502, 0.2739512, 1)
+theme_override_font_sizes/font_size = 150
+text = "mainframe"
+
+[node name="Label4" type="Label" parent="." unique_id=1563645967]
+offset_left = -881.0
+offset_top = -235.0
+offset_right = -559.0
+offset_bottom = -211.0
+theme_override_font_sizes/font_size = 35
+text = "to destroy the evil signals"
+
+[node name="Label5" type="Label" parent="." unique_id=654869405]
+offset_left = -503.0
+offset_top = -411.0
+offset_right = 255.0
+offset_bottom = -344.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+text = "Fill all the squares !!"

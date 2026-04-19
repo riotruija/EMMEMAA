@@ -2,7 +2,24 @@ extends CharacterBody2D
 
 var nurk = 0
 var kiirus = 1000
+var varv = 0
 
+func varvi():
+	if (varv == 0):
+		$sinine.show()
+		$kollane.hide()
+		$roosa.hide()
+	elif (varv == 1):
+		$sinine.hide()
+		$kollane.show()
+		$roosa.hide()
+	else:
+		$sinine.hide()
+		$kollane.hide()
+		$roosa.show()
+
+func poora():
+	rotation = -nurk + PI/2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -17,6 +34,7 @@ func _physics_process(delta: float) -> void:
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider.is_in_group("glorbert"):
+			queue_free()
 			collider.take_damage()
 	
 
