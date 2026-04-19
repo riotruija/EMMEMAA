@@ -11,6 +11,8 @@ var varv = 0
 var indeks = 0
 
 @export var signaal: PackedScene
+@onready var destroyed_sound: AudioStreamPlayer2D = $Destroyed_sound
+@onready var wave_sound: AudioStreamPlayer2D = $Wave_sound
 
 # satelliidi projectilei andmed
 var nurk = 0
@@ -20,12 +22,18 @@ var intervall = 1.0
 var signaali_kiirus = 1000
 var tulistamiseni = intervall
 
+# Kas on surnud
+var surnud:bool = false
+
 func _physics_process(delta: float) -> void:
 	# paneb vonkuma
+	if surnud:
+		AMPLITUUD = 100
+		SAGEDUS = 80
 	velocity.x = AMPLITUUD * cos(SAGEDUS * _t)
 	_t += delta
 	tulistamiseni -= delta
-	if (tulistamiseni <= 0):
+	if (tulistamiseni <= 0) and not surnud:
 		tulistamiseni = intervall
 		shoot()
 	
@@ -46,6 +54,8 @@ func varvi():
 		$roosa.show()
 
 func shoot() -> void:
+	wave_sound.pitch_scale = randf_range(1.0, 1.6)
+	wave_sound.play()
 	var s = signaal.instantiate()
 	s.kiirus = signaali_kiirus
 	s.nurk = nurk
@@ -56,6 +66,11 @@ func shoot() -> void:
 
 func kill() -> void:
 	GameState.sat_mask[indeks] = false
+	surnud = true
+	$CollisionPolygon2D.disabled = true
+	destroyed_sound.pitch_scale = randf_range(1.0, 1.6)
+	destroyed_sound.play()
+	await destroyed_sound.finished
 	queue_free()
 
 # Called when the node enters the scene tree for the first time.

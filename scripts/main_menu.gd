@@ -24,11 +24,37 @@ func music_finished() -> void:
 	music_player.play()
 
 func _on_start_pressed() -> void:
+	resetGame()
+	
 	# Alustab pelu
 	nupp_player.play()
 	get_tree().change_scene_to_file("res://scenes/earth.tscn")
 	print("maa")
- 	
+
+func resetGame():
+	GameState.puzzle_won = false
+	GameState.puzzle_attempted = false
+
+	GameState.sat_mask = [
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true
+	]
+
+
+	# === CHECKPOINT ===
+	GameState.checkpoint_active = false
+	GameState.checkpoint_position = Vector2(8410, 30)
 
 
 func _on_options_pressed() -> void:

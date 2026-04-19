@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dfngqjb0qycsa" path="res://img/satelliit/satellite blue.png" id="3_ueo48"]
 [ext_resource type="Texture2D" uid="uid://d31cpxj5icor8" path="res://img/satelliit/satellite yellow.png" id="4_bi67f"]
 [ext_resource type="Texture2D" uid="uid://cunywm52qme12" path="res://img/satelliit/satellite pink.png" id="5_ixkr8"]
+[ext_resource type="AudioStream" uid="uid://dip05ft52iqaj" path="res://SFX/Sateliit_destroyed.mp3" id="6_bi67f"]
+[ext_resource type="AudioStream" uid="uid://wham15x1prf0" path="res://SFX/Sateliit_wave.mp3" id="7_ixkr8"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1301750876 groups=["sateliit"]]
 collision_layer = 2
@@ -28,3 +30,13 @@ texture = ExtResource("4_bi67f")
 position = Vector2(-2, -5)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("5_ixkr8")
+
+[node name="Destroyed_sound" type="AudioStreamPlayer2D" parent="." unique_id=2110721213]
+stream = ExtResource("6_bi67f")
+volume_db = 14.0
+bus = &"SFX"
+
+[node name="Wave_sound" type="AudioStreamPlayer2D" parent="." unique_id=1886374962]
+stream = ExtResource("7_ixkr8")
+volume_db = 4.0
+bus = &"SFX"
