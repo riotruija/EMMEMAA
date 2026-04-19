@@ -50,7 +50,7 @@
 [ext_resource type="Texture2D" uid="uid://b3x7ofw55gy32" path="res://img/platforms/korb/sign 1.png" id="44_8n6n7"]
 [ext_resource type="Script" path="res://scripts/lopp.gd" id="45_t8i46"]
 [ext_resource type="Script" path="res://scripts/suurlaine_spawner.gd" id="50_q5n61"]
-[ext_resource type="PackedScene" uid="uid://drfxm5gc27vc1" path="res://scenes/suurlaine.tscn" id="51_6n77p"]
+[ext_resource type="PackedScene" uid="uid://qspklv6uujva" path="res://scenes/suurlaine.tscn" id="51_6n77p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)

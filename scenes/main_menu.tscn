@@ -78,7 +78,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_wu84c")
 
 [node name="StartScreen" type="Sprite2D" parent="." unique_id=460088991]
 position = Vector2(958, 544)
-texture = ExtResource("4_5pajh")
+texture = ExtResource("15_7b55j")
 
 [node name="Main_buttons" type="VBoxContainer" parent="." unique_id=2035090464]
 top_level = true
@@ -262,9 +262,7 @@ stream = ExtResource("16_5pajh")
 volume_db = 6.0
 bus = &"SFX"
 
-[node name="StartScreen(1)" type="Sprite2D" parent="." unique_id=623319515]
-position = Vector2(958, 537)
-texture = ExtResource("15_7b55j")
+
 
 [connection signal="pressed" from="Main_buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main_buttons/Options2" to="." method="_on_options_pressed"]
