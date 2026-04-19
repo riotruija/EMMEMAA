@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dco7q3xnl7y7i" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://b4ohco2ey3mmo" path="res://img/main_menu_ph.jpg" id="1_ekxnf"]
 [ext_resource type="AudioStream" uid="uid://rr7wq65xklsa" path="res://music/main_menu_music_intro.mp3" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://b2v7msnbgca76" path="res://img/START.png" id="5_5pajh"]
 [ext_resource type="Script" uid="uid://cn46ta6lxh8lu" path="res://scripts/voluum_music.gd" id="5_8ln24"]
 [ext_resource type="Script" uid="uid://dvo0axwbcyfp8" path="res://scripts/voluum_sfx.gd" id="6_rtw2f"]
 [ext_resource type="Script" uid="uid://cwqinvv6fk8dq" path="res://scripts/Texture_button.gd" id="6_tbmy8"]
@@ -20,9 +21,6 @@
 texture = ExtResource("1_ekxnf")
 
 [sub_resource type="Theme" id="Theme_bqqt6"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5pajh"]
-load_path = "res://.godot/imported/START.png-9ef0832345022d3dd6922e2e809c9d7c.ctex"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
@@ -103,9 +101,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 theme = SubResource("Theme_bqqt6")
-texture_normal = SubResource("CompressedTexture2D_5pajh")
-texture_pressed = SubResource("CompressedTexture2D_5pajh")
-texture_hover = SubResource("CompressedTexture2D_5pajh")
+texture_normal = ExtResource("5_5pajh")
+texture_pressed = ExtResource("5_5pajh")
+texture_hover = ExtResource("5_5pajh")
 stretch_mode = 0
 script = ExtResource("6_tbmy8")
 
