@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cukmhakb807ly" path="res://music/puzzle_backgroundmp3.mp3" id="4_gt68l"]
 [ext_resource type="Texture2D" uid="uid://irgt4v5sxu1g" path="res://img/nool.png" id="5_a23m1"]
 [ext_resource type="Texture2D" uid="uid://b2q0utx5yvoqn" path="res://img/uuedkastid.png" id="5_k8l4c"]
+[ext_resource type="Texture2D" uid="uid://b8kjntb7oy376" path="res://img/sirgenool.png" id="6_a23m1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gt4qv"]
 texture = ExtResource("5_k8l4c")
@@ -98,12 +99,14 @@ autoplay = true
 bus = &"Music"
 
 [node name="Nool" type="Sprite2D" parent="." unique_id=1733310016]
+visible = false
 light_mask = 524801
 position = Vector2(-528, 252)
 rotation = 1.5707964
 texture = ExtResource("5_a23m1")
 
 [node name="Nool2" type="Sprite2D" parent="." unique_id=548191215]
+visible = false
 light_mask = 524800
 position = Vector2(650, -3)
 rotation = 1.5707964
@@ -151,3 +154,13 @@ offset_bottom = -344.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 100
 text = "Fill all the squares !!"
+
+[node name="Sirgenool" type="Sprite2D" parent="." unique_id=1566811078]
+position = Vector2(-542, 252)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_a23m1")
+
+[node name="Sirgenool2" type="Sprite2D" parent="." unique_id=1936387908]
+position = Vector2(650, -3)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_a23m1")

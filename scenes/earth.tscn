@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="1_2tfwh"]
 [ext_resource type="Script" uid="uid://bmbg5ltbhyb75" path="res://scripts/satelliidi_kontroller.gd" id="1_2umt7"]
-[ext_resource type="Script" uid="uid://bdw7qfognrqdy" path="res://scenes/taust.gd" id="1_6lk5v"]
+[ext_resource type="Script" path="res://scenes/taust.gd" id="1_6lk5v"]
 [ext_resource type="Texture2D" uid="uid://beq346gg07hqi" path="res://img/tegelane/bumass glorbert .png" id="2_2tfwh"]
 [ext_resource type="Script" uid="uid://bxbco2rq6i1pf" path="res://scripts/glorbert.gd" id="2_2umt7"]
 [ext_resource type="Texture2D" uid="uid://c4numpganv21f" path="res://img/taustad/linna_background.png" id="2_78p35"]
@@ -30,6 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://cna4io87gsb58" path="res://SFX/jumping.mp3" id="14_qawek"]
 [ext_resource type="AudioStream" uid="uid://74vxplloomo3" path="res://SFX/running_woods.mp3" id="15_7e7ie"]
 [ext_resource type="PackedScene" uid="uid://bup5t0ob1g00n" path="res://scenes/bullet.tscn" id="15_8dfur"]
+[ext_resource type="Texture2D" uid="uid://belljkx2fjqsb" path="res://img/kovernool.png" id="15_j8ul0"]
 [ext_resource type="Texture2D" uid="uid://bwsyb4wplhs1d" path="res://img/squares/squares2.png" id="16_6lk5v"]
 [ext_resource type="AudioStream" uid="uid://b461v6kb4mv7b" path="res://SFX/landing.mp3" id="16_r20oc"]
 [ext_resource type="AudioStream" uid="uid://p0g6l6s6r7wh" path="res://SFX/hurt_sound.mp3" id="17_7e7ie"]
@@ -42,13 +43,14 @@
 [ext_resource type="Texture2D" uid="uid://cdebt4pdmf08l" path="res://img/platforms/korb/sand plat 3.png" id="27_nsbyv"]
 [ext_resource type="Texture2D" uid="uid://dk5sr2i7mtrmv" path="res://img/platforms/korb/sign2.png" id="28_oiqpw"]
 [ext_resource type="Texture2D" uid="uid://cvolqscsjgxng" path="res://img/platforms/korb/dead bush.png" id="30_scj2e"]
-[ext_resource type="Texture2D" uid="uid://bux6oy1f4vcv4" path="res://img/pewpew_yellow.png" id="31_8ckq1"]
 [ext_resource type="Texture2D" uid="uid://b7k3gkxa1qhdp" path="res://img/platforms/city_stuff/plant1.png" id="33_8t2u4"]
 [ext_resource type="Script" uid="uid://dycuw667ibiq0" path="res://scenes/puzzle_entry.gd" id="34_djwa2"]
 [ext_resource type="Texture2D" uid="uid://5vlvfu8c3x0a" path="res://img/platforms/korb/tower.png" id="42_36gwj"]
 [ext_resource type="Texture2D" uid="uid://b2rd3mpbwxi2m" path="res://img/platforms/korb/fence.png" id="43_8n6n7"]
 [ext_resource type="Texture2D" uid="uid://b3x7ofw55gy32" path="res://img/platforms/korb/sign 1.png" id="44_8n6n7"]
-[ext_resource type="Script" uid="uid://orfqcmdptahr" path="res://scripts/lopp.gd" id="45_t8i46"]
+[ext_resource type="Script" path="res://scripts/lopp.gd" id="45_t8i46"]
+[ext_resource type="Script" uid="uid://y8qlykkmgy6k" path="res://scripts/suurlaine_spawner.gd" id="50_q5n61"]
+[ext_resource type="PackedScene" uid="uid://qspklv6uujva" path="res://scenes/suurlaine.tscn" id="51_6n77p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -659,6 +661,36 @@ position = Vector2(6636, 11.999992)
 scale = Vector2(1.7240748, 1.7343749)
 texture = ExtResource("9_3o7jw")
 
+[node name="Label7" type="Label" parent="taust" unique_id=720270690]
+light_mask = 513
+offset_left = 566.0
+offset_top = -264.0
+offset_right = 1032.0
+offset_bottom = -197.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 75
+text = "Get to the tower!"
+
+[node name="Label8" type="Label" parent="taust" unique_id=1317360921]
+light_mask = 513
+offset_left = 1194.0
+offset_top = -23.0
+offset_right = 1795.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "And kill the signals"
+
+[node name="Label9" type="Label" parent="taust" unique_id=1060536909]
+light_mask = 513
+offset_left = 2056.0
+offset_top = -73.0
+offset_right = 2632.0
+offset_bottom = -6.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "Destroy the satellites"
+
 [node name="Linnahall" type="StaticBody2D" parent="taust" unique_id=704497726]
 
 [node name="Plant2" type="Sprite2D" parent="taust/Linnahall" unique_id=1933491871]
@@ -779,18 +811,19 @@ position = Vector2(8451, -300)
 scale = Vector2(2.2669163, 0.67)
 texture = ExtResource("14_6lk5v")
 
-[node name="ArrowDown" type="Sprite2D" parent="taust" unique_id=877340431]
-position = Vector2(8912, -48)
-scale = Vector2(1.878783, 1.905853)
-texture = ExtResource("31_8ckq1")
-
-[node name="Destroy" type="Label" parent="taust/ArrowDown" unique_id=692956208]
-offset_left = -170.32303
-offset_top = -96.54469
-offset_right = 264.67697
-offset_bottom = -49.544693
+[node name="Destroy" type="Label" parent="taust" unique_id=692956208]
+offset_left = 8705.0
+offset_top = -137.0
+offset_right = 9140.0
+offset_bottom = -90.0
 theme_override_font_sizes/font_size = 50
 text = "Destroy the tower!"
+
+[node name="ArrowDown" type="Sprite2D" parent="taust" unique_id=877340431]
+position = Vector2(8838, 12.999756)
+rotation = 1.3438978
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("15_j8ul0")
 
 [node name="TryBox" type="Sprite2D" parent="taust" unique_id=575563195]
 modulate = Color(1, 0.5058824, 1, 0.5803922)
@@ -847,6 +880,8 @@ vastane_sateliit = ExtResource("3_2tfwh")
 [node name="glorbert" type="CharacterBody2D" parent="." unique_id=507191294 node_paths=PackedStringArray("glorbert", "maapind", "spawn_points", "gun_spawn_points") groups=["glorbert"]]
 position = Vector2(271.00006, 1.9999981)
 scale = Vector2(10, 10)
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("2_2umt7")
 glorbert = NodePath(".")
 maapind = NodePath("../maapind")
@@ -1358,8 +1393,12 @@ position = Vector2(-48, 79.00001)
 rotation = -0.25481808
 shape = SubResource("CapsuleShape2D_8n6n7")
 
+[node name="suurlaine_spawner" type="Node2D" parent="." unique_id=1654078885]
+position = Vector2(9450, 0)
+script = ExtResource("50_q5n61")
+suurlaine_scene = ExtResource("51_6n77p")
 [node name="tutorialtekstid" type="Node2D" parent="." unique_id=569696261]
-position = Vector2(-47, 15)
+position = Vector2(-469, 551)
 
 [node name="Squares1" type="Sprite2D" parent="tutorialtekstid" unique_id=627300194]
 position = Vector2(585, -259)
@@ -1400,5 +1439,45 @@ offset_bottom = -228.0
 theme_override_colors/font_color = Color(0.27188405, 0.13818714, 9.62615e-08, 1)
 theme_override_font_sizes/font_size = 100
 text = "A"
+
+[node name="Label3" type="Label" parent="tutorialtekstid" unique_id=2081461857]
+light_mask = 513
+offset_left = 661.0
+offset_top = -295.0
+offset_right = 717.0
+offset_bottom = -228.0
+theme_override_colors/font_color = Color(0.27188405, 0.13818714, 9.62615e-08, 1)
+theme_override_font_sizes/font_size = 100
+text = "S"
+
+[node name="Label4" type="Label" parent="tutorialtekstid" unique_id=1280260940]
+light_mask = 513
+offset_left = 751.0
+offset_top = -294.0
+offset_right = 807.0
+offset_bottom = -227.0
+theme_override_colors/font_color = Color(0.27188405, 0.13818714, 9.62615e-08, 1)
+theme_override_font_sizes/font_size = 100
+text = "D"
+
+[node name="Label5" type="Label" parent="tutorialtekstid" unique_id=489666694]
+light_mask = 513
+offset_left = 2413.0
+offset_top = -182.0
+offset_right = 2782.0
+offset_bottom = -115.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 75
+text = "space to scoot"
+
+[node name="Label6" type="Label" parent="tutorialtekstid" unique_id=1300818043]
+light_mask = 513
+offset_left = 2513.0
+offset_top = -130.0
+offset_right = 2758.0
+offset_bottom = -63.0
+theme_override_colors/font_color = Color(1, 0.82138985, 0.6813405, 1)
+theme_override_font_sizes/font_size = 40
+text = "mind the time"
 
 [connection signal="body_entered" from="lopp" to="lopp" method="_on_body_entered"]

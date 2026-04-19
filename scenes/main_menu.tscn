@@ -64,6 +64,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="Background" type="Panel" parent="." unique_id=1623469943]
+visible = false
 modulate = Color(0.6858353, 0.68583524, 0.6858352, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -74,6 +75,10 @@ offset_right = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wu84c")
+
+[node name="StartScreen" type="Sprite2D" parent="." unique_id=460088991]
+position = Vector2(958, 544)
+texture = ExtResource("4_5pajh")
 
 [node name="Main_buttons" type="VBoxContainer" parent="." unique_id=2035090464]
 top_level = true
