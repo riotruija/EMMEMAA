@@ -262,8 +262,6 @@ stream = ExtResource("16_5pajh")
 volume_db = 6.0
 bus = &"SFX"
 
-
-
 [connection signal="pressed" from="Main_buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main_buttons/Options2" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Main_buttons/Exit" to="." method="_on_exit_pressed"]
