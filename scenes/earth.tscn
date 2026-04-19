@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="1_2tfwh"]
 [ext_resource type="Script" uid="uid://bmbg5ltbhyb75" path="res://scripts/satelliidi_kontroller.gd" id="1_2umt7"]
+[ext_resource type="Script" uid="uid://bdw7qfognrqdy" path="res://scenes/taust.gd" id="1_6lk5v"]
 [ext_resource type="Texture2D" uid="uid://beq346gg07hqi" path="res://img/tegelane/bumass glorbert .png" id="2_2tfwh"]
 [ext_resource type="Script" uid="uid://bxbco2rq6i1pf" path="res://scripts/glorbert.gd" id="2_2umt7"]
 [ext_resource type="Texture2D" uid="uid://c4numpganv21f" path="res://img/taustad/linna_background.png" id="2_78p35"]
@@ -24,10 +25,12 @@
 [ext_resource type="Texture2D" uid="uid://do5kb41ktne38" path="res://img/taustad/linn_kõrb_üleminek.png" id="9_3o7jw"]
 [ext_resource type="Texture2D" uid="uid://jxd0ws4m6evc" path="res://img/platforms/korb/sand plat 1.png" id="12_lhn2x"]
 [ext_resource type="Texture2D" uid="uid://b4hahsoudhjqe" path="res://img/platforms/platform dirt.png" id="13_nj2me"]
+[ext_resource type="Texture2D" uid="uid://cpf1extk1dmmt" path="res://img/squares/squares1.png" id="14_6lk5v"]
 [ext_resource type="Script" uid="uid://biuqx6ig0qkto" path="res://scripts/bullet_spawner.gd" id="14_fpmy6"]
 [ext_resource type="AudioStream" uid="uid://cna4io87gsb58" path="res://SFX/jumping.mp3" id="14_qawek"]
 [ext_resource type="AudioStream" uid="uid://74vxplloomo3" path="res://SFX/running_woods.mp3" id="15_7e7ie"]
 [ext_resource type="PackedScene" uid="uid://bup5t0ob1g00n" path="res://scenes/bullet.tscn" id="15_8dfur"]
+[ext_resource type="Texture2D" uid="uid://bwsyb4wplhs1d" path="res://img/squares/squares2.png" id="16_6lk5v"]
 [ext_resource type="AudioStream" uid="uid://b461v6kb4mv7b" path="res://SFX/landing.mp3" id="16_r20oc"]
 [ext_resource type="AudioStream" uid="uid://p0g6l6s6r7wh" path="res://SFX/hurt_sound.mp3" id="17_7e7ie"]
 [ext_resource type="AudioStream" uid="uid://cnnr1jse8abjj" path="res://SFX/foil_pickup.mp3" id="18_r20oc"]
@@ -39,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://cdebt4pdmf08l" path="res://img/platforms/korb/sand plat 3.png" id="27_nsbyv"]
 [ext_resource type="Texture2D" uid="uid://dk5sr2i7mtrmv" path="res://img/platforms/korb/sign2.png" id="28_oiqpw"]
 [ext_resource type="Texture2D" uid="uid://cvolqscsjgxng" path="res://img/platforms/korb/dead bush.png" id="30_scj2e"]
+[ext_resource type="Texture2D" uid="uid://bux6oy1f4vcv4" path="res://img/pewpew_yellow.png" id="31_8ckq1"]
 [ext_resource type="Texture2D" uid="uid://b7k3gkxa1qhdp" path="res://img/platforms/city_stuff/plant1.png" id="33_8t2u4"]
 [ext_resource type="Script" uid="uid://dycuw667ibiq0" path="res://scenes/puzzle_entry.gd" id="34_djwa2"]
 [ext_resource type="Texture2D" uid="uid://5vlvfu8c3x0a" path="res://img/platforms/korb/tower.png" id="42_36gwj"]
@@ -78,6 +82,12 @@ size = Vector2(395, 55)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8ul0"]
 size = Vector2(399, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xn2ui"]
+size = Vector2(400, 66.22516)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnchd"]
+size = Vector2(290, 297)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4u8f"]
 size = Vector2(46.899998, 28.899996)
@@ -433,6 +443,8 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_8ckq1"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yhjmp"]
 shader = ExtResource("6_78p35")
 shader_parameter/strength = 0.0
@@ -483,6 +495,8 @@ size = Vector2(402, 62)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ckq1"]
 size = Vector2(413.5, 345)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xn2ui"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbm0m"]
 size = Vector2(213.22632, 69.68204)
 
@@ -496,7 +510,7 @@ size = Vector2(406, 25)
 size = Vector2(224.5, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kfxc"]
-size = Vector2(403, 331)
+size = Vector2(660, 331)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5n61"]
 size = Vector2(612, 46)
@@ -553,6 +567,7 @@ position = Vector2(9131, -229)
 shape = SubResource("SegmentShape2D_djwa2")
 
 [node name="taust" type="Node2D" parent="." unique_id=725482707]
+script = ExtResource("1_6lk5v")
 
 [node name="KõrbeBackground4" type="Sprite2D" parent="taust" unique_id=2075075402]
 position = Vector2(8522, 203)
@@ -578,7 +593,7 @@ scale = Vector2(0.99481064, 1.0194443)
 texture = ExtResource("2_78p35")
 
 [node name="LinnaBackground3" type="Sprite2D" parent="taust/Background4" unique_id=1959717879]
-position = Vector2(6634.8105, 417)
+position = Vector2(6667.6904, 424)
 scale = Vector2(0.99481064, 1.0194443)
 texture = ExtResource("2_78p35")
 
@@ -695,7 +710,7 @@ position = Vector2(4449.5, 182.5)
 shape = SubResource("RectangleShape2D_t8i46")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="taust/Linnahall" unique_id=1807737841]
-position = Vector2(5502.5, 465)
+position = Vector2(5503, 455)
 shape = SubResource("RectangleShape2D_iuf74")
 
 [node name="CityRooftopThin3" type="Sprite2D" parent="taust/Linnahall" unique_id=836789074]
@@ -723,6 +738,18 @@ texture = ExtResource("8_ui76c")
 position = Vector2(6231, 190)
 shape = SubResource("RectangleShape2D_j8ul0")
 
+[node name="Sprite2D" type="Sprite2D" parent="taust/Linnahall" unique_id=708016081]
+position = Vector2(2903, -31)
+texture = ExtResource("8_ui76c")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="taust/Linnahall" unique_id=1127068038]
+position = Vector2(2903, -30.11258)
+shape = SubResource("RectangleShape2D_xn2ui")
+
+[node name="ColorRect" type="ColorRect" parent="taust/Linnahall" unique_id=1516825022]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="DeadBush" type="Sprite2D" parent="taust" unique_id=1916188312]
 position = Vector2(7233, 512)
 texture = ExtResource("30_scj2e")
@@ -734,6 +761,55 @@ texture = ExtResource("12_lhn2x")
 [node name="SandPlat2" type="Sprite2D" parent="taust" unique_id=252590484]
 position = Vector2(8223, 283)
 texture = ExtResource("12_lhn2x")
+
+[node name="RunBox" type="Sprite2D" parent="taust" unique_id=4687074]
+modulate = Color(0.9411765, 0.8235294, 0.8666667, 0.78431374)
+self_modulate = Color(0.98039216, 0.98039216, 0.9764706, 0.89411765)
+position = Vector2(8451, -300)
+scale = Vector2(2.2669163, 0.67)
+texture = ExtResource("14_6lk5v")
+
+[node name="ArrowDown" type="Sprite2D" parent="taust" unique_id=877340431]
+position = Vector2(8912, -48)
+scale = Vector2(1.878783, 1.905853)
+texture = ExtResource("31_8ckq1")
+
+[node name="Destroy" type="Label" parent="taust/ArrowDown" unique_id=692956208]
+offset_left = -170.32303
+offset_top = -96.54469
+offset_right = 264.67697
+offset_bottom = -49.544693
+theme_override_font_sizes/font_size = 50
+text = "Destroy the tower!"
+
+[node name="TryBox" type="Sprite2D" parent="taust" unique_id=575563195]
+modulate = Color(1, 0.5058824, 1, 0.5803922)
+position = Vector2(6967, -467)
+scale = Vector2(1.6476792, 0.4746957)
+texture = ExtResource("16_6lk5v")
+
+[node name="TryAgainZone" type="Area2D" parent="taust" unique_id=2134930153]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="taust/TryAgainZone" unique_id=202379778]
+position = Vector2(6745, -389.5)
+shape = SubResource("RectangleShape2D_cnchd")
+
+[node name="TryAgain" type="Label" parent="taust" unique_id=720327529]
+offset_left = 6799.0
+offset_top = -505.0
+offset_right = 7134.0
+offset_bottom = -438.0
+theme_override_font_sizes/font_size = 100
+text = "TRY AGAIN!"
+
+[node name="RunLabel" type="Label" parent="taust" unique_id=1180099456]
+offset_left = 8208.0
+offset_top = -361.0
+offset_right = 8786.0
+offset_bottom = -227.0
+theme_override_colors/font_color = Color(0.5529412, 0, 0.08235294, 1)
+theme_override_font_sizes/font_size = 175
+text = "RUN HOME"
 
 [node name="laev" type="StaticBody2D" parent="." unique_id=1879706681]
 position = Vector2(271.00006, 1.9999981)
@@ -819,6 +895,7 @@ volume_db = 8.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1376530337]
 layer = 10
+script = SubResource("GDScript_8ckq1")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=916479602]
 material = SubResource("ShaderMaterial_yhjmp")
@@ -1064,7 +1141,11 @@ texture = ExtResource("33_8t2u4")
 position = Vector2(3225, -66)
 texture = ExtResource("8_ui76c")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D5" unique_id=658037334]
+shape = SubResource("SegmentShape2D_xn2ui")
+
 [node name="StaticBody2D11" type="StaticBody2D" parent="platvormid" unique_id=2101301299]
+position = Vector2(0, 10)
 
 [node name="MuruPool" type="Sprite2D" parent="platvormid/StaticBody2D11" unique_id=1881609519]
 position = Vector2(2021.9998, 134.99997)
@@ -1079,7 +1160,7 @@ scale = Vector2(1.1031395, 1)
 shape = SubResource("RectangleShape2D_pbm0m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platvormid/StaticBody2D11" unique_id=1241456165]
-position = Vector2(6039, -397)
+position = Vector2(6145, -532)
 shape = SubResource("RectangleShape2D_yghms")
 
 [node name="puu" type="StaticBody2D" parent="." unique_id=1684490555]
@@ -1119,7 +1200,7 @@ position = Vector2(8822, 379)
 script = ExtResource("34_djwa2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleEntry" unique_id=211453045]
-position = Vector2(135.5, -24.5)
+position = Vector2(264, -24.5)
 shape = SubResource("RectangleShape2D_4kfxc")
 
 [node name="Prompt" type="Label" parent="PuzzleEntry" unique_id=1367528899]
@@ -1131,7 +1212,7 @@ theme_override_font_sizes/font_size = 100
 text = "press e"
 
 [node name="SandPlat1" type="Sprite2D" parent="PuzzleEntry" unique_id=1708469331]
-position = Vector2(-2172, -544)
+position = Vector2(-2065, -669)
 texture = ExtResource("12_lhn2x")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=325813800]
@@ -1256,8 +1337,4 @@ texture = ExtResource("27_nsbyv")
 
 [node name="Sign1" type="Sprite2D" parent="." unique_id=828934671]
 position = Vector2(8052, 300)
-texture = ExtResource("44_8n6n7")
-
-[node name="Sign2" type="Sprite2D" parent="." unique_id=1706636948]
-position = Vector2(6739, -301)
 texture = ExtResource("44_8n6n7")
