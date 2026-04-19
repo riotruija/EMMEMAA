@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://5vlvfu8c3x0a" path="res://img/platforms/korb/tower.png" id="42_36gwj"]
 [ext_resource type="Texture2D" uid="uid://b2rd3mpbwxi2m" path="res://img/platforms/korb/fence.png" id="43_8n6n7"]
 [ext_resource type="Texture2D" uid="uid://b3x7ofw55gy32" path="res://img/platforms/korb/sign 1.png" id="44_8n6n7"]
+[ext_resource type="Script" uid="uid://orfqcmdptahr" path="res://scripts/lopp.gd" id="45_t8i46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tfwh"]
 size = Vector2(12851.5, 8)
@@ -525,6 +526,10 @@ size = Vector2(435.9995, 65.00003)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odwoq"]
 size = Vector2(266.08148, 44.461548)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8n6n7"]
+radius = 120.320465
+height = 481.57495
 
 [node name="Earth" type="Node2D" unique_id=516625783]
 
@@ -1261,3 +1266,14 @@ texture = ExtResource("44_8n6n7")
 [node name="Sign2" type="Sprite2D" parent="." unique_id=1706636948]
 position = Vector2(6739, -301)
 texture = ExtResource("44_8n6n7")
+
+[node name="lopp" type="Area2D" parent="." unique_id=1609060580]
+position = Vector2(516, -25)
+script = ExtResource("45_t8i46")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lopp" unique_id=297455060]
+position = Vector2(-48, 79.00001)
+rotation = -0.25481808
+shape = SubResource("CapsuleShape2D_8n6n7")
+
+[connection signal="body_entered" from="lopp" to="lopp" method="_on_body_entered"]
