@@ -12,6 +12,7 @@ var indeks = 0
 
 @export var signaal: PackedScene
 @onready var destroyed_sound: AudioStreamPlayer2D = $Destroyed_sound
+@onready var wave_sound: AudioStreamPlayer2D = $Wave_sound
 
 # satelliidi projectilei andmed
 var nurk = 0
@@ -53,6 +54,8 @@ func varvi():
 		$roosa.show()
 
 func shoot() -> void:
+	wave_sound.pitch_scale = randf_range(1.0, 1.6)
+	wave_sound.play()
 	var s = signaal.instantiate()
 	s.kiirus = signaali_kiirus
 	s.nurk = nurk
