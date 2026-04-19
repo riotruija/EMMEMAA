@@ -234,4 +234,5 @@ func check_win() -> void:
 	game_over = true
 	GameState.next_player_position = WIN_RETURN_POSITION
 	GameState.puzzle_won = true
+	GameState.checkpoint_active = true
 	get_tree().change_scene_to_file("res://scenes/earth.tscn")
