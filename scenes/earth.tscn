@@ -1349,10 +1349,6 @@ texture = ExtResource("27_nsbyv")
 position = Vector2(8052, 300)
 texture = ExtResource("44_8n6n7")
 
-[node name="Sign2" type="Sprite2D" parent="." unique_id=1706636948]
-position = Vector2(6739, -301)
-texture = ExtResource("44_8n6n7")
-
 [node name="lopp" type="Area2D" parent="." unique_id=1609060580]
 position = Vector2(516, -25)
 script = ExtResource("45_t8i46")
@@ -1361,5 +1357,48 @@ script = ExtResource("45_t8i46")
 position = Vector2(-48, 79.00001)
 rotation = -0.25481808
 shape = SubResource("CapsuleShape2D_8n6n7")
+
+[node name="tutorialtekstid" type="Node2D" parent="." unique_id=569696261]
+position = Vector2(-47, 15)
+
+[node name="Squares1" type="Sprite2D" parent="tutorialtekstid" unique_id=627300194]
+position = Vector2(585, -259)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_6lk5v")
+
+[node name="Squares2" type="Sprite2D" parent="tutorialtekstid" unique_id=992789845]
+position = Vector2(679, -260)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_6lk5v")
+
+[node name="Squares3" type="Sprite2D" parent="tutorialtekstid" unique_id=703336662]
+position = Vector2(770.00006, -260)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_6lk5v")
+
+[node name="Squares4" type="Sprite2D" parent="tutorialtekstid" unique_id=1917730578]
+position = Vector2(679, -346)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_6lk5v")
+
+[node name="Label" type="Label" parent="tutorialtekstid" unique_id=960066378]
+light_mask = 513
+offset_left = 654.0
+offset_top = -375.0
+offset_right = 710.0
+offset_bottom = -308.0
+theme_override_colors/font_color = Color(0.27188405, 0.13818714, 9.62615e-08, 1)
+theme_override_font_sizes/font_size = 100
+text = "W"
+
+[node name="Label2" type="Label" parent="tutorialtekstid" unique_id=2099865906]
+light_mask = 513
+offset_left = 562.0
+offset_top = -295.0
+offset_right = 618.0
+offset_bottom = -228.0
+theme_override_colors/font_color = Color(0.27188405, 0.13818714, 9.62615e-08, 1)
+theme_override_font_sizes/font_size = 100
+text = "A"
 
 [connection signal="body_entered" from="lopp" to="lopp" method="_on_body_entered"]

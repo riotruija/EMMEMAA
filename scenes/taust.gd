@@ -28,5 +28,5 @@ func update_visibility() -> void:
 	run_box.visible = GameState.puzzle_won
 	run_label.visible = GameState.puzzle_won
 	arrow_down.visible = not GameState.puzzle_won
-	try_box.visible = player_in_try_zone and not GameState.puzzle_won
-	try_text.visible = player_in_try_zone and not GameState.puzzle_won
+	try_box.visible = player_in_try_zone and not GameState.puzzle_won and GameState.puzzle_attempted
+	try_text.visible = player_in_try_zone and not GameState.puzzle_won and GameState.puzzle_attempted
