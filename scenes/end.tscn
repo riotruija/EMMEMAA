@@ -1,23 +1,68 @@
 [gd_scene format=3 uid="uid://bl32jyrghbs8q"]
 
-[ext_resource type="AudioStream" uid="uid://dwjik7bdkyuai" path="res://music/end_screen_music.mp3" id="1_mwn6m"]
-[ext_resource type="Texture2D" uid="uid://dte6l6oleb3g1" path="res://img/mainmenustuff/QUIT.png" id="2_p7m4f"]
-[ext_resource type="Script" uid="uid://cwqinvv6fk8dq" path="res://scripts/Texture_button.gd" id="3_bvfni"]
+[ext_resource type="Texture2D" uid="uid://ddpmpig66um6a" path="res://img/mainmenustuff/kast.png" id="1_mwn6m"]
 
 [node name="End" type="Node2D" unique_id=1039340817]
+position = Vector2(-8, 4)
 
-[node name="End_music" type="AudioStreamPlayer2D" parent="." unique_id=1684728091]
-stream = ExtResource("1_mwn6m")
-volume_db = 12.0
-autoplay = true
-bus = &"Music"
+[node name="Control" type="Control" parent="." unique_id=1859052130]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1909.0
+offset_bottom = 1080.0
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=1460076794]
-offset_left = 1480.0
-offset_top = 904.0
-offset_right = 1855.0
-offset_bottom = 1028.0
-texture_normal = ExtResource("2_p7m4f")
-texture_pressed = ExtResource("2_p7m4f")
-texture_hover = ExtResource("2_p7m4f")
-script = ExtResource("3_bvfni")
+[node name="Panel" type="Panel" parent="Control" unique_id=467597255]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 1933.0
+offset_bottom = 1093.0
+
+[node name="MainButtons" type="VBoxContainer" parent="Control" unique_id=2129273318]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 425.0
+offset_right = 722.0
+offset_bottom = 968.0
+pivot_offset = Vector2(0, 100)
+theme_override_constants/separation = 100
+
+[node name="MainMenu" type="TextureButton" parent="Control/MainButtons" unique_id=1239634853]
+layout_mode = 2
+texture_normal = ExtResource("1_mwn6m")
+texture_pressed = ExtResource("1_mwn6m")
+texture_hover = ExtResource("1_mwn6m")
+
+[node name="Label" type="Label" parent="Control/MainButtons/MainMenu" unique_id=1223648520]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 42.0
+offset_right = 652.0
+offset_bottom = 245.0
+theme_override_font_sizes/font_size = 150
+text = "MAIN MENU
+"
+
+[node name="Quit" type="TextureButton" parent="Control/MainButtons" unique_id=455862936]
+layout_mode = 2
+texture_normal = ExtResource("1_mwn6m")
+texture_pressed = ExtResource("1_mwn6m")
+texture_hover = ExtResource("1_mwn6m")
+
+[node name="Label" type="Label" parent="Control/MainButtons/Quit" unique_id=1824028696]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 8.0
+offset_right = 693.0
+offset_bottom = 194.0
+theme_override_font_sizes/font_size = 250
+text = "QUIT"
+
+[node name="Label" type="Label" parent="Control" unique_id=2079070189]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 80.0
+offset_right = 1273.0
+offset_bottom = 351.0
+theme_override_font_sizes/font_size = 200
+text = "Well done
+All signal's lost!"

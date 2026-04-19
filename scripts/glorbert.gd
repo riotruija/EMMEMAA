@@ -61,6 +61,10 @@ func _ready() -> void:
 	if GameState.next_player_position != Vector2.ZERO:
 		global_position = GameState.next_player_position
 		GameState.next_player_position = Vector2.ZERO
+		
+	if GameState.puzzle_won:
+		print("suur laine")
+		$"../suurlaine_spawner".suurlaine()
 	
 	# Now spawn hat/guns with the correct position reference
 	spawn_all_hats()
