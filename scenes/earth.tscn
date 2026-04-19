@@ -659,6 +659,36 @@ position = Vector2(6636, 11.999992)
 scale = Vector2(1.7240748, 1.7343749)
 texture = ExtResource("9_3o7jw")
 
+[node name="Label7" type="Label" parent="taust" unique_id=720270690]
+light_mask = 513
+offset_left = 566.0
+offset_top = -264.0
+offset_right = 1032.0
+offset_bottom = -197.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 75
+text = "Get to the tower!"
+
+[node name="Label8" type="Label" parent="taust" unique_id=1317360921]
+light_mask = 513
+offset_left = 1194.0
+offset_top = -23.0
+offset_right = 1795.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "And kill the signals"
+
+[node name="Label9" type="Label" parent="taust" unique_id=1060536909]
+light_mask = 513
+offset_left = 2056.0
+offset_top = -73.0
+offset_right = 2632.0
+offset_bottom = -6.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "Destroy the satellites"
+
 [node name="Linnahall" type="StaticBody2D" parent="taust" unique_id=704497726]
 
 [node name="Plant2" type="Sprite2D" parent="taust/Linnahall" unique_id=1933491871]
@@ -1441,35 +1471,5 @@ offset_bottom = -63.0
 theme_override_colors/font_color = Color(1, 0.82138985, 0.6813405, 1)
 theme_override_font_sizes/font_size = 40
 text = "mind the time"
-
-[node name="Label7" type="Label" parent="tutorialtekstid" unique_id=720270690]
-light_mask = 513
-offset_left = 1035.0
-offset_top = -815.0
-offset_right = 1501.0
-offset_bottom = -748.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 75
-text = "Get to the tower!"
-
-[node name="Label8" type="Label" parent="tutorialtekstid" unique_id=1317360921]
-light_mask = 513
-offset_left = 1663.0
-offset_top = -574.0
-offset_right = 2264.0
-offset_bottom = -507.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 60
-text = "And kill the signals"
-
-[node name="Label9" type="Label" parent="tutorialtekstid" unique_id=1060536909]
-light_mask = 513
-offset_left = 2525.0
-offset_top = -624.0
-offset_right = 3101.0
-offset_bottom = -557.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 60
-text = "Destroy the satellites"
 
 [connection signal="body_entered" from="lopp" to="lopp" method="_on_body_entered"]
