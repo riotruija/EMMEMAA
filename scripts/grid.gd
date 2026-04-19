@@ -5,7 +5,7 @@ const HEIGHT := 6
 
 # === COORDINATES TO RETURN TO ===
 const WIN_RETURN_POSITION := Vector2(8410, 30)   # change to wherever
-const LOSE_RETURN_POSITION := Vector2(8874, 346)   # change to wherever
+const LOSE_RETURN_POSITION := Vector2(6745, -389)   # change to wherever
 
 # === TIMER CONFIG ===
 const TIME_LIMIT := 45.0  # seconds — change this to adjust difficulty
@@ -34,6 +34,9 @@ var game_over := false
 
 
 func _ready():
+	GameState.puzzle_attempted = true
+	GameState.checkpoint_active = true
+	
 	# create grid
 	for y in range(HEIGHT):
 		grid.append([])
