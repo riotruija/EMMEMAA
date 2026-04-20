@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bl32jyrghbs8q"]
+
+[ext_resource type="Texture2D" uid="uid://ddpmpig66um6a" path="res://img/mainmenustuff/kast.png" id="1_mwn6m"]
+[ext_resource type="Script" uid="uid://ci5miks8nd7vi" path="res://scripts/end.gd" id="1_s4tl2"]
+[ext_resource type="Texture2D" uid="uid://cnqswjau5drj" path="res://img/taustad/ENDSCREEN.png" id="2_8hmjt"]
+[ext_resource type="Script" uid="uid://cwqinvv6fk8dq" path="res://scripts/Texture_button.gd" id="3_bvfni"]
+[ext_resource type="AudioStream" uid="uid://c5voo3bmhpitk" path="res://SFX/button_press.mp3" id="5_o5lv4"]
+[ext_resource type="AudioStream" uid="uid://dwjik7bdkyuai" path="res://music/end_screen_music.mp3" id="6_8hmjt"]
+
+[node name="End" type="Node2D" unique_id=1039340817]
+position = Vector2(-8, 4)
+script = ExtResource("1_s4tl2")
+
+[node name="Control" type="Control" parent="." unique_id=1859052130]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1909.0
+offset_bottom = 1080.0
+
+[node name="Panel" type="TextureRect" parent="Control" unique_id=1672122496]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 1933.0
+offset_bottom = 1093.0
+texture = ExtResource("2_8hmjt")
+
+[node name="MainButtons" type="VBoxContainer" parent="Control" unique_id=2129273318]
+layout_mode = 0
+offset_left = 1408.0
+offset_top = 92.0
+offset_right = 2005.0
+offset_bottom = 632.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(0, 100)
+theme_override_constants/separation = 100
+
+[node name="MainMenu" type="TextureButton" parent="Control/MainButtons" unique_id=1239634853]
+layout_mode = 2
+texture_normal = ExtResource("1_mwn6m")
+texture_pressed = ExtResource("1_mwn6m")
+texture_hover = ExtResource("1_mwn6m")
+script = ExtResource("3_bvfni")
+
+[node name="Label" type="Label" parent="Control/MainButtons/MainMenu" unique_id=1223648520]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 42.0
+offset_right = 652.0
+offset_bottom = 245.0
+theme_override_colors/font_color = Color(0.22352941, 0.18039216, 0.2, 1)
+theme_override_font_sizes/font_size = 150
+text = "MAIN MENU
+"
+
+[node name="Quit" type="TextureButton" parent="Control/MainButtons" unique_id=455862936]
+layout_mode = 2
+texture_normal = ExtResource("1_mwn6m")
+texture_pressed = ExtResource("1_mwn6m")
+texture_hover = ExtResource("1_mwn6m")
+script = ExtResource("3_bvfni")
+
+[node name="Label" type="Label" parent="Control/MainButtons/Quit" unique_id=1824028696]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 8.0
+offset_right = 693.0
+offset_bottom = 194.0
+theme_override_colors/font_color = Color(0.22352941, 0.18039216, 0.2, 1)
+theme_override_font_sizes/font_size = 250
+text = "QUIT"
+
+[node name="Label" type="Label" parent="Control" unique_id=2079070189]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 36.0
+offset_right = 1237.0
+offset_bottom = 307.0
+theme_override_colors/font_color = Color(0.909234, 0.8513443, 0.74439645, 1)
+theme_override_font_sizes/font_size = 200
+text = "Well done
+All signal's lost!"
+
+[node name="Nupp_player" type="AudioStreamPlayer2D" parent="." unique_id=45956112]
+stream = ExtResource("5_o5lv4")
+volume_db = 6.0
+bus = &"SFX"
+
+[node name="Muusika_player" type="AudioStreamPlayer2D" parent="." unique_id=1623578180]
+stream = ExtResource("6_8hmjt")
+volume_db = 10.0
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="Control/MainButtons/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Control/MainButtons/Quit" to="." method="_on_quit_pressed"]

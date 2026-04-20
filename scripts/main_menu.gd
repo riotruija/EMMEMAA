@@ -1,8 +1,8 @@
 extends Control
 @onready var music_player: AudioStreamPlayer2D = $Music_player
 @onready var main_buttons: VBoxContainer = $Main_buttons
+@onready var nupp_player: AudioStreamPlayer2D = $"Nupp player"
 @onready var options: Panel = $Options
-
 
 var muusika = [
 	preload("res://music/main_menu_music_intro.mp3"),
@@ -24,20 +24,53 @@ func music_finished() -> void:
 	music_player.play()
 
 func _on_start_pressed() -> void:
+	resetGame()
+	
 	# Alustab pelu
+	nupp_player.play()
+	await nupp_player.finished
 	get_tree().change_scene_to_file("res://scenes/earth.tscn")
 	print("maa")
- 	
+
+func resetGame():
+	GameState.puzzle_won = false
+	GameState.puzzle_attempted = false
+
+	GameState.sat_mask = [
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true
+	]
+
+
+	# === CHECKPOINT ===
+	GameState.checkpoint_active = false
+	GameState.checkpoint_position = Vector2(8410, 30)
 
 
 func _on_options_pressed() -> void:
+	nupp_player.play()
 	main_buttons.visible = false
 	options.visible = true
 	
 func _on_exit_pressed() -> void:
+	nupp_player.play()
+	await nupp_player.finished
 	print("Exit pressed")
 	get_tree().quit(0)
-	
+
+
 func _on_options_back_pressed() -> void:
-	main_buttons.visible = true
+	nupp_player.play()
 	options.visible = false
+	main_buttons.visible = true

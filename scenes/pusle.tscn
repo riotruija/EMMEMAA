@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://cq65wkljgjjx6"]
 
 [ext_resource type="Script" uid="uid://kqvj7mwvu4pt" path="res://scripts/grid.gd" id="1_mnxy6"]
-[ext_resource type="Texture2D" uid="uid://cceebabkp11yi" path="res://img/taustad/metsa_background.png" id="2_gt68l"]
+[ext_resource type="Texture2D" uid="uid://cqixbnrrv1due" path="res://img/taustad/kõrbe_background.png" id="2_k8l4c"]
+[ext_resource type="AudioStream" uid="uid://cukmhakb807ly" path="res://music/puzzle_backgroundmp3.mp3" id="4_gt68l"]
+[ext_resource type="Texture2D" uid="uid://irgt4v5sxu1g" path="res://img/nool.png" id="5_a23m1"]
 [ext_resource type="Texture2D" uid="uid://b2q0utx5yvoqn" path="res://img/uuedkastid.png" id="5_k8l4c"]
+[ext_resource type="Texture2D" uid="uid://b8kjntb7oy376" path="res://img/sirgenool.png" id="6_a23m1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gt4qv"]
 texture = ExtResource("5_k8l4c")
@@ -41,8 +44,9 @@ sources/9 = SubResource("TileSetAtlasSource_gt4qv")
 [node name="Node2D" type="Node2D" parent="." unique_id=488579321]
 script = ExtResource("1_mnxy6")
 
-[node name="Background" type="Sprite2D" parent="Node2D" unique_id=820047421]
-texture = ExtResource("2_gt68l")
+[node name="KõrbeBackground" type="Sprite2D" parent="Node2D" unique_id=1524956404]
+position = Vector2(-1, 1)
+texture = ExtResource("2_k8l4c")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=1364482069]
 scale = Vector2(0.488, 0.488)
@@ -51,20 +55,112 @@ tile_set = SubResource("TileSet_kq6i2")
 [node name="UI" type="CanvasLayer" parent="Node2D" unique_id=1765555016]
 
 [node name="InstructionLabel" type="Label" parent="Node2D/UI" unique_id=43830609]
+modulate = Color(0.87743336, 0, 0.0077073695, 1)
+light_mask = 513
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 23.0
+offset_left = 582.0
+offset_top = 475.0
+offset_right = -428.0
+offset_bottom = 675.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 100
-text = "Fill all squares!"
+theme_override_font_sizes/font_size = 300
+text = "Fill all!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TimerLabel" type="Label" parent="Node2D/UI" unique_id=2127817702]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
+offset_left = -270.0
+offset_top = 134.0
+offset_right = -230.0
+offset_bottom = 201.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 100
 
+[node name="timeover" type="Label" parent="Node2D/UI" unique_id=1962252576]
+offset_left = 796.0
+offset_top = 479.0
+offset_right = 1266.0
+offset_bottom = 679.0
+theme_override_colors/font_color = Color(0.8352941, 0.12156863, 0.11372549, 1)
+theme_override_font_sizes/font_size = 300
+text = "time!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1800623802]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D" unique_id=115465935]
+stream = ExtResource("4_gt68l")
+autoplay = true
+bus = &"Music"
+
+[node name="Nool" type="Sprite2D" parent="." unique_id=1733310016]
+visible = false
+light_mask = 524801
+position = Vector2(-528, 252)
+rotation = 1.5707964
+texture = ExtResource("5_a23m1")
+
+[node name="Nool2" type="Sprite2D" parent="." unique_id=548191215]
+visible = false
+light_mask = 524800
+position = Vector2(650, -3)
+rotation = 1.5707964
+texture = ExtResource("5_a23m1")
+
+[node name="Label" type="Label" parent="." unique_id=1106650862]
+offset_left = -921.0
+offset_top = -209.0
+offset_right = -501.0
+offset_bottom = -122.0
+theme_override_font_sizes/font_size = 130
+text = "hack into"
+
+[node name="Label2" type="Label" parent="." unique_id=355852048]
+offset_left = -778.0
+offset_top = -135.0
+offset_right = -647.0
+offset_bottom = -55.0
+theme_override_font_sizes/font_size = 120
+text = "the"
+
+[node name="Label3" type="Label" parent="." unique_id=2143139495]
+offset_left = -949.00006
+offset_top = -70.0
+offset_right = -440.76498
+offset_bottom = 44.0
+rotation = -0.0019620955
+theme_override_colors/font_color = Color(0.80367804, 0.22223502, 0.2739512, 1)
+theme_override_font_sizes/font_size = 150
+text = "mainframe"
+
+[node name="Label4" type="Label" parent="." unique_id=1563645967]
+offset_left = -881.0
+offset_top = -235.0
+offset_right = -559.0
+offset_bottom = -211.0
+theme_override_font_sizes/font_size = 35
+text = "to destroy the evil signals"
+
+[node name="Label5" type="Label" parent="." unique_id=654869405]
+offset_left = -503.0
+offset_top = -411.0
+offset_right = 255.0
+offset_bottom = -344.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+text = "Fill all the squares !!"
+
+[node name="Sirgenool" type="Sprite2D" parent="." unique_id=1566811078]
+position = Vector2(-542, 252)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_a23m1")
+
+[node name="Sirgenool2" type="Sprite2D" parent="." unique_id=1936387908]
+position = Vector2(650, -3)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_a23m1")

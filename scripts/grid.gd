@@ -3,14 +3,19 @@ extends Node2D
 const WIDTH := 8
 const HEIGHT := 6
 
+# === COORDINATES TO RETURN TO ===
+const WIN_RETURN_POSITION := Vector2(8410, 30)   # change to wherever
+const LOSE_RETURN_POSITION := Vector2(6745, -389)   # change to wherever
+
 # === TIMER CONFIG ===
-const TIME_LIMIT := 15.0  # seconds — change this to adjust difficulty
-const TIMEOUT_SCENE := "res://your_scene.tscn"  # change to your target scene
+const TIME_LIMIT := 45.0  # seconds — change this to adjust difficulty
+const TIMEOUT_SCENE := "res://earth.tscn"  # change to your target scene
 
 # === TILEMAP ===
 @onready var tilemap := $TileMapLayer
 @onready var timer_label := $UI/TimerLabel
 @onready var instruction_label := $UI/InstructionLabel
+@onready var time_out_label := $UI/timeover
 
 # === TILE IDs (CHANGE THESE TO MATCH YOUR TILESET) ===
 const SOURCE_ID := 9
@@ -29,6 +34,9 @@ var game_over := false
 
 
 func _ready():
+	GameState.puzzle_attempted = true
+	GameState.checkpoint_active = true
+	
 	# create grid
 	for y in range(HEIGHT):
 		grid.append([])
@@ -71,7 +79,35 @@ func _ready():
 	grid[2][4]["blocked"] = true
 	grid[3][4]["blocked"] = true
 	
-	instruction_label.text = "Fill all squares!"
+	instruction_label.text = "Fill all!"
+	time_out_label.text = "Time!"
+	time_out_label.visible = false
+	
+	# --- instruction text ---
+	var label = $UI/InstructionLabel
+
+	# initial state (centered, small, invisible)
+	label.modulate.a = 0.0
+	label.scale = Vector2(1, 1)
+
+	var tween = create_tween()
+
+	# use smooth easing (no bounce / no overshoot)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	# fade in + grow to normal size
+	tween.parallel().tween_property(label, "modulate:a", 1.0, 2)
+	tween.parallel().tween_property(label, "scale", Vector2(1.0, 1.0), 0.1)
+
+	# stay visible
+	tween.tween_interval(20)
+
+	# fade out + shrink back
+	tween.parallel().tween_property(label, "modulate:a", 0.0, 0.1)
+	tween.parallel().tween_property(label, "scale", Vector2(0.9, 0.9), 0.5)
+	# --- text move end ---
+	
 	update_timer_label()
 	
 	update_tiles()
@@ -82,11 +118,36 @@ func _process(delta):
 		return
 	time_left -= delta
 	update_timer_label()
+	# In _process (timeout = lose)
 	if time_left <= 0:
 		time_left = 0
 		update_timer_label()
 		game_over = true
-		get_tree().change_scene_to_file(TIMEOUT_SCENE)
+		GameState.next_player_position = LOSE_RETURN_POSITION
+		GameState.puzzle_won = false
+		# --- time over text ---
+		
+		var label = $UI/timeover
+		label.visible = true
+		label.modulate.a = 0.0
+		label.scale = Vector2(1, 1)
+
+		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_SINE)
+		tween.set_ease(Tween.EASE_IN_OUT)
+
+		tween.parallel().tween_property(label, "modulate:a", 1.0, 0.2)
+		tween.parallel().tween_property(label, "scale", Vector2(1.0, 1.0), 0.1)
+
+		tween.tween_interval(3)
+
+		tween.parallel().tween_property(label, "modulate:a", 0.0, 0.1)
+
+		await tween.finished
+		# --- text move end ---
+		
+		
+		get_tree().change_scene_to_file("res://scenes/earth.tscn")
 
 func update_timer_label():
 	timer_label.text = "Time: %d" % ceil(time_left)
@@ -164,15 +225,17 @@ func center_grid():
 
 	tilemap.position = -grid_pixel_size / 2 + tile_size / 2
 
+# In check_win (win)
 func check_win() -> void:
 	for y in range(HEIGHT):
 		for x in range(WIDTH):
 			var cell = grid[y][x]
-
 			if cell["blocked"]:
 				continue
-
 			if not cell["filled"]:
-				return  # not finished yet
+				return
 	game_over = true
-	print("YOU WIN")
+	GameState.next_player_position = WIN_RETURN_POSITION
+	GameState.puzzle_won = true
+	GameState.checkpoint_active = true
+	get_tree().change_scene_to_file("res://scenes/earth.tscn")

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://ujfjqk655edn"]
 
-[ext_resource type="Script" uid="uid://5j1nwq6ys28h" path="res://scenes/signaal.gd" id="1_bqb0v"]
+[ext_resource type="Script" uid="uid://5j1nwq6ys28h" path="res://scripts/signaal.gd" id="1_bqb0v"]
+[ext_resource type="Texture2D" uid="uid://dn4nrt6h7v7fu" path="res://img/satelliit/pewpew_sinine.png" id="2_y6naa"]
+[ext_resource type="Texture2D" uid="uid://1maif7t514wg" path="res://img/satelliit/pewpew_kollane.png" id="3_kkw34"]
+[ext_resource type="Texture2D" uid="uid://peh34ubpc4s5" path="res://img/satelliit/pewpew_roosa.png" id="4_ec5xa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bqb0v"]
 
@@ -8,7 +11,14 @@
 script = ExtResource("1_bqb0v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1238769869]
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_bqb0v")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1194011156]
-polygon = PackedVector2Array(0, -10, -4, -9, -8, -6, -10, -2, -10, 1, -8, 6, -4, 9, 0, 10, 5, 8, 8, 6, 10, 2, 10, -2, 8, -6, 5, -9)
+[node name="sinine" type="Sprite2D" parent="." unique_id=380785662]
+texture = ExtResource("2_y6naa")
+
+[node name="kollane" type="Sprite2D" parent="." unique_id=2004842098]
+texture = ExtResource("3_kkw34")
+
+[node name="roosa" type="Sprite2D" parent="." unique_id=634298744]
+texture = ExtResource("4_ec5xa")

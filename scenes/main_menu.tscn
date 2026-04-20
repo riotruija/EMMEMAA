@@ -1,79 +1,48 @@
 [gd_scene format=3 uid="uid://cqji7ti1275g0"]
 
-[ext_resource type="Script" uid="uid://bdr65i742dif6" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="Script" uid="uid://dco7q3xnl7y7i" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://b4ohco2ey3mmo" path="res://img/main_menu_ph.jpg" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://db0c2gyemb2te" path="res://img/title_ph.png" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://rr7wq65xklsa" path="res://music/main_menu_music_intro.mp3" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://b2v7msnbgca76" path="res://img/START.png" id="5_5pajh"]
 [ext_resource type="Script" uid="uid://cn46ta6lxh8lu" path="res://scripts/voluum_music.gd" id="5_8ln24"]
 [ext_resource type="Script" uid="uid://dvo0axwbcyfp8" path="res://scripts/voluum_sfx.gd" id="6_rtw2f"]
+[ext_resource type="Script" uid="uid://cwqinvv6fk8dq" path="res://scripts/Texture_button.gd" id="6_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://fpmgb43os6xu" path="res://img/mainmenustuff/OPTIONS.png" id="7_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://dte6l6oleb3g1" path="res://img/mainmenustuff/QUIT.png" id="8_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://dyks0f0t020ej" path="res://img/mainmenustuff/sfxvolume.png" id="9_flqon"]
+[ext_resource type="Texture2D" uid="uid://d26f2wrsgdl3" path="res://img/mainmenustuff/optionspaneloptions.png" id="10_1ajci"]
+[ext_resource type="Texture2D" uid="uid://bacn23hi6tbof" path="res://img/mainmenustuff/musicvolume.png" id="10_rcqid"]
+[ext_resource type="Texture2D" uid="uid://cydt380kn57p0" path="res://img/mainmenustuff/ESC_nupp.png" id="12_7b55j"]
+[ext_resource type="Texture2D" uid="uid://cp70jolhq3x5n" path="res://img/mainmenustuff/Slider_nupp.png" id="13_5pajh"]
+[ext_resource type="Texture2D" uid="uid://ds2g8i5frdbhb" path="res://img/mainmenustuff/START SCREEN(1).png" id="15_7b55j"]
+[ext_resource type="AudioStream" uid="uid://c5voo3bmhpitk" path="res://SFX/button_press.mp3" id="16_5pajh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]
 texture = ExtResource("1_ekxnf")
 
 [sub_resource type="Theme" id="Theme_bqqt6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
-bg_color = Color(0.42344624, 0.6822739, 0.24511355, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
-bg_color = Color(0.1865992, 0.31628445, 0.10026414, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
-bg_color = Color(0.2989349, 0.48756164, 0.17130259, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
-bg_color = Color(0.42352942, 0.68235296, 0.24705882, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_wu84c"]
-thickness = 4
+color = Color(0.2894749, 0.23316228, 0.2547547, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
-bg_color = Color(0.3064097, 0.49912882, 0.17597005, 1)
+bg_color = Color(0.49219406, 0.41165805, 0.44414368, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_8ln24"]
-color = Color(0.30588236, 0.49803922, 0.1764706, 1)
 
 [node name="Main_menu" type="Control" unique_id=1398562757]
 layout_mode = 3
@@ -88,36 +57,28 @@ script = ExtResource("1_bqqt6")
 
 [node name="Music_player" type="AudioStreamPlayer2D" parent="." unique_id=1221144593]
 stream = ExtResource("2_wu84c")
+volume_db = 10.0
 autoplay = true
 bus = &"Music"
 
 [node name="Background" type="Panel" parent="." unique_id=1623469943]
+visible = false
 modulate = Color(0.6858353, 0.68583524, 0.6858352, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 1.0
+offset_left = 55.0
+offset_right = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wu84c")
 
-[node name="Pelu_nimi" type="TextureRect" parent="." unique_id=366870635]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -145.0
-offset_top = 32.0
-offset_right = 143.0
-offset_bottom = 120.0
-grow_horizontal = 2
-texture = ExtResource("2_bqqt6")
-expand_mode = 1
+[node name="StartScreen" type="Sprite2D" parent="." unique_id=460088991]
+position = Vector2(958, 544)
+texture = ExtResource("15_7b55j")
 
 [node name="Main_buttons" type="VBoxContainer" parent="." unique_id=2035090464]
-visible = false
 top_level = true
 layout_mode = 1
 anchors_preset = 8
@@ -125,128 +86,127 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -472.0
-offset_top = -132.0
-offset_right = 480.0
-offset_bottom = 140.0
+offset_left = -866.0
+offset_top = -8.0
+offset_right = -95.66669
+offset_bottom = 752.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.67, 0.67)
 theme_override_constants/separation = 86
 
-[node name="Start" type="Button" parent="Main_buttons" unique_id=978544163]
+[node name="Start" type="TextureButton" parent="Main_buttons" unique_id=1711684976]
+custom_minimum_size = Vector2(596, 196)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
 theme = SubResource("Theme_bqqt6")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 86
-theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
-text = "Start"
+texture_normal = ExtResource("5_5pajh")
+texture_pressed = ExtResource("5_5pajh")
+texture_hover = ExtResource("5_5pajh")
+stretch_mode = 0
+script = ExtResource("6_tbmy8")
 
-[node name="Options" type="Button" parent="Main_buttons" unique_id=1181896786]
+[node name="Options2" type="TextureButton" parent="Main_buttons" unique_id=1057325138]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 86
-theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
-text = "Options"
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture_normal = ExtResource("7_jk1qb")
+texture_pressed = ExtResource("7_jk1qb")
+texture_hover = ExtResource("7_jk1qb")
+script = ExtResource("6_tbmy8")
 
-[node name="Exit" type="Button" parent="Main_buttons" unique_id=467415667]
+[node name="Exit" type="TextureButton" parent="Main_buttons" unique_id=1593826429]
+custom_minimum_size = Vector2(596, 196)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 86
-theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
-text = "Exit
-"
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("8_5dd4i")
+texture_pressed = ExtResource("8_5dd4i")
+texture_hover = ExtResource("8_5dd4i")
+stretch_mode = 0
+script = ExtResource("6_tbmy8")
 
 [node name="Options" type="Panel" parent="." unique_id=40699626]
+visible = false
+custom_minimum_size = Vector2(900, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -224.0
+offset_left = -233.0
 offset_top = -164.0
-offset_right = 224.0
+offset_right = 215.0
 offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bqqt6")
 
-[node name="Label" type="Label" parent="Options" unique_id=681160879]
+[node name="Label" type="TextureRect" parent="Options" unique_id=1424643376]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = -0.05
 anchor_right = 0.5
 anchor_bottom = -0.05
-offset_left = -161.0
-offset_top = -56.0
-offset_right = 159.0
-offset_bottom = 32.0
+offset_left = -289.0
+offset_top = -160.0
+offset_right = 307.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 98
-theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
-text = "Options"
-horizontal_alignment = 1
+texture = ExtResource("10_1ajci")
 
-[node name="SFX_Volume" type="Label" parent="Options" unique_id=13846719]
+[node name="SFX_Volume" type="TextureRect" parent="Options" unique_id=1808163243]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = -0.05
 anchor_right = 0.5
 anchor_bottom = -0.05
-offset_left = -409.0
-offset_top = 224.0
-offset_right = 431.0
-offset_bottom = 320.0
+offset_left = -425.0
+offset_top = 256.0
+offset_right = 415.0
+offset_bottom = 452.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 86
-theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
-text = "SFX Volume"
-horizontal_alignment = 1
+texture = ExtResource("9_flqon")
 
-[node name="Music_Volume" type="Label" parent="Options" unique_id=337875115]
+[node name="Music_Volume" type="TextureRect" parent="Options" unique_id=1232516832]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = -0.05
 anchor_right = 0.5
 anchor_bottom = -0.05
-offset_left = -409.0
-offset_top = 88.0
-offset_right = 431.0
-offset_bottom = 184.0
+offset_left = -425.0
+offset_top = 48.0
+offset_right = 415.0
+offset_bottom = 244.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 86
-theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
-text = "Music Volume"
-horizontal_alignment = 1
+texture = ExtResource("10_rcqid")
 
-[node name="Options_back" type="Button" parent="Options" unique_id=1633189945]
-layout_mode = 0
-offset_left = 423.0
-offset_top = 432.0
-offset_right = 647.0
-offset_bottom = 525.0
+[node name="Options_back" type="TextureButton" parent="Options" unique_id=101262759]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = 144.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
 theme = SubResource("Theme_bqqt6")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
-text = "Back"
+texture_normal = ExtResource("12_7b55j")
+texture_pressed = ExtResource("12_7b55j")
+texture_hover = ExtResource("12_7b55j")
+script = ExtResource("6_tbmy8")
 
 [node name="Voluum_Music" type="HSlider" parent="Options" unique_id=1864591832]
 layout_mode = 1
@@ -256,13 +216,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -385.0
-offset_top = -24.0
 offset_right = 383.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_icons/grabber = ExtResource("13_5pajh")
+theme_override_icons/grabber_highlight = ExtResource("13_5pajh")
 theme_override_styles/slider = SubResource("StyleBoxLine_wu84c")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_8ln24")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_8ln24")
 min_value = -80.0
 max_value = 0.0
 value = -20.0
@@ -277,11 +238,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -385.0
-offset_top = 104.0
+offset_top = 208.0
 offset_right = 383.0
-offset_bottom = 128.0
+offset_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_icons/grabber = ExtResource("13_5pajh")
+theme_override_icons/grabber_highlight = ExtResource("13_5pajh")
+theme_override_icons/grabber_disabled = ExtResource("13_5pajh")
 theme_override_styles/slider = SubResource("StyleBoxLine_wu84c")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_8ln24")
@@ -291,9 +255,16 @@ value = -20.0
 script = ExtResource("6_rtw2f")
 voluum_SFX = "SFX"
 
+[node name="Nupp player" type="AudioStreamPlayer2D" parent="." unique_id=1754017800]
+stream = ExtResource("16_5pajh")
+volume_db = 6.0
+bus = &"SFX"
+
 [connection signal="pressed" from="Main_buttons/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Main_buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Main_buttons/Options2" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Main_buttons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/Options_back" to="." method="_on_options_back_pressed"]
+[connection signal="drag_ended" from="Options/Voluum_Music" to="Options/Voluum_Music" method="_on_drag_ended"]
 [connection signal="value_changed" from="Options/Voluum_Music" to="Options/Voluum_Music" method="_on_value_changed"]
+[connection signal="drag_ended" from="Options/Voluum_SFX" to="Options/Voluum_SFX" method="_on_drag_ended"]
 [connection signal="value_changed" from="Options/Voluum_SFX" to="Options/Voluum_SFX" method="_on_value_changed"]

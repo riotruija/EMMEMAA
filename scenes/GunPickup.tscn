@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://xaaappqpirhl"]
+
+[ext_resource type="Script" uid="uid://b43a2u0eero8g" path="res://scripts/gun_pickup.gd" id="1_6y48w"]
+[ext_resource type="Texture2D" uid="uid://diuftu38fk0ts" path="res://img/collect_items/gun.png" id="2_25g5n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jchem"]
+radius = 35.057095
+
+[node name="GunPickup" type="Area2D" unique_id=1053785049]
+visibility_layer = 512
+script = ExtResource("1_6y48w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1063782121]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_25g5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516973292]
+shape = SubResource("CircleShape2D_jchem")

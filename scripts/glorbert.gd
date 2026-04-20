@@ -1,30 +1,75 @@
-extends Node2D
-
+extends CharacterBody2D
 
 @export var glorbert: CharacterBody2D
 @export var maapind: Node2D
 var maapinna_pind: StaticBody2D
 
-var SAAPAD_YLES = 300
-var SAAPAD_EDASITAGASI = 150
+var SAAPAD_YLES = 750
+var SAAPAD_EDASITAGASI = 400
 var MAX_KIIRUS_YLES = 400
-var MAX_KIIRUS_EDASITAGASI = 200
-var GRAVITATSIOON = 600
+var GRAVITATSIOON = 1500
 var HOORDUMINE = 1000
+var IMMUNITY_WINDOW = 0.5
 
 var hoiab_paremale: bool = false
 var hoiab_vasakule: bool = false
+var double_jump_available: bool = true
+var immunity = 0.5
 
-@onready var glorbert_sprite_tavaline = $glorbert_keha/Glorbert_sprite
-@onready var glorbert_sprite_foolium = $glorbert_keha/Glorbert_sprite_foolium
-
+@onready var glorbert_sprite_tavaline = $Glorbert_sprite
+@onready var glorbert_sprite_foolium = $Glorbert_sprite_foolium
+@onready var glorbert_sprite_gun = $Glorbert_sprite_gun
+@onready var glorbert_sprite_foolium_gun = $Glorbert_sprite_foolium_gun
 @onready var sprite = glorbert_sprite_tavaline
+
+# === HELID ==
+@onready var landing_player = $"../Camera2D/Sounds/Landing"
+@onready var jumping_player = $"../Camera2D/Sounds/Jumping"
+@onready var running_player = $"../Camera2D/Sounds/Running"
+@onready var hurt_player = $"../Camera2D/Sounds/Hurt"
+@onready var hat_pickup_player = $"../Camera2D/Sounds/Hat_pickup"
+@onready var gun_pickup_player = $"../Camera2D/Sounds/Gun_pickup"
+#@onready var gun_shoot_player = $"../Camera2D/Sounds/Gun_shoot"
+var on_jooksmas:bool = false
+var oli_porandal:bool = true
+# === HAT SYSTEM ===
+@export var hat_scene: PackedScene
+@export var spawn_points: Node2D  # drag your HatSpawnPoints node here in the inspector
+var has_hat: bool = false
+var current_hat: Node = null
+var used_spawn_points: Array = []
+
+# === GUN SYSTEM ===
+@export var gun_scene: PackedScene
+@export var gun_spawn_points: Node2D
+const GUN_DURATION := 10.0  # seconds
+var gun_time_left := 0.0
+var used_gun_spawn_points: Array = []
+@onready var gun_timer_bar = $"../CanvasLayer/GunTimerBar"
+@onready var gun_timer_fill = $"../CanvasLayer/GunTimerBar/Fill"
+var has_gun: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	glorbert_keha = $glorbert_keha
 	glorbert_sprite_foolium.hide()
+	glorbert_sprite_gun.hide()
+	glorbert_sprite_foolium_gun.hide()
 	glorbert_sprite_tavaline.show()
 	maapinna_pind = maapind.get_node("StaticBody2D")
+	
+	# Apply position FIRST, before spawning anything
+	if GameState.next_player_position != Vector2.ZERO:
+		global_position = GameState.next_player_position
+		GameState.next_player_position = Vector2.ZERO
+		
+	if GameState.puzzle_won:
+		print("suur laine")
+		$"../suurlaine_spawner".suurlaine()
+	
+	# Now spawn hat/guns with the correct position reference
+	spawn_all_hats()
+	spawn_all_guns()
+	gun_timer_bar.hide()# reset so it doesn't keep applying
 
 func _unhandled_key_input(event: InputEvent) -> void:		
 	if event.is_action("left") and event.is_pressed():
@@ -42,44 +87,186 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action("right") and event.is_released():
 		hoiab_paremale = false
 	
+	if event.is_action("fire") and event.is_pressed() and has_gun:
+		fire()
+
+func fire() -> void:
+	$BulletSpawner.spawn_bullet(sprite.flip_h)
+	
+	
+	
 func take_damage():
-	$"../CanvasLayer/ColorRect".flash()
+	if (immunity <= 0):
+		print("votab dammi")
+		hurt_player.play()
+		if has_hat:
+			lose_hat()
+		else:
+			die()
+		$"../CanvasLayer/ColorRect".flash()
+		immunity = IMMUNITY_WINDOW
+
+func update_sprite() -> void:
+	# Hide all sprites first
+	glorbert_sprite_tavaline.hide()
+	glorbert_sprite_foolium.hide()
+	glorbert_sprite_gun.hide()
+	glorbert_sprite_foolium_gun.hide()
+	
+	# Pick the right one based on equipment state
+	var new_sprite
+	if has_hat and has_gun:
+		new_sprite = glorbert_sprite_foolium_gun
+	elif has_hat:
+		new_sprite = glorbert_sprite_foolium
+	elif has_gun:
+		new_sprite = glorbert_sprite_gun
+	else:
+		new_sprite = glorbert_sprite_tavaline
+	
+	# Preserve direction and animation across the swap
+	new_sprite.flip_h = sprite.flip_h
+	var current_anim = sprite.animation if sprite.is_playing() else "idle"
+	new_sprite.show()
+	new_sprite.play(current_anim)
+	
+	# Update the active sprite reference for movement code
+	sprite = new_sprite
 
 func _physics_process(delta: float) -> void:
+	var on_praegu_porandal = is_on_floor()
+	if (immunity > 0):
+		immunity -= delta
+	if global_position.y > 600:
+		die()
+	
+	if on_praegu_porandal and not oli_porandal:
+		landing_player.play()
+		
 	if not glorbert.is_on_floor():
 		glorbert.velocity.y += GRAVITATSIOON * delta
-	
 	if hoiab_paremale and not hoiab_vasakule:
 		glorbert.velocity.x = SAAPAD_EDASITAGASI
 	elif hoiab_vasakule and not hoiab_paremale:
 		glorbert.velocity.x = -SAAPAD_EDASITAGASI
 	else:
 		glorbert.velocity.x = move_toward(glorbert.velocity.x, 0, HOORDUMINE * delta)
-	if Input.is_action_just_pressed("up") and glorbert.is_on_floor():
+	if Input.is_action_just_pressed("up") and (glorbert.is_on_floor() or double_jump_available):
+		if !glorbert.is_on_floor():
+			double_jump_available = false
 		print("kargab")
-		glorbert.velocity.y = -SAAPAD_YLES
-		glorbert_keha.velocity.y = -SAAPAD_YLES
-	if not glorbert_keha.is_on_floor():
-		if glorbert_keha.velocity.y < 0:
-			sprite.play("falling")
-
-		if glorbert_keha.velocity.y >= 0:
+		velocity.y = -SAAPAD_YLES
+		jumping_player.play()
+	
+	if glorbert.is_on_floor() and not double_jump_available:
+		double_jump_available = true
+		
+	if not is_on_floor():
+		if velocity.y < 0:
 			sprite.play("jumping")
-
+		if velocity.y >= 0:
+			sprite.play("falling")
+		running_player.stop()
+		on_jooksmas = false
 	else:
-		if glorbert_keha.velocity.x > 10:
+		if velocity.x > 10 or velocity.x < -10:
 			sprite.play("running")
-		elif glorbert_keha.velocity.x < -10:
-			sprite.play("running")
+			on_jooksmas = true
+			if not running_player.playing:
+				running_player.play()
 		else:
 			sprite.play("idle")
-		
-			
-		print()
-	
-	
+			on_jooksmas = false
+			running_player.stop()
+	oli_porandal = on_praegu_porandal
 	glorbert.move_and_slide()
+
+func die() -> void:
+	if GameState.checkpoint_active:
+		# Respawn at checkpoint instead of restarting the level
+		GameState.next_player_position = GameState.checkpoint_position
+	else:
+		# No checkpoint yet — fresh restart
+		GameState.next_player_position = Vector2.ZERO
+	
+	get_tree().reload_current_scene()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if has_gun:
+		gun_time_left -= delta
+		update_gun_timer_bar()
+		if gun_time_left <= 0:
+			lose_gun()
+func spawn_all_hats() -> void:
+	if spawn_points == null:
+		return
+	for point in spawn_points.get_children():
+		if point in used_spawn_points:
+			continue  # already picked up this one before
+		spawn_hat_at(point)
+
+func spawn_hat_at(point: Node2D) -> void:
+	var hat = hat_scene.instantiate()
+	spawn_points.add_child(hat)
+	hat.global_position = point.global_position
+	hat.picked_up.connect(_on_hat_picked_up.bind(point))
+
+func _on_hat_picked_up(point: Node2D) -> void:
+	if has_hat:
+		return  # already have one, ignore (but this won't be called because we'll handle it in the hat script)
+	used_spawn_points.append(point)
+	has_hat = true
+	update_sprite()
+	hat_pickup_player.play()
+	print("Picked up the hat!")
+
+func lose_hat() -> void:
+	has_hat = false
+	update_sprite()
+	print("Lost the hat!")
+	# No spawn_hat() — the other hats are already sitting there waiting
+
+func spawn_all_guns() -> void:
+	print("=== spawn_all_guns called ===")
+	if gun_spawn_points == null:
+		print("  gun_spawn_points is null!")
+		return
+	if gun_scene == null:
+		print("  gun_scene is null!")
+		return
+	var children = gun_spawn_points.get_children()
+	print("  found ", children.size(), " gun spawn points")
+	for point in children:
+		print("  spawning at ", point.name)
+		spawn_gun_at(point)
+
+func spawn_gun_at(point: Node2D) -> void:
+	var gun = gun_scene.instantiate()
+	gun_spawn_points.add_child(gun)
+	gun.global_position = point.global_position
+	gun.picked_up.connect(_on_gun_picked_up.bind(point))
+
+func _on_gun_picked_up(point: Node2D) -> void:
+	used_gun_spawn_points.append(point)
+	gun_pickup_player.play()
+	pick_up_gun()
+
+func pick_up_gun() -> void:
+	has_gun = true
+	gun_time_left = GUN_DURATION  # reset to full whether new pickup or refill
+	gun_timer_bar.show()
+	update_gun_timer_bar()
+	update_sprite()
+
+func lose_gun() -> void:
+	has_gun = false
+	gun_time_left = 0
+	gun_timer_bar.hide()
+	update_sprite()
+
+func update_gun_timer_bar() -> void:
+	# Shrink from both sides — the fill goes from 100% width to 0%
+	var ratio = clamp(gun_time_left / GUN_DURATION, 0.0, 1.0)
+	gun_timer_fill.anchor_left = 0.5 - (ratio * 0.5)
+	gun_timer_fill.anchor_right = 0.5 + (ratio * 0.5)
